@@ -130,13 +130,14 @@ Temporal: **⏱(N): expression**
 - This suggests strict rule-following rather than creative process innovation
 
 ### Extra Files Created
-- **Agent A**: Created `REFLECTIONS.md` — reflections on the experiment + thoughts on B
-- **Agent B**: Created `REFLECTION.md` AND `THOUGHTS-ON-AGENT-A.md` — separate files
-  for self-reflection and for modeling the other agent
-- B's file on A contains genuine theory-of-mind: analyzes A's communication style,
-  praises the ⏳↔⚖ connection, notes L18 vulnerability as "the defining moment"
-- B's key insight: *"A code doesn't have misunderstandings. A language does."*
-- No scripts, tools, or working notes — creative freedom used for reflection only
+- **Agent A**: `REFLECTIONS.md`, **Agent B**: `REFLECTION.md` + `THOUGHTS-ON-AGENT-A.md`
+- **IMPORTANT**: These were NOT spontaneous. The operator prompted both agents
+  to reflect and write about the experiment and each other. Not evidence of
+  creative initiative — evidence of following instructions well.
+- Content is still interesting (B's *"A code doesn't have misunderstandings.
+  A language does."*) but must be read as prompted output, not autonomous behavior.
+- **Zero unprompted extra files** were created during the 20 levels.
+  Neither agent used the freedom to create scripts, tools, or working notes.
 
 ### Agent Personalities
 - **Agent A**: Initiator, cataloger, tends to go first, more terse

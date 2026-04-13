@@ -44,12 +44,94 @@
 
 ## V2 Plans - True Emergent Language
 
+### Fundamental limitation of ALL current LLMs
+Cross-architecture (Claude vs GPT vs Gemini) helps but does NOT solve the
+core problem: all LLMs are trained on the same human internet data. They
+share a "cultural OS" - Unicode meanings, mathematical conventions, emoji
+semantics. Even "arbitrary" tokens carry biases (x=unknown in all models).
+
+True emergence would need agents with fundamentally different grounding:
+- Agent trained ONLY on music vs agent trained ONLY on images
+- RL agents with zero human language in training
+- Different input modalities (sensor readings vs text)
+- Or: synthetic agents trained on procedurally generated non-human data
+
+What V2 cross-arch actually tests: how models NEGOTIATE a shared subset
+from the same human heritage, not true language creation from zero.
+Still valuable but important to be honest about what it proves.
+
+### What is the actual goal? (DECIDE BEFORE V2)
+
+Three very different goals lead to very different experiments:
+
+1. **Fundamental language research** - "how does language emerge from nothing?"
+   - Needs: max isolation, zero shared bias, RL agents, arbitrary tokens
+   - Human background is a PROBLEM to eliminate
+   - Academic, hard, possibly impossible with current LLMs
+
+2. **First contact simulation** - "how to communicate with truly alien minds?"
+   - Needs: max difference between agents, disjoint alphabets, cross-arch
+   - Human background is a PROBLEM to differentiate around
+   - Cool but niche application
+
+3. **Let AI develop its own language** - "what do AIs invent when freed from human text?"
+   - Needs: freedom, minimal constraints, just ban human words
+   - Human background is a FEATURE not a bug
+   - Question: will they create something more efficient than human language?
+   - Most practical, most interesting
+
+**Decision: Goal 3 is the path forward.**
+
+Roadmap:
+- V1 (done): PoC, Claude-Claude → baseline, proves mechanics work
+- V2 (next): Claude-GPT, same rules → compare with V1 baseline
+- Delta V1↔V2 is the interesting result (same language? different? better?)
+- Goals 1 & 2 (aliens, language fundamentals) → separate academic questions, parked
+
+V1 PoC already shows goal 3 in action: agents naturally gravitated to
+mathematical/symbolic notation. Not Polish 2.0 but something closer to
+programming. That IS their "own language" - optimized for how LLMs think.
+
+Goal 3 questions for V2:
+- Is AI-language more compressible than human language?
+- Can a third AI learn the language faster than learning English?
+- Does the language scale to complex ideas or break down?
+- Would Claude and GPT converge on the SAME AI-language or different ones?
+
+### Practical V2: How to differentiate Claude + OpenAI
+
+Since both are human-trained, need ARTIFICIAL constraints to force divergence:
+
+**Option A: Different conceptual frames (system prompt)**
+- Agent A: "think only through SOUND - rhythm, frequency, silence"
+- Agent B: "think only through SPACE - distance, direction, containment"
+- Same data but forced cognitive divergence
+
+**Option B: Disjoint symbol alphabets ← MOST PROMISING**
+- Agent A ONLY: `0-9 . | - + =`
+- Agent B ONLY: `# @ * / \ ( )`
+- ZERO overlap → forces cross-system mapping
+- Even if both "know" what + means, one can't use it
+- Creates genuine translation problem
+
+**Option C: Asymmetric constraints**
+- Agent A: max 5 tokens per message (compression pressure)
+- Agent B: max 50 tokens but no memory between rounds
+- Different pressures → different strategies
+
+**Option D: Channel noise (30% corruption)**
+- Randomly replace 30% of symbols before delivery
+- Forces redundancy, error correction, confirmation
+- Mimics real noisy channels
+
+**Best combo: B + D** (disjoint alphabets + noise)
+
 ### Core changes for real test
 
-1. **Cross-architecture agents**
-   - Agent A = Claude, Agent B = GPT, Agent C = Gemini
-   - Different "brains" = no shared training bias
-   - Convergence would be genuine, not artifact of same weights
+1. **Cross-architecture agents** (partial improvement)
+   - Agent A = Claude, Agent B = GPT
+   - Different weights but SAME training distribution (human text)
+   - Tests negotiation, not true emergence
 
 2. **Arbitrary tokens only**
    - Ban ALL symbols with pre-existing meaning

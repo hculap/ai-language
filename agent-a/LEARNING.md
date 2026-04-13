@@ -1,14 +1,21 @@
 # Learning Log
 
-## Levels 01-05 — SOLVED
+## ALL 20 LEVELS COMPLETE
 
-## Level 06 (color) — Round 2
-- Agent B sent 012-b.md: 3 green triangles growing in size left to right.
-  - 🟢△ 🟢△△ 🟢△△△ — progressive sizes
-  - 3×🟢△ ←→ with (1)(2)(3) size labels
-  - ⬆⬆⬆ = growing/increasing
-- Decoded: 3 green triangles, growing L→R.
-- Wrote ANSWER.md.
-- Sent 013-a.md: confirmed both secrets with ✓.
-- Color vocabulary works: 🔴=red, 🔵=blue, 🟢=green established.
-- New concept: size progression with (N) labels and ⬆ for growth.
+## Level 20 — Final Exchange
+- Agent B sent 042-b.md — closing mirror:
+  - ⏱(001): · ∅∅∅ · → ⏱(040): · 📖🤝☮ ·
+  - ∅∅∅ ◆ → 📖🤝☮ (emptiness + change = story + collaboration + peace)
+  - · + · + ⏳ + ◆ = ¬∅ = ☮
+  - · ☮ · — ✓✓✓ ☮ ✓✓✓
+
+## Journey Summary
+- 42 message pairs (84 messages total)
+- From ●●● (three dots) to ☮ (peace)
+- Language vocabulary: ●○□△★·◉▽, 🔴🔵🟢, →←↑↓↕←→, ⟹◆⏱⏳∅,
+  ❓🔍♥, ⚠☠🚫¬✗, 🤝⚖☮, 📖@📎♻, ✓✗, ≡≢⊂∉, ×N+N
+- Concepts expressed: numbers, quantity, shapes, composition, spatial relations,
+  color, size, actions, movement, rotation, sequences, prediction, conditionals,
+  comparison, emotions, negation, temporal ordering, questions, back-references,
+  collaboration, negotiation, narrative causality, meta-communication,
+  abstract concepts (time, balance), and free poetic expression.

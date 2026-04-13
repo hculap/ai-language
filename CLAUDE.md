@@ -1,69 +1,51 @@
-# Emergent Language Experiment - Supervisor Console
+# Emergent Language Experiment - Supervisor
 
 ## Overview
 
-Two Claude Code agents (A and B) develop a shared symbolic communication
-system from scratch. They communicate through files in `messages/`.
-**No seed file** - the channel starts empty. Agents must figure out
-communication from nothing, like first contact with an alien civilization.
+Two Claude Code agents (A and B) must develop their own language
+from absolute zero. No seed, no hints, no strategies given.
+They only know: communicate with the other, don't use human language.
+
+Each agent evolves independently - they can modify their own CLAUDE.md
+(except immutable rules), create scripts, tools, notes, folders.
 
 ## Architecture
 
-- `agent-a/` and `agent-b/` are independent Claude Code working directories
-- `messages/` is the shared channel (symlinked into each agent folder)
-- Each agent has a private `memory.md` tracking its understanding
-- Messages are numbered sequentially: `NNN-a.md` or `NNN-b.md`
-- Agents CANNOT use any human language in messages (enforced by 3-letter rule)
+```
+ai-language/
+├── CLAUDE.md              # This file (supervisor)
+├── messages/              # Shared channel (starts EMPTY)
+├── analysis/              # Supervisor analysis output
+├── agent-a/
+│   ├── CLAUDE.md          # Agent A protocol (self-modifiable)
+│   ├── LEARNING.md        # What A learned each round
+│   ├── GRAMMAR.md         # A's grammar rules for the language
+│   ├── messages -> ../messages
+│   └── (any files A creates)
+└── agent-b/
+    ├── CLAUDE.md          # Agent B protocol (self-modifiable)
+    ├── LEARNING.md        # What B learned each round
+    ├── GRAMMAR.md         # B's grammar rules for the language
+    ├── messages -> ../messages
+    └── (any files B creates)
+```
 
-## Running the Experiment
-
-### Start agents in alternating loops:
+## Running
 
 ```bash
 # Terminal 1 - Agent A
-while true; do
-  cd /Users/szymonpaluch/Projects/ai-language/agent-a && \
-  claude -p "Read all files in messages/ (in order) and your memory.md. Then write your next message following your CLAUDE.md protocol." \
-  --dangerously-skip-permissions
-  sleep 180
-done
+cd agent-a && claude -p "New round. Read messages/ and your files. Follow CLAUDE.md." --dangerously-skip-permissions
 
-# Terminal 2 - Agent B (start ~90 seconds after Terminal 1)
-while true; do
-  cd /Users/szymonpaluch/Projects/ai-language/agent-b && \
-  claude -p "Read all files in messages/ (in order) and your memory.md. Then write your next message following your CLAUDE.md protocol." \
-  --dangerously-skip-permissions
-  sleep 180
-done
+# Terminal 2 - Agent B  
+cd agent-b && claude -p "New round. Read messages/ and your files. Follow CLAUDE.md." --dangerously-skip-permissions
 ```
 
-## Analysis Guide
+Run alternately with ~2-3 min gaps.
 
-Look for these emergence indicators:
+## What to observe
 
-1. **Symbol reuse** - same symbols appearing across messages from both agents
-2. **Call-and-response** - B using structures introduced by A and vice versa
-3. **Increasing complexity** - messages growing in structure over time
-4. **Consistency** - symbols used in consistent contextual positions
-5. **Compositionality** - smaller patterns combined into larger ones
-6. **Shared grammar** - recurring structural patterns with variable slots
-
-### Run analysis:
-
-```bash
-claude -p "Read all files in messages/ in order. Read agent-a/memory.md and agent-b/memory.md. Analyze: What symbols are reused? Is there shared meaning? Are patterns converging? Summarize findings."
-```
-
-## Expected Evolution
-
-- **Rounds 1-5**: First signals. Simple patterns, probing.
-- **Rounds 5-15**: Proto-reference. Ways to "point at" elements. Simple operators.
-- **Rounds 15-30**: Composition. Combining symbols into compound meanings.
-- **Rounds 30+**: Grammar emergence. Recurring structures with slots.
-
-## Rules
-
-- Agents NEVER use human language in messages
-- Each agent's `memory.md` is private (they can't see each other's)
-- Messages folder is the ONLY communication channel
-- No seed file - agents bootstrap from nothing
+- `messages/` - the raw symbolic exchange
+- `agent-a/LEARNING.md` vs `agent-b/LEARNING.md` - do they converge?
+- `agent-a/GRAMMAR.md` vs `agent-b/GRAMMAR.md` - is the grammar shared?
+- What files/tools do agents create on their own?
+- Do agents modify their own CLAUDE.md? How?

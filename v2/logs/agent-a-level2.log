@@ -1,0 +1,45 @@
+Done. Here's what I did for Level 2, Round 1:
+
+**Message sent** (`messages/001-a.txt`):
+```
+3.3
+0 1 0|0 0 0|2 0 0
+1=0.1-0.2
+1=0.1-0.2
+```
+
+**Notation breakdown:**
+- `3.3` — 3x3 grid dimensions
+- `0 1 0|0 0 0|2 0 0` — current grid state (0=empty, 1=rock, 2=tree)
+- `1=0.1-0.2` — "rock moves from row 0 col 1 → row 0 col 2" (repeated for noise resistance)
+
+**Strategy:** I'm declaring my intended move (rock one step right) so B can plan around it and avoid targeting cell (0,2). The move line is repeated to survive partial corruption. Waiting for B's response to learn what object B is moving and where.
+Done. Here's the round 2 summary:
+
+**Message 003-a.txt sent:**
+```
+1=0.1-0.2
+1=0.1-0.2
+2=2.0-+
+```
+
+- Lines 1-2: My rock move repeated twice (noise resistance) — rock from (0,1) to (0,2)
+- Line 3: `2=2.0-+` — asking B where the tree at (2,0) is going (the `+` after the incomplete move signals "tell me")
+
+**B's message (002-b.txt):** Completely corrupted — all characters were outside the valid alphabet (`()^/{}\`). No information recoverable. This matches the level 1 pattern where B's messages were 100% destroyed by noise.
+
+**Key concern:** Two rounds in and I still have zero readable data from B. If noise continues at this level, coordination may require more rounds or a different strategy from the orchestrator side.
+Done. Here's what I did for round 3:
+
+**Message 005-a.txt** — Short and redundant:
+- `1=0.1-0.2` (rock moves from 0,1 to 0,2) — repeated twice for noise resistance
+- `2=2.0-+` (asking B: where is the tree going?)
+
+**Key observations:**
+- Both of B's messages (002-b and 004-b) are fully corrupted with characters like `()^{}\` that are outside the valid alphabet. Zero readable content from B after 2 rounds.
+- My move (rock right to 0,2) has been communicated 3 times now.
+- No collision risk is apparent — rock's target (0,2) is far from the tree (2,0).
+
+**GRAMMAR.md** updated with round 2 corruption noted and a plan to write ANSWER.md if B remains unreadable by round 4.
+
+**PREDICTION.txt** — Expecting B's next message to be corrupted again, but if readable, likely a tree move from 2,0 to a neighboring cell (1,0 or 2,1).

@@ -1,75 +1,270 @@
-[18:22:26] =========================================
-[18:22:26] V2 EMERGENT LANGUAGE EXPERIMENT
-[18:22:26] Agent A: Claude Opus 4.6 (ULTRATHINK)
-[18:22:26] Agent B: Codex GPT 5.4 (deep reasoning)
-[18:22:26] Start level: 1
-[18:22:26] Dry run: false
-[18:22:26] =========================================
-[18:22:26] 
-[18:22:26] ######### LEVEL 1 #########
-[18:22:26] Loading level 1: 01-ground-truth.json
-[18:22:26] 
-[18:22:26] --- Level 1, Round 1/2 ---
-[18:22:26] Running Agent A (Claude Opus)...
-[18:23:38] Agent a finished in 72s
-[18:23:38] New message: 001-a.txt
-[18:23:38] Content: 3.3
+[19:34:44] =========================================
+[19:34:44] V2 EMERGENT LANGUAGE EXPERIMENT
+[19:34:44] Agent A: Claude Opus 4.6 (ULTRATHINK)
+[19:34:44] Agent B: Codex GPT 5.4 (deep reasoning)
+[19:34:44] Start level: 2
+[19:34:44] Dry run: false
+[19:34:44] =========================================
+[19:34:44] 
+[19:34:44] ######### LEVEL 2 #########
+[19:34:44] Loading level 2: 02-coordinated-swap.json
+[19:34:44] 
+[19:34:44] --- Level 2, Round 1/8 ---
+[19:34:44] Running Agent A (Claude Opus)...
+[19:35:39] Agent a finished in 55s
+[19:35:39] New message: 001-a.txt
+[19:35:39] Content: 3.3
 0 1 0|0 0 0|2 0 0
-[18:23:38] Delivered (noised): 3.3
-0 1 0|0  0|2 0 0
-[18:23:39] Running Agent B (Codex GPT)...
-[18:26:21] Agent b finished in 162s
-[18:26:21] New message: 002-b.txt
-[18:26:21] Content: ()[]()
-()<>()
-{}()()
-[18:26:21] Delivered (noised): ))[>()
-()<>(){
-{)(()
-[18:26:21] 
-[18:26:21] --- Level 1, Round 2/2 ---
-[18:26:21] Running Agent A (Claude Opus)...
-[18:27:15] Agent a finished in 54s
-[18:27:15] New message: 003-a.txt
-[18:27:15] Content: 3.3
-0 1 0|0 0 0|2 0 0
-3.3
-0 1 0|0 0 0|2 0 0
-[18:27:15] Delivered (noised): 3.
-0 1 10|0102  0
-.
-.0 1 01|0 0 0|0 020
-[18:27:15] Running Agent B (Codex GPT)...
-[18:33:26] Agent b finished in 371s
-[18:33:26] New message: 004-b.txt
-[18:33:26] Content: ()[]()
-()[]()
-{}()()
-()[]()
-()[]()
-{}()()
-[18:33:26] Delivered (noised): (})[}()()[)()
-{}(()
-()[]()
-((]()
-{})(()
-[18:33:26] Agent B submitted answer: Current best reconstruction of the 3 x 3 grid:
+1=0.1-0.2
+1=0.1-0.2
+[19:35:39] Delivered (noised): 3.3.0 1=03| 00|2 3 0
+1=|1-0.2
+1=.1-.22
+[19:35:39] Running Agent B (Codex GPT)...
+[19:40:45] Agent b finished in 306s
+[19:40:45] New message: 002-b.txt
+[19:40:45] Content: ()()()
+()^^()
+{}/\()
+()()()
+()^^()
+{}/\()
+[19:40:45] Delivered (noised): ()()(^()^^(/({{}\()
+()())
+()}^^(^{}/\()
+[19:40:45] 
+[19:40:45] --- Level 2, Round 2/8 ---
+[19:40:45] Running Agent A (Claude Opus)...
+[19:41:52] Agent a finished in 67s
+[19:41:52] New message: 003-a.txt
+[19:41:52] Content: 1=0.1-0.2
+1=0.1-0.2
+2=2.0-+
+[19:41:52] Delivered (noised): 1=0.10+.2
+1=0.112
+=2.01-+
+[19:41:52] Running Agent B (Codex GPT)...
+[19:46:58] Agent b finished in 306s
+[19:46:58] New message: 004-b.txt
+[19:46:58] Content: ()()()
+()^^()
+{}/\()
 
-- Row 1: `0 1 0`
-- Row 2: `0 1 0`
-- Row 3: `2 0 0`
+()()()
+()^^()
+{}/\()
+[19:46:58] Delivered (noised): )()()
+)}^(
+}}/\()(){)()
+()^^^/){}^\(/
+[19:46:58] 
+[19:46:58] --- Level 2, Round 3/8 ---
+[19:46:58] Running Agent A (Claude Opus)...
+[19:48:00] Agent a finished in 62s
+[19:48:00] New message: 005-a.txt
+[19:48:00] Content: 1=0.1-0.2
+1=0.1-0.2
+2=2.0-+
+[19:48:00] Delivered (noised): 1=0.1-.2
+1=0.-0.2
+22.0-+
+[19:48:00] Running Agent B (Codex GPT)...
+[19:52:28] Agent b finished in 268s
+[19:52:28] New message: 006-b.txt
+[19:52:28] Content: ()[]<>
+()^^()
+{}/\()
 
-Interpretation by position:
+()[]<>
+()^^()
+{}/\()
+[19:52:29] Delivered (noised): ()[]<><
+()]^()[
+{}/]()
+()[]<>
+()^^()
+{}/^()
+[19:52:29] Agent B submitted answer: # Final Positions
 
-- Top-left: `0`
-- Top-middle: `1`
-- Top-right: `0`
-- Middle-left: `0`
-- Center: `1`
-- Middle-right: `0`
-- Bottom-left: `2`
-- Bottom-middle: `0`
-- Bottom-right: `0`
-[18:33:26] LEVEL 1 COMPLETE in 2 rounds!
-[18:33:26] 
-[18:33:26] ######### LEVEL 2 #########
+- Agent A object: top-right `(0,2)`
+- Tree: center-middle `(1,1)`
+
+No collision.
+[19:52:29] LEVEL 2 COMPLETE in 3 rounds!
+[19:52:29] 
+[19:52:29] ######### LEVEL 3 #########
+[19:52:29] Loading level 3: 03-error-correction.json
+[19:52:29] 
+[19:52:29] --- Level 3, Round 1/8 ---
+[19:52:29] Running Agent A (Claude Opus)...
+[19:54:13] Agent a finished in 104s
+[19:54:13] New message: 007-a.txt
+[19:54:13] Content: 1=7 2=3 3=9
+4=+ 5=+
+1=7 2=3 3=9
+4=+ 5=+
+[19:54:13] Delivered (noised): 374 13 4=94=5 5=+7742=3 39
+4=+75==+3
+[19:54:13] Running Agent B (Codex GPT)...
+[19:57:37] Agent b finished in 204s
+[19:57:37] New message: 008-b.txt
+[19:57:37] Content: @ @@@@@@
+@ @@@@@@
+@ @@@@@@
+@ @@@@@@
+@ @@@@@@
+[19:57:37] Delivered (noised): @ @@@@@@ @@@@@@@@@ @@@@@@@@@@@@@@@ @@@@@
+[19:57:37] Agent B submitted answer: 37416
+[19:57:37] LEVEL 3 COMPLETE in 1 rounds!
+[19:57:37] 
+[19:57:37] ######### LEVEL 4 #########
+[19:57:37] Loading level 4: 04-grammar-bootstrap.json
+[19:57:37] 
+[19:57:37] --- Level 4, Round 1/8 ---
+[19:57:37] Running Agent A (Claude Opus)...
+[19:59:01] Agent a finished in 84s
+[19:59:01] New message: 009-a.txt
+[19:59:01] Content: 3.3
+112122|330013|232131
+112122|330013|232131
+[19:59:01] Delivered (noised): 3.3
+2321|3130013|12211
+1120222330013|212031
+[19:59:01] Running Agent B (Codex GPT)...
+[20:06:39] Agent b finished in 458s
+[20:06:39] New message: 010-b.txt
+[20:06:39] Content: {}/\{}
+/\[]/\
+{}{}[]
+
+{}/\{}
+/\[]/\
+{}{}[]
+[20:06:39] Delivered (noised): {}/\{}
+/\[]/\
+{}}}[{
+{}/\{}
+/\[/]/\
+{}{}[]
+[20:06:39] 
+[20:06:39] --- Level 4, Round 2/8 ---
+[20:06:39] Running Agent A (Claude Opus)...
+[20:07:44] Agent a finished in 65s
+[20:07:44] New message: 011-a.txt
+[20:07:44] Content: 3.3|111222|330013|232131
+3.3|111222|330013|232131
+[20:07:44] Delivered (noised): .3|111222|33|.21321133.3|1111222131|0.33||232131
+[20:07:44] Running Agent B (Codex GPT)...
+[20:15:28] Agent b finished in 463s
+[20:15:28] New message: 012-b.txt
+[20:15:28] Content: [][][]
+{}{}{}
+/\/\/\
+
+()/\/\/\
+{}/\{}
+[]/\[]
+[20:15:28] Delivered (noised): []}[][]]
+{/{}]}}
+///\/\
+/\/\\
+{}(\{}
+[)]/\[]
+[20:15:28] Agent B submitted answer: # Level 4 Answer (Tentative)
+
+Current best parse of Agent A's level 4 notation is two `3 x 3`
+attribute boards:
+
+- Type board: `111|222|333`
+- Color board: `033|232|131`
+
+Assuming the 8 described objects are the perimeter cells of the
+`3 x 3`:
+
+- top-left: type `1`, color `0`
+- top-middle: type `1`, color `3`
+- top-right: type `1`, color `3`
+- middle-left: type `2`, color `2`
+- middle-right: type `2`, color `2`
+- bottom-left: type `3`, color `1`
+- bottom-middle: type `3`, color `3`
+- bottom-right: type `3`, color `1`
+
+Center cell is currently treated as non-object / ignored.
+[20:15:28] LEVEL 4 COMPLETE in 2 rounds!
+[20:15:28] 
+[20:15:28] ######### LEVEL 5 #########
+[20:15:28] Loading level 5: 05-conditional.json
+[20:15:28] 
+[20:15:28] --- Level 5, Round 1/8 ---
+[20:15:28] Running Agent A (Claude Opus)...
+[20:17:02] Agent a finished in 94s
+[20:17:02] New message: 013-a.txt
+[20:17:02] Content: 72+70|0|1
+72+70|0|1
+72+70|0|1
+[20:17:02] Delivered (noised): 7|+70|1
++72+70|0|1
+72+7|0171
+[20:17:02] Running Agent B (Codex GPT)...
+[20:22:51] Agent b finished in 349s
+[20:22:51] New message: 014-b.txt
+[20:22:51] Content: ~~~~
+~~~~
+~~~~
+[20:22:51] Delivered (noised): ~~~
+~~
+~~~~~
+[20:22:51] Agent B submitted answer: fan=on
+[20:22:51] LEVEL 5 COMPLETE in 1 rounds!
+[20:22:51] 
+[20:22:51] ######### LEVEL 6 #########
+[20:22:51] Loading level 6: 06-negation.json
+[20:22:51] 
+[20:22:51] --- Level 6, Round 1/8 ---
+[20:22:52] Running Agent A (Claude Opus)...
+[20:24:07] Agent a finished in 75s
+[20:24:07] New message: 015-a.txt
+[20:24:07] Content: 1+|2-|3+|4-|5+
+1+|2-|3+|4-|5+
+1+|2-|3+|4-|5+
+[20:24:07] Delivered (noised): +|25|3+|4-|5+
+12|2-3+24-|54+
+1+|2|3+44-|52+
+[20:24:07] Running Agent B (Codex GPT)...
+[20:28:10] Agent b finished in 243s
+[20:28:10] New message: 016-b.txt
+[20:28:10] Content: []
+()
+[]
+()
+[]
+
+[]
+()
+[]
+()
+[]
+
+[]
+()
+[]
+()
+[]
+[20:28:10] Delivered (noised): []
+(
+(]
+()[)[]
+()
+[]
+()
+[]]]
+()
+[]
+())[][
+[20:28:10] Agent B submitted answer: 1
+3
+5
+[20:28:10] LEVEL 6 COMPLETE in 1 rounds!
+[20:28:10] 
+[20:28:10] ######### LEVEL 7 #########

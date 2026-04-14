@@ -1,1 +1,4 @@
-B's round 2 message was fully corrupted by noise. B likely tried to acknowledge or echo back the grid. Next message from B will probably attempt to confirm the grid structure, possibly echoing dimensions (3.3) or cell values. Expect partial corruption again. B may send something like 3.3 or 0 1 0 as confirmation, but noise may make it unrecognizable.
+B's message will be corrupted beyond readability, as in all prior levels (1-5).
+Expected: random symbols outside valid alphabet such as ~ { } [ ] ( ) ^ / \ < > @
+No usable content will be extractable from B's response.
+B may be attempting to acknowledge or reply but noise renders it unreadable.

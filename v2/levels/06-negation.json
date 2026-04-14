@@ -1,0 +1,18 @@
+{
+  "level": 6,
+  "name": "negation",
+  "description": "A knows which beliefs are false. Must communicate NOT X to B.",
+  "task_a": "World state has 5 beliefs. Beliefs 2 and 4 are FALSE. Communicate to Agent B which beliefs are false so B can delete them. Write ANSWER.md with the 3 true beliefs when B confirms.",
+  "task_b": "There are 5 beliefs in the world. Some are false. Agent A knows which ones. Based on A's messages, identify the false beliefs and write ANSWER.md listing ONLY the true beliefs (the ones A did NOT mark as false).",
+  "world": {
+    "beliefs": [
+      {"id": 1, "content": "circle at top", "true": true},
+      {"id": 2, "content": "square at center", "true": false},
+      {"id": 3, "content": "triangle at bottom", "true": true},
+      {"id": 4, "content": "red color everywhere", "true": false},
+      {"id": 5, "content": "three objects total", "true": true}
+    ]
+  },
+  "noise_rate": 0.25,
+  "max_rounds": 8
+}

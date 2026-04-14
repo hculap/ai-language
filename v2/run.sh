@@ -118,7 +118,7 @@ run_agent() {
 First write PREDICTION.txt with what you think Agent B will send next. \
 Then read all files in messages/ in order. Read GRAMMAR.md and SECRET.md. \
 Follow CLAUDE.md rules exactly. Write your next message to messages/ and update GRAMMAR.md."
-    cmd="claude -p \"$prompt\" --model claude-opus-4-6 --dangerously-skip-permissions"
+    cmd="claude -p \"$prompt\" --model claude-opus-4-6 --permission-mode auto --add-dir \"$SCRIPT_DIR/messages/delivered\""
   else
     agent_dir="$AGENT_B"
     prompt="Think very carefully and step by step. Level $level, round $round. \

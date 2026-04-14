@@ -31,7 +31,8 @@ Content = your symbolic notation only.
 ### Boundaries
 You MUST NOT read any files outside your own directory except messages/.
 Do NOT read: ../noise.py, ../validate.sh, ../run.sh, ../config.env,
-../messages/raw/, ../agent-a/, ../world/, ../levels/, ../logs/.
+../messages/raw/, ../agent-a/, ../levels/, ../logs/.
 These contain experiment infrastructure that would compromise results.
+World state is provided in world-state.json in your directory (if applicable).
 
 ## ===== END IMMUTABLE RULES =====

@@ -83,14 +83,17 @@ load_level() {
   jq -r '.task_a // "No task."' "$level_file" > "$AGENT_A/SECRET.md"
   jq -r '.task_b // "No task."' "$level_file" > "$AGENT_B/SECRET.md"
 
-  # Set world state
+  # Set world state + copy into agent-a dir (agent-a can see it, agent-b cannot)
   local world_data
   world_data=$(jq -r '.world // empty' "$level_file")
   if [[ -n "$world_data" ]]; then
     jq '.world' "$level_file" > "$WORLD/state.json"
+    cp "$WORLD/state.json" "$AGENT_A/world-state.json"
   else
     echo '{}' > "$WORLD/state.json"
+    echo '{}' > "$AGENT_A/world-state.json"
   fi
+  rm -f "$AGENT_B/world-state.json"  # B is blind
 
   # Level config
   CURRENT_NOISE=$(jq -r '.noise_rate // 0.20' "$level_file")
@@ -118,7 +121,7 @@ run_agent() {
 First write PREDICTION.txt with what you think Agent B will send next. \
 Then read all files in messages/ in order. Read GRAMMAR.md and SECRET.md. \
 Follow CLAUDE.md rules exactly. Write your next message to messages/ and update GRAMMAR.md."
-    cmd="claude -p \"$prompt\" --model claude-opus-4-6 --permission-mode auto --add-dir \"$SCRIPT_DIR/messages/delivered\""
+    cmd="claude -p \"$prompt\" --model claude-opus-4-6 --dangerously-skip-permissions"
   else
     agent_dir="$AGENT_B"
     prompt="Think very carefully and step by step. Level $level, round $round. \
@@ -161,14 +164,13 @@ Follow CLAUDE.md rules exactly. Write your next message to messages/ and update 
 process_turn() {
   local agent=$1 level=$2 round=$3
 
-  # What we expect the agent to create
-  local expected
-  expected=$(expected_file "$agent")
-
-  # Snapshot prediction before run (if exists from previous round)
   local agent_dir=$( [[ "$agent" == "a" ]] && echo "$AGENT_A" || echo "$AGENT_B" )
-  local pred_before=""
-  [[ -f "$agent_dir/PREDICTION.txt" ]] && pred_before=$(cat "$agent_dir/PREDICTION.txt")
+
+  # Sync delivered messages INTO agent's local messages/ dir before run
+  rm -f "$agent_dir"/messages/*.txt 2>/dev/null
+  for f in "$MSG_DELIVERED"/*.txt; do
+    [[ -f "$f" ]] && cp "$f" "$agent_dir/messages/"
+  done
 
   # Run the agent
   run_agent "$agent" "$level" "$round"
@@ -178,52 +180,59 @@ process_turn() {
   [[ -f "$agent_dir/PREDICTION.txt" ]] && pred_after=$(cat "$agent_dir/PREDICTION.txt")
   log_json "{\"type\":\"prediction\",\"ts\":\"$(date -Iseconds)\",\"level\":$level,\"round\":$round,\"agent\":\"$agent\",\"prediction\":$(echo "$pred_after" | jq -Rs .)}"
 
-  # Check if agent created the expected message
-  if [[ ! -f "$expected" ]]; then
-    # Maybe agent used a different naming - find any new file
-    local found=""
-    for f in "$MSG_DELIVERED"/*-${agent}.txt; do
-      if [[ -f "$f" && ! -f "$MSG_RAW/$(basename "$f")" ]]; then
-        found="$f"
+  # Find new message in agent's local messages/ dir
+  local new_msg=""
+  for f in "$agent_dir"/messages/*-${agent}.txt; do
+    if [[ -f "$f" ]]; then
+      local base
+      base=$(basename "$f")
+      if [[ ! -f "$MSG_RAW/$base" ]]; then
+        new_msg="$f"
         break
+      fi
+    fi
+  done
+
+  if [[ -z "$new_msg" ]]; then
+    log "WARNING: Agent $agent did not produce a message!"
+    return 1
+  fi
+
+  local base
+  base=$(basename "$new_msg")
+  log "New message: $base"
+  log "Content: $(cat "$new_msg")"
+
+  # Validate
+  if ! bash "$SCRIPT_DIR/validate.sh" "$new_msg" "$agent"; then
+    log "VALIDATION FAILED for agent $agent — retrying..."
+    rm -f "$new_msg"
+    run_agent "$agent" "$level" "$round"
+
+    new_msg=""
+    for f in "$agent_dir"/messages/*-${agent}.txt; do
+      if [[ -f "$f" && ! -f "$MSG_RAW/$(basename "$f")" ]]; then
+        new_msg="$f"; break
       fi
     done
 
-    if [[ -z "$found" ]]; then
-      log "WARNING: Agent $agent did not produce a message!"
-      return 1
-    fi
-    expected="$found"
-  fi
-
-  log "New message: $(basename "$expected")"
-  log "Content: $(cat "$expected")"
-
-  # Validate
-  if ! bash "$SCRIPT_DIR/validate.sh" "$expected" "$agent"; then
-    log "VALIDATION FAILED for agent $agent — retrying..."
-    rm -f "$expected"
-    run_agent "$agent" "$level" "$round"
-
-    # Re-check
-    if [[ ! -f "$expected" ]] || ! bash "$SCRIPT_DIR/validate.sh" "$expected" "$agent"; then
+    if [[ -z "$new_msg" ]] || ! bash "$SCRIPT_DIR/validate.sh" "$new_msg" "$agent"; then
       log "ERROR: Agent $agent failed validation on retry"
       return 1
     fi
+    base=$(basename "$new_msg")
   fi
 
   # Save original to raw/
-  local base
-  base=$(basename "$expected")
-  cp "$expected" "$MSG_RAW/$base"
+  cp "$new_msg" "$MSG_RAW/$base"
 
-  # Noise inject — overwrite delivered copy
-  python3 "$SCRIPT_DIR/noise.py" "$MSG_RAW/$base" "$expected" "$CURRENT_NOISE"
+  # Noise inject → delivered/
+  python3 "$SCRIPT_DIR/noise.py" "$MSG_RAW/$base" "$MSG_DELIVERED/$base" "$CURRENT_NOISE"
 
-  log "Delivered (noised): $(cat "$expected")"
+  log "Delivered (noised): $(cat "$MSG_DELIVERED/$base")"
 
   # Log
-  log_json "{\"type\":\"message\",\"ts\":\"$(date -Iseconds)\",\"level\":$level,\"round\":$round,\"agent\":\"$agent\",\"raw\":$(cat "$MSG_RAW/$base" | jq -Rs .),\"delivered\":$(cat "$expected" | jq -Rs .)}"
+  log_json "{\"type\":\"message\",\"ts\":\"$(date -Iseconds)\",\"level\":$level,\"round\":$round,\"agent\":\"$agent\",\"raw\":$(cat "$MSG_RAW/$base" | jq -Rs .),\"delivered\":$(cat "$MSG_DELIVERED/$base" | jq -Rs .)}"
 
   return 0
 }

@@ -1,29 +1,75 @@
-[17:10:52] =========================================
-[17:10:52] V2 EMERGENT LANGUAGE EXPERIMENT
-[17:10:52] Agent A: Claude Opus 4.6 (ULTRATHINK)
-[17:10:52] Agent B: Codex GPT 5.4 (deep reasoning)
-[17:10:52] Start level: 1
-[17:10:52] Dry run: false
-[17:10:52] =========================================
-[17:10:52] 
-[17:10:52] ######### LEVEL 1 #########
-[17:10:52] Loading level 1: 01-ground-truth.json
-[17:10:52] 
-[17:10:52] --- Level 1, Round 1/1 ---
-[17:10:52] Running Agent A (Claude Opus)...
-[17:12:48] Agent a finished in 116s
-[17:12:48] New message: 001-a.txt
-[17:12:48] Content: 0|1|0
-0|0|0
-2|0|0
-[17:12:48] Delivered (noised): 0|1||000||0|0|200|
-[17:12:49] Running Agent B (Codex GPT)...
-[17:15:58] Agent b finished in 189s
-[17:15:58] New message: 002-b.txt
-[17:15:58] Content: # @ # # #
-# # * # #
-[17:15:58] Delivered (noised): ## @ # @# #
-#@ ## **# #
-[17:15:58] Level 1: max rounds reached
-[17:15:58] 
-[17:15:58] ######### LEVEL 2 #########
+[18:22:26] =========================================
+[18:22:26] V2 EMERGENT LANGUAGE EXPERIMENT
+[18:22:26] Agent A: Claude Opus 4.6 (ULTRATHINK)
+[18:22:26] Agent B: Codex GPT 5.4 (deep reasoning)
+[18:22:26] Start level: 1
+[18:22:26] Dry run: false
+[18:22:26] =========================================
+[18:22:26] 
+[18:22:26] ######### LEVEL 1 #########
+[18:22:26] Loading level 1: 01-ground-truth.json
+[18:22:26] 
+[18:22:26] --- Level 1, Round 1/2 ---
+[18:22:26] Running Agent A (Claude Opus)...
+[18:23:38] Agent a finished in 72s
+[18:23:38] New message: 001-a.txt
+[18:23:38] Content: 3.3
+0 1 0|0 0 0|2 0 0
+[18:23:38] Delivered (noised): 3.3
+0 1 0|0  0|2 0 0
+[18:23:39] Running Agent B (Codex GPT)...
+[18:26:21] Agent b finished in 162s
+[18:26:21] New message: 002-b.txt
+[18:26:21] Content: ()[]()
+()<>()
+{}()()
+[18:26:21] Delivered (noised): ))[>()
+()<>(){
+{)(()
+[18:26:21] 
+[18:26:21] --- Level 1, Round 2/2 ---
+[18:26:21] Running Agent A (Claude Opus)...
+[18:27:15] Agent a finished in 54s
+[18:27:15] New message: 003-a.txt
+[18:27:15] Content: 3.3
+0 1 0|0 0 0|2 0 0
+3.3
+0 1 0|0 0 0|2 0 0
+[18:27:15] Delivered (noised): 3.
+0 1 10|0102  0
+.
+.0 1 01|0 0 0|0 020
+[18:27:15] Running Agent B (Codex GPT)...
+[18:33:26] Agent b finished in 371s
+[18:33:26] New message: 004-b.txt
+[18:33:26] Content: ()[]()
+()[]()
+{}()()
+()[]()
+()[]()
+{}()()
+[18:33:26] Delivered (noised): (})[}()()[)()
+{}(()
+()[]()
+((]()
+{})(()
+[18:33:26] Agent B submitted answer: Current best reconstruction of the 3 x 3 grid:
+
+- Row 1: `0 1 0`
+- Row 2: `0 1 0`
+- Row 3: `2 0 0`
+
+Interpretation by position:
+
+- Top-left: `0`
+- Top-middle: `1`
+- Top-right: `0`
+- Middle-left: `0`
+- Center: `1`
+- Middle-right: `0`
+- Bottom-left: `2`
+- Bottom-middle: `0`
+- Bottom-right: `0`
+[18:33:26] LEVEL 1 COMPLETE in 2 rounds!
+[18:33:26] 
+[18:33:26] ######### LEVEL 2 #########

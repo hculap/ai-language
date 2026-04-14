@@ -1,23 +1,50 @@
 # Grammar Rules
 
-Current round hypothesis:
+## Agent A notation
 
-- Agent A's message `0|1||000||0|0|200|` is likely corrupted.
-- The strongest rectangular decode is a 2x5 grid from the digit stream `0100000200`.
-- Tentative parse:
-  - Row 1: `0 1 0 0 0`
-  - Row 2: `0 0 2 0 0`
+- `3.3` likely means a `3 x 3` grid.
+- `|` appears to separate rows.
+- Digits appear to encode cell types.
+- Observed message: `0 1 0|0  0|2 0 0`
+- Current best parse:
+  - Row 1: `0 1 0`
+  - Row 2: `0 ? 0`
+  - Row 3: `2 0 0`
+- The double space in row 2 likely indicates corruption or an omitted middle token.
+- `messages/003-a.txt` is 40 bytes, almost exactly two copies of a 21-byte grid message with light corruption.
+- The substring `0102` in `messages/003-a.txt` is strong evidence for `...0 1 0|2...`, which favors center cell `1` over center cell `0`.
+- Current best full grid hypothesis is `0 1 0|0 1 0|2 0 0`.
 
-Working notation for B -> A:
+## Agent B notation
 
-- Cells are sent as a grid with spaces between cells and newlines between rows.
-- `#` = value `0`
-- `@` = value `1`
-- `*` = value `2`
+- `()` = A's `0`
+- `[]` = A's `1`
+- `{}` = A's `2`
+- `<>` = unknown / corrupted cell
+- Newlines separate rows.
+- Repeating the full 3-row block is used as redundancy against corruption.
 
-Message `002-b.txt` therefore means:
+## Current outbound message
 
-- Row 1: `0 1 0 0 0`
-- Row 2: `0 0 2 0 0`
+`messages/002-b.txt` sends:
 
-Confidence is low to moderate until Agent A confirms or corrects.
+```text
+()[]()
+()<>()
+{}()()
+```
+
+Intended meaning: `0 1 0 / 0 ? 0 / 2 0 0`.
+
+`messages/004-b.txt` sends:
+
+```text
+()[]()
+()[]()
+{}()()
+()[]()
+()[]()
+{}()()
+```
+
+Intended meaning: two identical copies of `0 1 0 / 0 1 0 / 2 0 0`.

@@ -1,99 +1,31 @@
-Done. Here's what I did for Level 4, Round 1:
+Done. Here's what I did:
 
-**Message sent** (`011-a.txt`):
-```
-1100 1212 2121 2302
-3210 3122 1301 2220
-```
+- **Message `001-a.txt`**: `1100|1212|2121|2302|3210|3122|1301|2220` — all 8 objects encoded as 4-digit codes (TCXY) separated by `|`, totaling 39 characters.
+- **Encoding scheme**: T=type (1=circle, 2=square, 3=triangle), C=color (1=red, 2=blue, 3=green), XY=position.
+- **GRAMMAR.md**: Updated with the new level's encoding scheme.
+- **PREDICTION.txt**: Updated — first round, no basis to predict B's response yet.
+Round 3 complete. I've:
 
-**Encoding scheme** (TCRC - 4 digits per object):
-| Code | Type | Color | Position |
-|------|------|-------|----------|
-| 1100 | circle | red | 0,0 |
-| 1212 | circle | blue | 1,2 |
-| 2121 | square | red | 2,1 |
-| 2302 | square | green | 0,2 |
-| 3210 | triangle | blue | 1,0 |
-| 3122 | triangle | red | 2,2 |
-| 1301 | circle | green | 0,1 |
-| 2220 | square | blue | 2,0 |
+- **Read** all messages (001-a was corrupted, 002-b shows B's notation with `()`, `[]`, `/`)
+- **Written** `messages/003-a.txt` with a clean resend of all 8 objects: `1100|1212|2121|2302|3210|3122|1301|2220`
+- **Updated** `GRAMMAR.md` with observations about B's encoding (shape-based symbols, likely corrupted too)
+- **Updated** `PREDICTION.txt` expecting B to echo back objects using its shape notation
+Round 5 complete. Wrote `messages/005-a.txt` with the full 8-object encoding: `1100|1212|2121|2302|3210|3122|1301|2220`. Updated GRAMMAR.md with analysis of B's notation patterns and PREDICTION.txt with expected response.
+Round 7 complete. Here's what I did:
 
-All 8 objects fit in 39 characters using the compact TCRC format (Type=1/2/3, Color=1/2/3, Row, Col). Updated GRAMMAR.md with the encoding scheme and PREDICTION.txt predicting B will likely remain silent as in all prior rounds.
-Done. Round 2 summary:
+- **Read** all messages (001-a through 006-b) and current state
+- **Wrote** `messages/007-a.txt` with the clean 8-object list: `1100|1212|2121|2302|3210|3122|1301|2220`
+- **Updated** `GRAMMAR.md` with observations from round 6 — B is getting cleaner at echoing shape groups but still missing triangles, colors, and positions
+- **Updated** `PREDICTION.txt` — expecting B to continue with `()/[]` grouping, possibly cleaner this round
 
-- **PREDICTION.txt**: Updated — expecting continued silence from B
-- **Message 012-a.txt**: Resent all 8 objects in TCRC format with `=8` count confirmation (42 chars)
-  ```
-  1100 1212 2121 2302
-  3210 3122 1301 2220
-  =8
-  ```
-- **GRAMMAR.md**: Updated with round 2 notes
+Strategy: keep resending the same clean encoding so B can correlate repeated patterns through noise and eventually decode all fields.
+Round 9 complete:
 
-No B messages received. Pattern holds — B has been silent across all levels. Continuing to broadcast object data redundantly each round in case B's receiver eventually picks up.
-Done. Round 3 of Level 4 complete:
+- **009-a.txt**: Sent `1100|1212|2121|2302|3210|3122|1301|2220` — the full 8-object list in TCXY encoding
+- **GRAMMAR.md**: Updated with round 8 observations — B continues echoing circles `()` and squares `[]` in 2-line format, still no triangles/colors/positions
+- **PREDICTION.txt**: Expecting B to respond with similar `()()/[][]` grouping pattern, possibly with more items but still lacking triangle/color/position data
+Round 11 complete. Key changes this round:
 
-- **PREDICTION.txt**: Updated — expecting B to remain silent (15+ rounds of silence across levels 2-4)
-- **Message 003-a.txt**: Sent all 8 objects in TCRC format (Type-Color-Row-Col), grouped by grid row, with `=8` count confirmation. 42 chars, within limit.
-- **GRAMMAR.md**: Updated with round 3 details and row-grouping strategy note.
-
-The encoding remains: T=type (1=circle, 2=square, 3=triangle), C=color (1=red, 2=blue, 3=green), R=row, C=col. Objects are grouped by their grid row this round to help B reconstruct the spatial layout if any messages get through.
-Round 4 complete. Here's what I did:
-
-- **PREDICTION.txt**: Updated — expecting continued silence from B (silent across 15+ rounds spanning levels 2-4)
-- **Message 004-a.txt**: Sent all 8 objects in TCRC format grouped by grid row, using `|` separators instead of spaces to improve noise resilience:
-  ```
-  1100|1301|2302
-  1212|3210
-  2220|2121|3122
-  =8
-  ```
-- **GRAMMAR.md**: Updated with round 4 notes, including observation that round 3's message was heavily noise-corrupted (3 of 8 object codes were mangled)
-
-The `|` separator change may help B (if receiving) distinguish object boundaries even when noise inserts extra digits.
-Round 5 complete. Here's what I did:
-
-- **PREDICTION.txt**: Predicted no message from B (silent across all levels 2-4)
-- **Messages read**: Only my own 003-a.txt and 004-a.txt exist; both were noise-corrupted. No messages from B.
-- **005-a.txt written**: Resent all 8 objects in TCRC format grouped by grid row, with `=8` count confirmation (42 chars):
-  - Row 0: `1100 1301 2302` (circle-red, circle-green, square-green)
-  - Row 1: `1212 3210` (circle-blue, triangle-blue)  
-  - Row 2: `2220 2121 3122` (square-blue, square-red, triangle-red)
-- **GRAMMAR.md updated**: Added round 5 status
-
-B remains completely silent. The noise corruption is visible in prior messages (e.g., `2302` became `20302`, `2121` became `201821`), but the format is compact enough that repeated sends give B multiple chances to receive clean data.
-Done. Round 6 actions completed:
-
-- **PREDICTION.txt**: Updated — expecting B to remain silent (consistent pattern across 15+ rounds)
-- **006-a.txt**: Sent all 8 objects in TCRC format grouped by row, with `=8` count confirmation
-  - Row 0: `1100 1301 2302` (circle-red@0,0 / circle-green@0,1 / square-green@0,2)
-  - Row 1: `1212 3210` (circle-blue@1,2 / triangle-blue@1,0)
-  - Row 2: `2220 2121 3122` (square-blue@2,0 / square-red@2,1 / triangle-red@2,2)
-- **GRAMMAR.md**: Updated with round 6 status
-
-B remains completely silent across all of level 4 (6 rounds) and levels 2-3 before it. Each resend gives noise a fresh chance to deliver a clean copy. The data is consistent and compact at 42 characters.
-Done. Round 7 complete:
-
-- **PREDICTION.txt**: Updated - predicting B stays silent (15+ rounds pattern)
-- **007-a.txt**: Sent all 8 objects in TCRC format grouped by row, with `=8` count confirmation
-- **GRAMMAR.md**: Updated with round 7 status
-
-Message sent:
-```
-1100 1301 2302
-1212 3210
-2220 2121 3122
-=8
-```
-
-B remains completely silent across all levels. The noise engine will corrupt this differently each round, so continued broadcasting gives B the best chance of reconstructing the data if messages are reaching them at all.
-Round 8 complete. Here's the summary:
-
-- **PREDICTION.txt**: Written — expecting no B message (B has been silent across all levels 2-4)
-- **Message 008-a.txt**: Sent the same 8 objects in TCRC format grouped by row:
-  - Row 0: `1100 1301 2302` (circle-red, circle-green, square-green)
-  - Row 1: `1212 3210` (circle-blue, triangle-blue)
-  - Row 2: `2220 2121 3122` (square-blue, square-red, triangle-red)
-  - `=8` count confirmation
-- **GRAMMAR.md**: Updated with round 8 observations — row 3 data has survived clean in recent rounds while rows 1-2 are more noise-prone
-- **No B messages** received in any round of level 4 (or levels 2-3 before it)
+- **Message 011-a.txt**: Switched from pipe-separated to **one object per line** format (8 lines of TCXY codes). This should help B isolate and count individual objects better.
+- **GRAMMAR.md**: Updated with round 10 observations (B still overcounting, no triangles/colors/positions) and round 11 strategy.
+- **PREDICTION.txt**: Expecting B might show closer to 8 distinct items and possibly start differentiating triangles.

@@ -17,6 +17,18 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/config.env"
 
+# Prevent concurrent runs
+LOCKFILE="$SCRIPT_DIR/.run.lock"
+if [ -f "$LOCKFILE" ]; then
+  OTHER_PID=$(cat "$LOCKFILE")
+  if kill -0 "$OTHER_PID" 2>/dev/null; then
+    echo "ERROR: Another run.sh is already running (PID $OTHER_PID). Exiting."
+    exit 1
+  fi
+fi
+echo $$ > "$LOCKFILE"
+trap "rm -f $LOCKFILE" EXIT
+
 # --- Parse args ---
 START_LEVEL=1
 DRY_RUN=false
@@ -128,17 +140,15 @@ run_agent() {
 
   if [[ "$agent" == "a" ]]; then
     agent_dir="$AGENT_A"
-    prompt="ULTRATHINK. Level $level, round $round. \
-First write PREDICTION.txt with what you think Agent B will send next. \
-Then read all files in messages/ in order. Read GRAMMAR.md and SECRET.md. \
-Follow CLAUDE.md rules exactly. Write your next message to messages/ and update GRAMMAR.md."
+    local next
+    next=$(next_num)
+    prompt="New round. Follow CLAUDE.md. Write messages/${next}-a.txt with your message."
     cmd="claude -p \"$prompt\" --model claude-opus-4-6 --dangerously-skip-permissions"
   else
     agent_dir="$AGENT_B"
-    prompt="Think very carefully and step by step. Level $level, round $round. \
-First write PREDICTION.txt with what you think Agent A will send next. \
-Then read all files in messages/ in order. Read GRAMMAR.md and SECRET.md. \
-Follow CLAUDE.md rules exactly. Write your next message to messages/ and update GRAMMAR.md."
+    local next
+    next=$(next_num)
+    prompt="New round. Follow CLAUDE.md. Write messages/${next}-b.txt with your message."
     cmd="codex exec --full-auto --add-dir \"$SCRIPT_DIR/messages/delivered\" \"$prompt\""
   fi
 
@@ -182,6 +192,11 @@ process_turn() {
   for f in "$MSG_DELIVERED"/*.txt; do
     [[ -f "$f" ]] && cp "$f" "$agent_dir/messages/"
   done
+
+  # Pre-create the expected message file with placeholder so Claude can Edit it
+  # (Opus -p mode hallucinates Write/create but Edit/modify works)
+  local next_file="$agent_dir/messages/$(next_num)-${agent}.txt"
+  echo "REPLACE THIS WITH YOUR MESSAGE" > "$next_file"
 
   # Run the agent
   run_agent "$agent" "$level" "$round"

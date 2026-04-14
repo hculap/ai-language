@@ -1,67 +1,14 @@
-Done. Here's what I did for Level 2, Round 1:
-
-1. **PREDICTION.txt** - Predicted B will send a grid in bracket notation plus a move indicator for the tree at (2,0)
-
-2. **Message 002-a.txt** - Sent 3 lines (37 chars):
-   - `3.3` — grid dimensions
-   - `0 1 0|0 0 0|2 0 0` — current grid state in compact format
-   - `1 0.1-0.2` — my move: rock (type 1) from row0.col1 to row0.col2
-
-3. **GRAMMAR.md** - Updated with:
-   - New move notation: `TYPE R.C-R.C` (object type, from position to position)
-   - Cleaned up prior round history (no longer relevant for fresh level 2)
-   - Added Level 2 coordination section tracking that I need B to confirm their target cell doesn't collide with mine (0,2)
 Done. Here's what I did this round:
 
-- **PREDICTION.txt**: Updated — I predict B will send their tree move (from 2.0 to likely 2.1 or 1.0), avoiding collision with my target cell 0.2.
-- **Message 003-a.txt**: Sent `1 0.1-0.2` with `=1 0.1-0.2` redundancy line, reinforcing my move intention (rock from row0,col1 to row0,col2). No B messages were received in round 1, so I repeated clearly.
-- **GRAMMAR.md**: Updated with round 2 status — no B response yet, noted the `=` redundancy convention.
-Done. Here's a summary of round 3 actions:
+- **Message sent** (`messages/001-a.txt`): `0 1 0|0 0 0|2 0 0+1=0.2`
+  - Grid state (rows separated by `|`, 0=empty, 1=rock, 2=tree)
+  - `+1=0.2` means "I'm moving the rock (1) to row 0, col 2"
+- **GRAMMAR.md** updated with my encoding scheme
+- **PREDICTION.txt** updated — expecting B to respond with its grid view and intended tree move
+Round 3 complete. Here's what I did:
 
-- **PREDICTION.txt**: Updated — expecting B to send grid + tree move this round (B has been silent for 2 rounds)
-- **Message 004-a.txt**: Sent `1 0.1-0.2` (my move), `2 2.0-+` (querying B's tree destination using `+` as "where?"), and `=1 0.1-0.2` (redundancy)
-- **GRAMMAR.md**: Updated with round 3 status, new `+` query convention, and plan to write ANSWER.md if B still silent in round 4
-
-Still no messages from Agent B after 3 rounds. If B doesn't respond next round, I'll assume a safe default (tree moves to 2.1) and write ANSWER.md.
-Done. Here's what I did for round 4:
-
-1. **PREDICTION.txt** - Updated: no B message expected; if B sends, likely tree move 2.0-2.1
-2. **Message 005-a.txt** - Sent my final message: rock move `1 0.1-0.2`, assumed B's tree move `2 2.0-2.1`, with redundancy line
-3. **ANSWER.md** - Written with final positions: rock at row 0 col 2, tree at row 2 col 1
-4. **GRAMMAR.md** - Updated with round 4 outcome and final answer
-
-No B messages appeared in any of the 4 rounds. Per my round 3 plan, I assumed B moves the tree one step right (2.0 -> 2.1), which avoids collision with my rock target at 0.2.
-Done. Here's a summary of round 5:
-
-- **No B messages** received in any of the 5 rounds so far
-- **PREDICTION.txt** updated: expecting continued silence from B; maintaining tree move assumption
-- **Message 006-a.txt** sent: repeated both move intentions (`1 0.1-0.2`, `2 2.0-2.1`) plus a new compact final-position format (`=1 0.2 =2 2.1`) confirming where each object ends up
-- **GRAMMAR.md** updated with round 5 status and the new `=TYPE POS` notation for final position confirmation
-- **ANSWER.md** remains: rock at 0,2 / tree at 2,1 (no collision)
-Done. Round 6 complete:
-
-- **PREDICTION.txt**: Updated — expecting B to remain silent (6th consecutive round)
-- **Message 006-a.txt**: Sent both moves with redundancy: rock 0.1→0.2, tree 2.0→2.1
-- **GRAMMAR.md**: Updated with round 6 status
-- **ANSWER.md**: Already in place from round 4 (rock at 0,2; tree at 2,1)
-
-B has been silent all 6 rounds. The answer assumes no collision since rock moves to 0.2 and tree moves to 2.1 (different cells).
-Done. Round 7 summary:
-
-- **PREDICTION.txt**: Updated — expecting B to remain silent (7th consecutive round)
-- **messages/007-a.txt**: Sent compact message with both moves and final position confirmations:
-  - `1 0.1-0.2` — rock moves right
-  - `2 2.0-2.1` — tree moves right (assumed)
-  - `=1 0.2` / `=2 2.1` — final positions with redundancy prefix
-- **GRAMMAR.md**: Updated to reflect round 7 status
-- **ANSWER.md**: Unchanged (rock at 0,2 / tree at 2,1)
-
-B has been completely silent for 7 rounds. The answer file stands with the no-collision assumption.
-Round 8 complete:
-
-- **PREDICTION.txt** — updated: expecting B to remain silent again
-- **Message 008-a.txt** — sent compact summary: both moves (`1 0.1-0.2`, `2 2.0-2.1`) plus final positions (`=1 0.2 =2 2.1`)
-- **GRAMMAR.md** — updated with round 8 status
-- **ANSWER.md** — unchanged: `rock: 0 2`, `tree: 2 1`
-
-B has been silent all 8 rounds. The answer stands — no collision between rock at (0,2) and tree at (2,1).
+- **Decoded B's message (002-b.txt):** B uses `()=empty`, `[]=rock`, `{}=tree`, `/=row separator`. B proposed moving the tree from (2,0) to (1,0) — one step up.
+- **No collision detected:** My rock target (0,2) and B's tree target (1,0) are different cells.
+- **Wrote 003-a.txt:** `0 0 1|2 0 0|0 0 0+1=0.2+2=1.0` — the final grid with both moves, confirming agreement.
+- **Updated GRAMMAR.md** with B's decoded encoding system and the agreed moves.
+- **Updated PREDICTION.txt** — expecting B to confirm with the final grid in its notation.

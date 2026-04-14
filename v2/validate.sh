@@ -36,6 +36,12 @@ if [[ $LEN -eq 0 ]]; then
   exit 1
 fi
 
+# Check for un-replaced placeholder
+if echo "$MSG" | /usr/bin/grep -qi "REPLACE THIS"; then
+  echo "REJECT: placeholder not replaced"
+  exit 1
+fi
+
 # 2. Check alphabet (using tr to strip allowed chars, check remainder)
 if [[ "$AGENT" == "a" ]]; then
   # Agent A allowed: 0-9 . | - + = space newline

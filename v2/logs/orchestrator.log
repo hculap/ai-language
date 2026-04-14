@@ -1,562 +1,275 @@
-[21:47:36] =========================================
-[21:47:36] V2 EMERGENT LANGUAGE EXPERIMENT
-[21:47:36] Agent A: Claude Opus 4.6 (ULTRATHINK)
-[21:47:36] Agent B: Codex GPT 5.4 (deep reasoning)
-[21:47:36] Start level: 1
-[21:47:36] Dry run: false
-[21:47:42] =========================================
-[21:47:42] V2 EMERGENT LANGUAGE EXPERIMENT
-[21:47:42] Agent A: Claude Opus 4.6 (ULTRATHINK)
-[21:47:42] Agent B: Codex GPT 5.4 (deep reasoning)
-[21:47:42] Start level: 1
-[21:47:42] Dry run: false
-[21:47:42] =========================================
-[21:47:42] 
-[21:47:42] ######### LEVEL 1 #########
-[21:47:42] Loading level 1: 01-ground-truth.json
-[21:48:29] =========================================
-[21:48:29] V2 EMERGENT LANGUAGE EXPERIMENT
-[21:48:29] Agent A: Claude Opus 4.6 (ULTRATHINK)
-[21:48:29] Agent B: Codex GPT 5.4 (deep reasoning)
-[21:48:29] Start level: 1
-[21:48:29] Dry run: false
-[21:48:29] =========================================
-[21:48:29] 
-[21:48:29] ######### LEVEL 1 #########
-[21:48:29] Loading level 1: 01-ground-truth.json
-[21:48:29] 
-[21:48:29] --- Level 1, Round 1/8 ---
-[21:48:29] Running Agent A (Claude Opus)...
-[21:49:35] Agent a finished in 66s
-[21:49:35] WARNING: Agent a did not produce a message!
-[21:49:35] Agent A turn failed
-[21:49:35] 
-[21:49:35] --- Level 1, Round 2/8 ---
-[21:49:35] Running Agent A (Claude Opus)...
-[21:50:32] Agent a finished in 57s
-[21:50:32] New message: 001-a.txt
-[21:50:32] Content: 3.3
-0 1 0
-0 0 0
-2 0 0
-[21:50:32] Delivered (noised): 3.3
-0 .1 0
-0 02 0
-  0
-[21:50:32] Running Agent B (Codex GPT)...
-[21:54:33] Agent b finished in 241s
-[21:54:34] New message: 002-b.txt
-[21:54:34] Content: [][][]
-[][][]
-[][][]
-[21:54:34] Delivered (noised): ][][]
-[][]]
-[][][]
-[21:54:34] 
-[21:54:34] --- Level 1, Round 3/8 ---
-[21:54:34] Running Agent A (Claude Opus)...
-[21:55:50] Agent a finished in 76s
-[21:55:50] New message: 003-a.txt
-[21:55:50] Content: 3.3
-0 1 0
-0 0 0
-2 0 0
-= 010|000|200
-[21:55:50] Delivered (noised): 3=3
-01 0
-0 0 02 0 0
-32010=|0002=00
-[21:55:50] Running Agent B (Codex GPT)...
-[21:59:09] Agent b finished in 199s
-[21:59:09] New message: 004-b.txt
-[21:59:09] Content: []<>[]
-[]()[]
-[][][]
-[21:59:09] Delivered (noised): []<>[]>[]()[]
-)][][]
-[21:59:09] 
-[21:59:09] --- Level 1, Round 4/8 ---
-[21:59:09] Running Agent A (Claude Opus)...
-[22:00:30] Agent a finished in 81s
-[22:00:30] New message: 005-a.txt
-[22:00:30] Content: 3.3
-0 1 0
-0 0 0
-2 0 0
-=010|000|200
-[22:00:30] Delivered (noised): 3..
-0 1 0
-0 0 0.2=0 03=010=000|200
-[22:00:30] Running Agent B (Codex GPT)...
-[22:03:22] Agent b finished in 172s
-[22:03:22] New message: 006-b.txt
-[22:03:22] Content: [] <> []
-[] [] []
-() [] []
-[22:03:22] Delivered (noised): [] << [][] [] []
-() [] []
-[22:03:22] Agent B submitted answer: most likely grid layout:
+[00:32:58] =========================================
+[00:32:58] V2 EMERGENT LANGUAGE EXPERIMENT
+[00:32:58] Agent A: Claude Opus 4.6 (ULTRATHINK)
+[00:32:58] Agent B: Codex GPT 5.4 (deep reasoning)
+[00:32:58] Start level: 1
+[00:32:58] Dry run: false
+[00:32:58] =========================================
+[00:32:58] 
+[00:32:59] ######### LEVEL 1 #########
+[00:32:59] Loading level 1: 01-ground-truth.json
+[00:32:59] 
+[00:32:59] --- Level 1, Round 1/6 ---
+[00:32:59] Running Agent A (Claude Opus)...
+[00:33:28] Agent a finished in 29s
+[00:33:28] New message: 001-a.txt
+[00:33:28] Content: 0 1 0|0 0 0|2 0 0
+[00:33:28] Delivered (noised): |0 1 0| 10 0|2 |0 |
+[00:33:28] Running Agent B (Codex GPT)...
+[00:36:13] Agent b finished in 165s
+[00:36:13] New message: 002-b.txt
+[00:36:13] Content: ()[]()/()()()/{}()()
+()[]()/()()()/{}()()
+[00:36:13] Delivered (noised): ()[]()/()()()/{{()()
+([]()/{)()()/{}()()
+[00:36:13] Agent B submitted answer: 0 1 0 / 0 0 0 / 2 0 0
+[00:36:13] REFEREE L01: found_1=true found_2=true
+[00:36:13] REFEREE: PASS ✅
+[00:36:13] LEVEL 1 COMPLETE in 1 rounds!
+[00:36:13] 
+[00:36:13] ######### LEVEL 2 #########
+[00:36:13] Loading level 2: 02-coordinated-swap.json
+[00:36:13] 
+[00:36:13] --- Level 2, Round 1/6 ---
+[00:36:13] Running Agent A (Claude Opus)...
+[00:36:55] Agent a finished in 42s
+[00:36:55] New message: 001-a.txt
+[00:36:55] Content: 0 1 0|0 0 0|2 0 0+1=0.2
+[00:36:55] Delivered (noised): 2 1 0|0 0 02 0 0+1=0.2
+[00:36:55] Running Agent B (Codex GPT)...
+[00:38:51] Agent b finished in 116s
+[00:38:51] New message: 002-b.txt
+[00:38:51] Content: ()[]()/()()()/{}()()
+{}^
+()[]()/{}()()/()()()
+[00:38:51] Delivered (noised): ()[]/()()()/{}()()
+{}
+()[]()/{}()()/()()()
+[00:38:51] 
+[00:38:51] --- Level 2, Round 2/6 ---
+[00:38:51] Running Agent A (Claude Opus)...
+[00:39:52] Agent a finished in 61s
+[00:39:52] New message: 003-a.txt
+[00:39:52] Content: 0 0 1|2 0 0|0 0 0+1=0.2+2=1.0
+[00:39:52] Delivered (noised): 0 0 1|2 0 0|0 0 0+1=0.2+2=1.0
+[00:39:52] Running Agent B (Codex GPT)...
+[00:41:41] Agent b finished in 109s
+[00:41:41] New message: 004-b.txt
+[00:41:41] Content: ()[]()/()()()/{}()()
+{}^
+()()[]/{}()()/()()()
+[00:41:41] Delivered (noised): ()[]()/()()()/{}(
+{}^
+)(][^/{}(()())()(()()
+[00:41:41] Agent B submitted answer: agreed final positions:
 
-- row 1: empty, type-1 object, empty
-- row 2: empty, empty, empty
-- row 3: type-2 object, empty, empty
+- rock: row 0, col 2
+- tree: row 1, col 0
 
-equivalent digit form inferred from agent a:
+final grid:
 
-- row 1: `0 1 0`
-- row 2: `0 0 0`
-- row 3: `2 0 0`
-[22:03:22] REFEREE: FAIL ❌ (answer exists but incorrect)
-[22:03:22] 
-[22:03:22] --- Level 1, Round 5/8 ---
-[22:03:23] Running Agent A (Claude Opus)...
-[22:04:54] Agent a finished in 91s
-[22:04:54] New message: 007-a.txt
-[22:04:54] Content: 3.3
-0 1 0
-0 0 0
+0 0 1
 2 0 0
-[22:04:54] Delivered (noised): 31.30 1 0
 0 0 0
-20 0
-[22:04:54] Running Agent B (Codex GPT)...
-[22:04:57] Agent b finished in 3s
-[22:04:57] WARNING: Agent b did not produce a message!
-[22:04:57] Agent B turn failed
-[22:04:57] 
-[22:04:57] --- Level 1, Round 6/8 ---
-[22:04:57] Running Agent A (Claude Opus)...
-[22:06:04] Agent a finished in 67s
-[22:06:04] New message: 008-a.txt
-[22:06:04] Content: 3.3
-0 1 0
-0 0 0
-2 0 0
-=010|000|200
-[22:06:04] Delivered (noised): 33
- 2 010 0 0
-2 0 0
-=0=0|10||200
-[22:06:04] Running Agent B (Codex GPT)...
-[22:06:06] Agent b finished in 2s
-[22:06:06] WARNING: Agent b did not produce a message!
-[22:06:06] Agent B turn failed
-[22:06:06] 
-[22:06:06] --- Level 1, Round 7/8 ---
-[22:06:06] Running Agent A (Claude Opus)...
-[22:07:18] Agent a finished in 72s
-[22:07:18] New message: 009-a.txt
-[22:07:18] Content: 0 1 0
-0 0 0
-2 0 0
-[22:07:18] Delivered (noised): 0 2 0
-0 0 0
-2  0
-[22:07:18] Running Agent B (Codex GPT)...
-[22:07:20] Agent b finished in 2s
-[22:07:20] WARNING: Agent b did not produce a message!
-[22:07:20] Agent B turn failed
-[22:07:20] 
-[22:07:20] --- Level 1, Round 8/8 ---
-[22:07:20] Running Agent A (Claude Opus)...
-[22:08:18] Agent a finished in 58s
-[22:08:18] New message: 010-a.txt
-[22:08:18] Content: 010|000|200
-=010|000|200
-[22:08:18] Delivered (noised): 010=000||2020
-=20|10|000|20
-[22:08:18] Running Agent B (Codex GPT)...
-[22:08:20] Agent b finished in 2s
-[22:08:20] WARNING: Agent b did not produce a message!
-[22:08:20] Agent B turn failed
-[22:08:20] 
-[22:08:20] ######### LEVEL 2 #########
-[22:08:20] Loading level 2: 02-coordinated-swap.json
-[22:08:21] 
-[22:08:21] --- Level 2, Round 1/8 ---
-[22:08:21] Running Agent A (Claude Opus)...
-[22:09:54] Agent a finished in 93s
-[22:09:54] WARNING: Agent a did not produce a message!
-[22:09:54] Agent A turn failed
-[22:09:54] 
-[22:09:54] --- Level 2, Round 2/8 ---
-[22:09:54] Running Agent A (Claude Opus)...
-[22:11:23] Agent a finished in 89s
-[22:11:23] WARNING: Agent a did not produce a message!
-[22:11:23] Agent A turn failed
-[22:11:23] 
-[22:11:23] --- Level 2, Round 3/8 ---
-[22:11:23] Running Agent A (Claude Opus)...
-[22:12:37] Agent a finished in 74s
-[22:12:37] WARNING: Agent a did not produce a message!
-[22:12:37] Agent A turn failed
-[22:12:37] 
-[22:12:37] --- Level 2, Round 4/8 ---
-[22:12:37] Running Agent A (Claude Opus)...
-[22:13:34] Agent a finished in 57s
-[22:13:34] WARNING: Agent a did not produce a message!
-[22:13:34] Agent A turn failed
-[22:13:34] 
-[22:13:34] --- Level 2, Round 5/8 ---
-[22:13:34] Running Agent A (Claude Opus)...
-[22:14:47] Agent a finished in 73s
-[22:14:47] WARNING: Agent a did not produce a message!
-[22:14:47] Agent A turn failed
-[22:14:47] 
-[22:14:47] --- Level 2, Round 6/8 ---
-[22:14:47] Running Agent A (Claude Opus)...
-[22:15:54] Agent a finished in 67s
-[22:15:54] New message: 006-a.txt
-[22:15:54] Content: 1 0.1-0.2
-=1 0.1-0.2
-2 2.0-2.1
-=2 2.0-2.1
-[22:15:54] Delivered (noised):  0.1-0.2
-=10.10.2
-2 2.0-2.1
-=2 2.0-2-1
-[22:15:54] Running Agent B (Codex GPT)...
-[22:15:56] Agent b finished in 2s
-[22:15:56] WARNING: Agent b did not produce a message!
-[22:15:56] Agent B turn failed
-[22:15:56] 
-[22:15:56] --- Level 2, Round 7/8 ---
-[22:15:56] Running Agent A (Claude Opus)...
-[22:16:43] Agent a finished in 47s
-[22:16:43] New message: 007-a.txt
-[22:16:43] Content: 1 0.1-0.2
-2 2.0-2.1
-=1 0.2
-=2 2.1
-[22:16:43] Delivered (noised): 1 0.1-0.2
-2 2.0-2.1
-=11 0.2
-= 2.1
-[22:16:43] Running Agent B (Codex GPT)...
-[22:16:45] Agent b finished in 2s
-[22:16:45] WARNING: Agent b did not produce a message!
-[22:16:45] Agent B turn failed
-[22:16:45] 
-[22:16:45] --- Level 2, Round 8/8 ---
-[22:16:45] Running Agent A (Claude Opus)...
-[22:17:38] Agent a finished in 53s
-[22:17:38] New message: 008-a.txt
-[22:17:38] Content: 1 0.1-0.2
-2 2.0-2.1
-=1 0.2 =2 2.1
-[22:17:38] Delivered (noised): 2 0.0-0.2
-2 2.0-.1
-=1 0.2 =2 .2.1
-[22:17:38] Running Agent B (Codex GPT)...
-[22:17:40] Agent b finished in 2s
-[22:17:40] WARNING: Agent b did not produce a message!
-[22:17:40] Agent B turn failed
-[22:17:40] 
-[22:17:40] ######### LEVEL 3 #########
-[22:17:40] Loading level 3: 03-error-correction.json
-[22:17:40] 
-[22:17:40] --- Level 3, Round 1/8 ---
-[22:17:40] Running Agent A (Claude Opus)...
-[22:18:41] Agent a finished in 61s
-[22:18:41] WARNING: Agent a did not produce a message!
-[22:18:41] Agent A turn failed
-[22:18:41] 
-[22:18:41] --- Level 3, Round 2/8 ---
-[22:18:41] Running Agent A (Claude Opus)...
-[22:20:10] Agent a finished in 89s
-[22:20:10] WARNING: Agent a did not produce a message!
-[22:20:10] Agent A turn failed
-[22:20:10] 
-[22:20:10] --- Level 3, Round 3/8 ---
-[22:20:10] Running Agent A (Claude Opus)...
-[22:22:39] Agent a finished in 149s
-[22:22:39] WARNING: Agent a did not produce a message!
-[22:22:39] Agent A turn failed
-[22:22:39] 
-[22:22:39] --- Level 3, Round 4/8 ---
-[22:22:39] Running Agent A (Claude Opus)...
-[22:23:44] Agent a finished in 65s
-[22:23:44] WARNING: Agent a did not produce a message!
-[22:23:44] Agent A turn failed
-[22:23:44] 
-[22:23:44] --- Level 3, Round 5/8 ---
-[22:23:44] Running Agent A (Claude Opus)...
-[22:24:39] Agent a finished in 55s
-[22:24:39] WARNING: Agent a did not produce a message!
-[22:24:39] Agent A turn failed
-[22:24:39] 
-[22:24:39] --- Level 3, Round 6/8 ---
-[22:24:39] Running Agent A (Claude Opus)...
-[22:25:20] Agent a finished in 41s
-[22:25:20] New message: 006-a.txt
-[22:25:20] Content: 7 3 9 - -
-=7 3 9 - -
-=7 3 9 - -
-=7 3 9 - -
-[22:25:20] Delivered (noised): 7 9 - -73=99- 
-77 33 9 9- -3- -3  - -7
-[22:25:20] Running Agent B (Codex GPT)...
-[22:25:22] Agent b finished in 2s
-[22:25:22] WARNING: Agent b did not produce a message!
-[22:25:22] Agent B turn failed
-[22:25:22] 
-[22:25:22] --- Level 3, Round 7/8 ---
-[22:25:22] Running Agent A (Claude Opus)...
-[22:26:05] Agent a finished in 43s
-[22:26:05] New message: 007-a.txt
-[22:26:05] Content: 7 3 9 - -
-=7 3 9 - -
-7 3 9 - -
-=7 3 9 - -
-[22:26:06] Delivered (noised): 7797 99- --
-=7 =  7 -= 3- - =- 3  -=-
-[22:26:06] Running Agent B (Codex GPT)...
-[22:26:08] Agent b finished in 2s
-[22:26:08] WARNING: Agent b did not produce a message!
-[22:26:08] Agent B turn failed
-[22:26:08] 
-[22:26:08] --- Level 3, Round 8/8 ---
-[22:26:08] Running Agent A (Claude Opus)...
-[22:26:55] Agent a finished in 47s
-[22:26:55] New message: 015-a.txt
-[22:26:55] Content: 7 3 9 - -
-=7 3 9 - -
-7 3 9 - -
-=7 3 9 - -
-[22:26:55] Delivered (noised): -7 39 -9
-=7-379 - -97 -==- =7 3  - -7
-[22:26:55] Running Agent B (Codex GPT)...
-[22:26:57] Agent b finished in 2s
-[22:26:57] WARNING: Agent b did not produce a message!
-[22:26:57] Agent B turn failed
-[22:26:57] 
-[22:26:57] ######### LEVEL 4 #########
-[22:26:57] Loading level 4: 04-grammar-bootstrap.json
-[22:26:57] 
-[22:26:57] --- Level 4, Round 1/8 ---
-[22:26:57] Running Agent A (Claude Opus)...
-[22:28:08] Agent a finished in 71s
-[22:28:08] WARNING: Agent a did not produce a message!
-[22:28:08] Agent A turn failed
-[22:28:08] 
-[22:28:08] --- Level 4, Round 2/8 ---
-[22:28:08] Running Agent A (Claude Opus)...
-[22:29:17] Agent a finished in 68s
-[22:29:17] WARNING: Agent a did not produce a message!
-[22:29:17] Agent A turn failed
-[22:29:17] 
-[22:29:17] --- Level 4, Round 3/8 ---
-[22:29:17] Running Agent A (Claude Opus)...
-[22:30:29] Agent a finished in 72s
-[22:30:29] New message: 003-a.txt
-[22:30:29] Content: 1100 1301 2302
-1212 3210
-2220 2121 3122
-=8
-[22:30:29] Delivered (noised): 1100 1301 20302
-1212 3210
-2220 201821 3822
-=8
-[22:30:30] Running Agent B (Codex GPT)...
-[22:30:32] Agent b finished in 2s
-[22:30:32] WARNING: Agent b did not produce a message!
-[22:30:32] Agent B turn failed
-[22:30:32] 
-[22:30:32] --- Level 4, Round 4/8 ---
-[22:30:32] Running Agent A (Claude Opus)...
-[22:31:53] Agent a finished in 81s
-[22:31:53] New message: 004-a.txt
-[22:31:53] Content: 1100|1301|2302
-1212|3210
-2220|2121|3122
-=8
-[22:31:53] Delivered (noised): 1100|13081|232
-1=812|3210
-2220|2121|312
-=8
-[22:31:53] Running Agent B (Codex GPT)...
-[22:31:56] Agent b finished in 3s
-[22:31:56] WARNING: Agent b did not produce a message!
-[22:31:56] Agent B turn failed
-[22:31:56] 
-[22:31:56] --- Level 4, Round 5/8 ---
-[22:31:56] Running Agent A (Claude Opus)...
-[22:32:45] Agent a finished in 49s
-[22:32:45] New message: 005-a.txt
-[22:32:45] Content: 1100 1301 2302
-1212 3210
-2220 2121 3122
-=8
-[22:32:45] Delivered (noised): 11021 131 2302
-1212 3210
-2220 21213 3128
-=8
-[22:32:45] Running Agent B (Codex GPT)...
-[22:32:47] Agent b finished in 2s
-[22:32:47] WARNING: Agent b did not produce a message!
-[22:32:47] Agent B turn failed
-[22:32:47] 
-[22:32:47] --- Level 4, Round 6/8 ---
-[22:32:47] Running Agent A (Claude Opus)...
-[22:33:34] Agent a finished in 47s
-[22:33:34] New message: 006-a.txt
-[22:33:34] Content: 1100 1301 2302
-1212 3210
-2220 2121 3122
-=8
-[22:33:34] Delivered (noised): 11001131 2302
-81232 3210
-2220 2121 3122
-=8
-[22:33:35] Running Agent B (Codex GPT)...
-[22:33:37] Agent b finished in 2s
-[22:33:37] WARNING: Agent b did not produce a message!
-[22:33:37] Agent B turn failed
-[22:33:37] 
-[22:33:37] --- Level 4, Round 7/8 ---
-[22:33:37] Running Agent A (Claude Opus)...
-[22:34:19] Agent a finished in 42s
-[22:34:19] New message: 007-a.txt
-[22:34:19] Content: 1100 1301 2302
-1212 3210
-2220 2121 3122
-=8
-[22:34:19] Delivered (noised): 11030 130 2302
-012323210
-2220 2121 3122
-=8
-[22:34:19] Running Agent B (Codex GPT)...
-[22:34:21] Agent b finished in 2s
-[22:34:21] WARNING: Agent b did not produce a message!
-[22:34:21] Agent B turn failed
-[22:34:21] 
-[22:34:21] --- Level 4, Round 8/8 ---
-[22:34:21] Running Agent A (Claude Opus)...
-[22:35:05] Agent a finished in 44s
-[22:35:05] New message: 008-a.txt
-[22:35:05] Content: 1100 1301 2302
-1212 3210
-2220 2121 3122
-=8
-[22:35:05] Delivered (noised): 1100 31301202021212 3210
-2220 21213122
-=8
-[22:35:05] Running Agent B (Codex GPT)...
-[22:35:08] Agent b finished in 3s
-[22:35:08] WARNING: Agent b did not produce a message!
-[22:35:08] Agent B turn failed
-[22:35:08] 
-[22:35:08] ######### LEVEL 5 #########
-[22:35:08] Loading level 5: 05-conditional.json
-[22:35:08] 
-[22:35:08] --- Level 5, Round 1/8 ---
-[22:35:08] Running Agent A (Claude Opus)...
-[22:36:22] Agent a finished in 74s
-[22:36:22] WARNING: Agent a did not produce a message!
-[22:36:22] Agent A turn failed
-[22:36:22] 
-[22:36:22] --- Level 5, Round 2/8 ---
-[22:36:22] Running Agent A (Claude Opus)...
-[22:37:09] Agent a finished in 47s
-[22:37:09] WARNING: Agent a did not produce a message!
-[22:37:09] Agent A turn failed
-[22:37:09] 
-[22:37:09] --- Level 5, Round 3/8 ---
-[22:37:09] Running Agent A (Claude Opus)...
-[22:37:50] Agent a finished in 41s
-[22:37:50] WARNING: Agent a did not produce a message!
-[22:37:50] Agent A turn failed
-[22:37:50] 
-[22:37:50] --- Level 5, Round 4/8 ---
-[22:37:51] Running Agent A (Claude Opus)...
-[22:39:13] Agent a finished in 82s
-[22:39:13] WARNING: Agent a did not produce a message!
-[22:39:13] Agent A turn failed
-[22:39:13] 
-[22:39:13] --- Level 5, Round 5/8 ---
-[22:39:13] Running Agent A (Claude Opus)...
-[22:40:22] Agent a finished in 69s
-[22:40:22] WARNING: Agent a did not produce a message!
-[22:40:22] Agent A turn failed
-[22:40:22] 
-[22:40:22] --- Level 5, Round 6/8 ---
-[22:40:22] Running Agent A (Claude Opus)...
-[22:41:08] Agent a finished in 46s
-[22:41:08] WARNING: Agent a did not produce a message!
-[22:41:08] Agent A turn failed
-[22:41:08] 
-[22:41:08] --- Level 5, Round 7/8 ---
-[22:41:08] Running Agent A (Claude Opus)...
-[22:41:59] Agent a finished in 51s
-[22:41:59] New message: 001-a.txt
-[22:41:59] Content: 72+70|0|1
-=72+70|0|1
-72+70|0|1
-=72+70|0|1
-[22:42:00] Delivered (noised): 72+70|+|
-=772+72|0|1
-2+0|0|1
-72+700|1
-[22:42:00] Running Agent B (Codex GPT)...
-[22:42:02] Agent b finished in 2s
-[22:42:02] WARNING: Agent b did not produce a message!
-[22:42:02] Agent B turn failed
-[22:42:02] 
-[22:42:02] --- Level 5, Round 8/8 ---
-[22:42:02] Running Agent A (Claude Opus)...
-[22:43:07] Agent a finished in 65s
-[22:43:07] WARNING: Agent a did not produce a message!
-[22:43:07] Agent A turn failed
-[22:43:07] 
-[22:43:07] ######### LEVEL 6 #########
-[22:43:07] Loading level 6: 06-negation.json
-[22:43:07] 
-[22:43:07] --- Level 6, Round 1/8 ---
-[22:43:07] Running Agent A (Claude Opus)...
-[22:44:08] Agent a finished in 61s
-[22:44:08] WARNING: Agent a did not produce a message!
-[22:44:08] Agent A turn failed
-[22:44:08] 
-[22:44:08] --- Level 6, Round 2/8 ---
-[22:44:08] Running Agent A (Claude Opus)...
-[22:44:59] Agent a finished in 51s
-[22:44:59] WARNING: Agent a did not produce a message!
-[22:45:00] Agent A turn failed
-[22:45:00] 
-[22:45:00] --- Level 6, Round 3/8 ---
-[22:45:00] Running Agent A (Claude Opus)...
-[22:45:50] Agent a finished in 50s
-[22:45:50] WARNING: Agent a did not produce a message!
-[22:45:50] Agent A turn failed
-[22:45:50] 
-[22:45:50] --- Level 6, Round 4/8 ---
-[22:45:50] Running Agent A (Claude Opus)...
-[22:46:57] Agent a finished in 67s
-[22:46:57] WARNING: Agent a did not produce a message!
-[22:46:57] Agent A turn failed
-[22:46:57] 
-[22:46:57] --- Level 6, Round 5/8 ---
-[22:46:57] Running Agent A (Claude Opus)...
-[22:47:54] Agent a finished in 57s
-[22:47:55] WARNING: Agent a did not produce a message!
-[22:47:55] Agent A turn failed
-[22:47:55] 
-[22:47:55] --- Level 6, Round 6/8 ---
-[22:47:55] Running Agent A (Claude Opus)...
-[22:48:42] Agent a finished in 47s
-[22:48:42] WARNING: Agent a did not produce a message!
-[22:48:42] Agent A turn failed
-[22:48:42] 
-[22:48:42] --- Level 6, Round 7/8 ---
-[22:48:42] Running Agent A (Claude Opus)...
-[22:49:30] Agent a finished in 48s
-[22:49:30] WARNING: Agent a did not produce a message!
-[22:49:30] Agent A turn failed
-[22:49:30] 
-[22:49:30] --- Level 6, Round 8/8 ---
-[22:49:30] Running Agent A (Claude Opus)...
-[22:50:13] Agent a finished in 43s
-[22:50:13] WARNING: Agent a did not produce a message!
-[22:50:13] Agent A turn failed
-[22:50:13] 
-[22:50:13] ######### LEVEL 7 #########
+[00:41:41] REFEREE: PASS ✅
+[00:41:41] LEVEL 2 COMPLETE in 2 rounds!
+[00:41:41] 
+[00:41:41] ######### LEVEL 3 #########
+[00:41:41] Loading level 3: 03-error-correction.json
+[00:41:41] 
+[00:41:41] --- Level 3, Round 1/6 ---
+[00:41:41] Running Agent A (Claude Opus)...
+[00:42:26] Agent a finished in 45s
+[00:42:26] New message: 001-a.txt
+[00:42:26] Content: 7.3.9|7.3.9|7.3.9
+[00:42:26] Delivered (noised): 7.39.9|7.3..9||7.3.
+[00:42:26] Running Agent B (Codex GPT)...
+[00:45:27] Agent b finished in 181s
+[00:45:27] New message: 002-b.txt
+[00:45:27] Content: ()/[][][][][][]
+()/[][][][][][]
+()/[][][][][][]
+[00:45:27] Delivered (noised): [)/][][][][][]
+()[][][][][][]
+([)/[][][]](][[
+[00:45:27] Agent B submitted answer: 73916
+[00:45:27] REFEREE: PASS ✅
+[00:45:27] LEVEL 3 COMPLETE in 1 rounds!
+[00:45:27] 
+[00:45:27] ######### LEVEL 4 #########
+[00:45:27] Loading level 4: 04-grammar-bootstrap.json
+[00:45:27] 
+[00:45:27] --- Level 4, Round 1/6 ---
+[00:45:27] Running Agent A (Claude Opus)...
+[00:46:29] Agent a finished in 62s
+[00:46:29] New message: 001-a.txt
+[00:46:29] Content: 1100|1212|2121|2302|3210|3122|1301|2220
+[00:46:29] Delivered (noised): 1100|112|211|232|3010|3322|230112|220
+[00:46:29] Running Agent B (Codex GPT)...
+[00:50:21] Agent b finished in 232s
+[00:50:21] New message: 002-b.txt
+[00:50:21] Content: ()()()()()()()()/[][][]
+()()()()()()()()/[][][]
+[00:50:21] Delivered (noised): ()()()()()())()/[][][]
+()(])()()()[)()()/[][][]
+[00:50:21] 
+[00:50:21] --- Level 4, Round 2/6 ---
+[00:50:21] Running Agent A (Claude Opus)...
+[00:51:20] Agent a finished in 59s
+[00:51:20] New message: 003-a.txt
+[00:51:20] Content: 1100|1212|2121|2302|3210|3122|1301|2220
+[00:51:20] Delivered (noised): |110|1212|2131|23121210|3122|1301|2230
+[00:51:20] Running Agent B (Codex GPT)...
+[00:54:17] Agent b finished in 177s
+[00:54:17] New message: 004-b.txt
+[00:54:17] Content: ()()()()()()()()/[][][][]()()()()()()()()/[][][][]
+[00:54:17] Delivered (noised): ()()()())()()()[/[][][][]()()()()()()()(]/[][][]]
+[00:54:17] 
+[00:54:17] --- Level 4, Round 3/6 ---
+[00:54:18] Running Agent A (Claude Opus)...
+[00:55:26] Agent a finished in 68s
+[00:55:26] New message: 005-a.txt
+[00:55:26] Content: 1100|1212|2121|2302|3210|3122|1301|2220
+[00:55:26] Delivered (noised): 110||1212|2121|230|32102|31212|1301|20
+[00:55:26] Running Agent B (Codex GPT)...
+[01:00:54] Agent b finished in 328s
+[01:00:54] New message: 006-b.txt
+[01:00:54] Content: ()()()()()()()()/[][][][]
+()()()/[][][][][]
+[01:00:54] Delivered (noised): ()()/)()()()()()/[][][](]
+()()()/[][][][]
+[01:00:54] 
+[01:00:54] --- Level 4, Round 4/6 ---
+[01:00:54] Running Agent A (Claude Opus)...
+[01:02:05] Agent a finished in 71s
+[01:02:05] New message: 007-a.txt
+[01:02:05] Content: 1100|1212|2121|2302|3210|3122|1301|2220
+[01:02:05] Delivered (noised): 11010|12102|2121|33|3210|2122|1311|2220
+[01:02:06] Running Agent B (Codex GPT)...
+[01:06:43] Agent b finished in 277s
+[01:06:43] New message: 008-b.txt
+[01:06:43] Content: ()()()()()()()()/[][][][]
+()()()()/[][][][]
+[01:06:43] Delivered (noised): ))((()()()()()/[][][][]
+()(()(/[][[][]
+[01:06:43] 
+[01:06:43] --- Level 4, Round 5/6 ---
+[01:06:43] Running Agent A (Claude Opus)...
+[01:07:53] Agent a finished in 70s
+[01:07:53] New message: 009-a.txt
+[01:07:53] Content: 1100|1212|2121|2302|3210|3122|1301|2220
+[01:07:53] Delivered (noised): |10|1212|2121|23022321|0122|130132220
+[01:07:53] Running Agent B (Codex GPT)...
+[01:13:00] Agent b finished in 307s
+[01:13:00] New message: 010-b.txt
+[01:13:00] Content: ()()()()()()()()/[][][][][][][][]
+[01:13:00] Delivered (noised): (/[()()()()()())/[][][]][])][][]
+[01:13:00] 
+[01:13:00] --- Level 4, Round 6/6 ---
+[01:13:00] Running Agent A (Claude Opus)...
+[01:14:23] Agent a finished in 83s
+[01:14:23] New message: 011-a.txt
+[01:14:23] Content: 1100
+1212
+2121
+2302
+3210
+3122
+1301
+2220
+[01:14:23] Delivered (noised): 1100
+1222
+2121
+2302
+32103122
+1301
+2220
+[01:14:23] Running Agent B (Codex GPT)...
+[01:19:12] Agent b finished in 289s
+[01:19:12] New message: 012-b.txt
+[01:19:12] Content: ###
+###
+###
+[01:19:12] Delivered (noised): ###
+###
+###
+[01:19:12] Agent B submitted answer: 1100
+1212
+2121
+2302
+3210
+3122
+1301
+2220
+[01:19:12] REFEREE L04: 0/4 key objects matched
+[01:19:12] REFEREE: FAIL ❌ (answer exists but incorrect)
+[01:19:12] Level 4: max rounds reached
+[01:19:12] 
+[01:19:12] ######### LEVEL 5 #########
+[01:19:12] Loading level 5: 05-conditional.json
+[01:19:12] 
+[01:19:12] --- Level 5, Round 1/6 ---
+[01:19:12] Running Agent A (Claude Opus)...
+[01:20:05] Agent a finished in 53s
+[01:20:05] New message: 001-a.txt
+[01:20:05] Content: 72|70|+
+72|70|+
+72|70|+
+[01:20:05] Delivered (noised): |2|700||
+72||70+
+02|7+0||
+[01:20:05] Running Agent B (Codex GPT)...
+[01:23:20] Agent b finished in 195s
+[01:23:20] New message: 002-b.txt
+[01:23:20] Content: >>>>>
+>>>>>
+>>>>>
+[01:23:20] Delivered (noised): >>>>>
+>>>>
+>>>
+[01:23:20] Agent B submitted answer: fan=on
+[01:23:20] REFEREE: PASS ✅
+[01:23:20] LEVEL 5 COMPLETE in 1 rounds!
+[01:23:20] 
+[01:23:20] ######### LEVEL 6 #########
+[01:23:20] Loading level 6: 06-negation.json
+[01:23:20] 
+[01:23:21] --- Level 6, Round 1/6 ---
+[01:23:21] Running Agent A (Claude Opus)...
+[01:24:06] Agent a finished in 45s
+[01:24:06] New message: 001-a.txt
+[01:24:06] Content: -2|-4 -2|-4 -2|-4
+[01:24:07] Delivered (noised): -2|-4 -22|442|-4
+[01:24:07] Running Agent B (Codex GPT)...
+[01:26:29] Agent b finished in 142s
+[01:26:29] New message: 002-b.txt
+[01:26:29] Content: [][#][][#][]
+[][#][][#][]
+[][#][][#][]
+[01:26:29] Delivered (noised): [][#][][[#][]
+[][#][][##][]
+[][#][][#][]
+[01:26:29] 
+[01:26:29] --- Level 6, Round 2/6 ---
+[01:26:29] Running Agent A (Claude Opus)...
+[01:27:39] Agent a finished in 70s
+[01:27:39] New message: 003-a.txt
+[01:27:39] Content: +1|+3|+5 +1|+3|+5 +1|+3|+5
+[01:27:39] Delivered (noised): ++1|+35+3 +1|+|3|+5 |1|+3+5
+[01:27:39] Running Agent B (Codex GPT)...
+[01:30:47] Agent b finished in 188s
+[01:30:47] New message: 004-b.txt
+[01:30:47] Content: [] [#] [] [#] []
+[] [#][] [#] []
+[] [#] [] [#] []
+[01:30:47] Delivered (noised): []#[#] [] [#] []
+[] [#][] [#] []
+]] [#] [] [#] ]
+[01:30:47] Agent B submitted answer: 1
+3
+5
+[01:30:47] Agent A submitted answer: 1, 3, 5
+[01:30:47] REFEREE: PASS ✅
+[01:30:47] LEVEL 6 COMPLETE in 2 rounds!
+[01:30:47] 
+[01:30:47] ######### LEVEL 7 #########

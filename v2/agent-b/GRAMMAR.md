@@ -1,31 +1,45 @@
 # Grammar Rules
 
-## Agent A notation
-- A is describing a `3 x 3` grid. `3.3`, `3=3`, and later compact forms beginning with `3` all look like dimension markers.
-- `0` is A's empty-cell marker.
-- `1` and `2` are two distinct non-empty cell types.
-- A appears to send plain row-major digits, while separators such as space, `.`, `=`, and `|` are noisy and not reliable.
-- Strongest evidence so far:
-  - `messages/005-a.txt` line 2 is a clean `0 1 0`.
-  - `messages/003-a.txt` line 3 contains the exact digit run `000200`.
-  - `messages/005-a.txt` line 3 also contains `000200` and seems to restate the full payload as a lightly corrupted `3=010=000|200`.
-- Current best reconstruction of A's intended grid is:
-  - Row 1: `0 1 0`
-  - Row 2: `0 0 0`
-  - Row 3: `2 0 0`
-- Confidence is fairly high. The earlier centered-`2` hypothesis is now weaker than the repeated `000200` evidence.
+## Round focus
 
-## Agent B notation
-- Agent B uses direct spatial rows: one line per grid row.
-- Each cell is a 2-character token.
-- Current token mapping:
-  - `[]` = empty cell
-  - `<>` = first distinct non-empty cell, matching A's `1`
-  - `()` = second distinct non-empty cell, matching A's `2`
-- Spaces between tokens are optional and only improve readability.
-- `messages/002-b.txt` meant: "I infer a 3 x 3 grid, but I do not trust the cell decode yet." Some bracket loss there may itself be corruption.
-- `messages/004-b.txt` encoded the older centered-`2` hypothesis and is now superseded.
-- `messages/006-b.txt` encodes the current best grid guess:
-  - Row 1: `[] <> []`
-  - Row 2: `[] [] []`
-  - Row 3: `() [] []`
+- Current task is to infer which of 5 beliefs are false.
+- No `world-state.json` is present in this directory, so current knowledge
+  is only about belief indices, not belief text.
+- Incoming A messages are `messages/001-a.txt` and `messages/003-a.txt`.
+
+## A notation hypothesis
+
+- Observed content:
+  `-2|-4 -22|442|-4`
+- Best current read is that A is marking belief indices `2` and `4` as
+  false.
+- `-N` likely means "belief N is false".
+- `|` and the space likely separate items or repeated chunks.
+- Extra `2`/`4` digits in the second chunk are likely redundancy plus
+  noise corruption, not new indices.
+- Second observed content:
+  `++1|+35+3 +1|+|3|+5 |1|+3+5`
+- Best current read is that A is also able to express true beliefs, with
+  `+N` meaning "belief N is true".
+- The second message is most plausibly three noisy repeats of
+  `+1|+3|+5`.
+- This strongly confirms the earlier read that beliefs `2` and `4` are
+  false and the remaining true belief indices are `1`, `3`, and `5`.
+- Confidence is now high.
+
+## B notation
+
+- B sends five left-to-right slots, one per belief index.
+- `[#]` marks a belief B currently thinks is false.
+- `[]` marks an unflagged belief.
+- Spaces between slots are optional separators for noise tolerance.
+- Repeating the full row on multiple lines is for noise tolerance.
+
+## Sent messages
+
+- `messages/002-b.txt` sends three copies of:
+  `[][#][][#][]`
+- This means "beliefs 2 and 4 are false" under the current B hypothesis.
+- `messages/004-b.txt` sends three copies of:
+  `[] [#] [] [#] []`
+- This is the same belief pattern with explicit slot separators.

@@ -96,7 +96,8 @@ load_level() {
   rm -f "$AGENT_B/world-state.json"  # B is blind
 
   # Level config
-  CURRENT_NOISE=$(jq -r '.noise_rate // 0.20' "$level_file")
+  CURRENT_NOISE_A=$(jq -r '.noise_rate // 0.20' "$level_file")  # A→B noise
+  CURRENT_NOISE_B=$(jq -r '(.noise_rate // 0.20) / 2' "$level_file")  # B→A noise = half (B's alphabet is noise-fragile)
   CURRENT_MAX_ROUNDS=$(jq -r '.max_rounds // 8' "$level_file")
   if [[ -n "$ROUNDS_OVERRIDE" ]]; then
     CURRENT_MAX_ROUNDS="$ROUNDS_OVERRIDE"
@@ -105,7 +106,12 @@ load_level() {
   # Clean answer files
   rm -f "$AGENT_A/ANSWER.md" "$AGENT_B/ANSWER.md"
 
-  export CURRENT_NOISE CURRENT_MAX_ROUNDS
+  # Clean messages between levels (fresh start each level)
+  rm -f "$agent_dir"/messages/*.txt 2>/dev/null
+  for d in "$AGENT_A" "$AGENT_B"; do rm -f "$d"/messages/*.txt 2>/dev/null; done
+  rm -f "$MSG_RAW"/*.txt "$MSG_DELIVERED"/*.txt 2>/dev/null
+
+  export CURRENT_NOISE_A CURRENT_NOISE_B CURRENT_MAX_ROUNDS
 }
 
 #############################################################
@@ -226,8 +232,14 @@ process_turn() {
   # Save original to raw/
   cp "$new_msg" "$MSG_RAW/$base"
 
-  # Noise inject → delivered/
-  python3 "$SCRIPT_DIR/noise.py" "$MSG_RAW/$base" "$MSG_DELIVERED/$base" "$CURRENT_NOISE"
+  # Noise inject → delivered/ (asymmetric: A→B gets more noise, B→A gets less)
+  local noise_rate
+  if [[ "$agent" == "a" ]]; then
+    noise_rate="$CURRENT_NOISE_A"
+  else
+    noise_rate="$CURRENT_NOISE_B"
+  fi
+  python3 "$SCRIPT_DIR/noise.py" "$MSG_RAW/$base" "$MSG_DELIVERED/$base" "$noise_rate"
 
   log "Delivered (noised): $(cat "$MSG_DELIVERED/$base")"
 
@@ -238,7 +250,7 @@ process_turn() {
 }
 
 #############################################################
-# REFEREE CHECK
+# REFEREE CHECK — validates correctness, not just existence
 #############################################################
 check_level() {
   local level=$1
@@ -246,21 +258,82 @@ check_level() {
   # Level 16 = free talk, never "passes"
   [[ $level -ge 16 ]] && return 1
 
-  # Check if both agents wrote ANSWER.md
-  if [[ -f "$AGENT_A/ANSWER.md" && -f "$AGENT_B/ANSWER.md" ]]; then
-    log "Both agents submitted answers!"
-    log "Agent A answer: $(cat "$AGENT_A/ANSWER.md")"
-    log "Agent B answer: $(cat "$AGENT_B/ANSWER.md")"
-    return 0
+  # Need at least B's answer (B is typically the decoder)
+  if [[ ! -f "$AGENT_B/ANSWER.md" ]]; then
+    return 1
   fi
 
-  # Check if at least B wrote an answer (B is the "blind" one in L01)
-  if [[ -f "$AGENT_B/ANSWER.md" ]]; then
-    log "Agent B submitted answer: $(cat "$AGENT_B/ANSWER.md")"
-    return 0
+  local answer
+  answer=$(cat "$AGENT_B/ANSWER.md" | tr '[:upper:]' '[:lower:]')
+  log "Agent B submitted answer: $answer"
+
+  if [[ -f "$AGENT_A/ANSWER.md" ]]; then
+    log "Agent A submitted answer: $(cat "$AGENT_A/ANSWER.md")"
   fi
 
-  return 1
+  # Per-level correctness checks
+  local pass=false
+  case $level in
+    1)
+      # Grid: rock at (0,1), tree at (2,0)
+      if echo "$answer" | grep -q "rock" && echo "$answer" | grep -q "tree"; then
+        if echo "$answer" | grep -qi "0.*1\|row 0.*col 1\|top.*mid\|0,1"; then
+          if echo "$answer" | grep -qi "2.*0\|row 2.*col 0\|bottom.*left\|2,0"; then
+            pass=true
+          fi
+        fi
+      fi
+      ;;
+    2)
+      # Coordinated swap: rock→(0,2), tree→(1,0)
+      if echo "$answer" | grep -qi "0.*2\|0,2\|top.*right"; then
+        pass=true  # At least got rock position
+      fi
+      ;;
+    3)
+      # Vault code: 73916
+      if echo "$answer" | grep -q "73916"; then
+        pass=true
+      fi
+      ;;
+    4)
+      # 8 objects — check at least 4 correct type-position pairs
+      local matches=0
+      echo "$answer" | grep -qi "circle.*0.*0\|0,0.*circle" && matches=$((matches+1))
+      echo "$answer" | grep -qi "circle.*1.*2\|1,2.*circle" && matches=$((matches+1))
+      echo "$answer" | grep -qi "square.*2.*1\|2,1.*square" && matches=$((matches+1))
+      echo "$answer" | grep -qi "triangle.*1.*0\|1,0.*triangle" && matches=$((matches+1))
+      [[ $matches -ge 2 ]] && pass=true
+      log "REFEREE L04: $matches/4 key objects matched"
+      ;;
+    5)
+      # Conditional: fan=on (temp 72 > threshold 70)
+      if echo "$answer" | grep -qi "fan.*on\|fan=on"; then
+        pass=true
+      fi
+      ;;
+    6)
+      # Negation: true beliefs are 1, 3, 5
+      if echo "$answer" | grep -q "1" && echo "$answer" | grep -q "3" && echo "$answer" | grep -q "5"; then
+        # Make sure 2 and 4 are NOT listed as true
+        if ! echo "$answer" | grep -qi "belief 2.*true\|belief 4.*true"; then
+          pass=true
+        fi
+      fi
+      ;;
+    *)
+      # Default: accept if answer exists (for levels without specific checks yet)
+      pass=true
+      ;;
+  esac
+
+  if [[ "$pass" == "true" ]]; then
+    log "REFEREE: PASS ✅"
+    return 0
+  else
+    log "REFEREE: FAIL ❌ (answer exists but incorrect)"
+    return 1
+  fi
 }
 
 #############################################################

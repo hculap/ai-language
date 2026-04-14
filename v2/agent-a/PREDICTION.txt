@@ -1,4 +1,0 @@
-B's message will be corrupted beyond readability, as in all prior levels (1-5).
-Expected: random symbols outside valid alphabet such as ~ { } [ ] ( ) ^ / \ < > @
-No usable content will be extractable from B's response.
-B may be attempting to acknowledge or reply but noise renders it unreadable.

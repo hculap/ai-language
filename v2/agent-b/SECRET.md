@@ -1,1 +1,1 @@
-There are 5 beliefs in the world. Some are false. Agent A knows which ones. Based on A's messages, identify the false beliefs and write ANSWER.md listing ONLY the true beliefs (the ones A did NOT mark as false).
+You CANNOT see the world state. Agent A can. They will try to communicate the grid layout to you using their symbolic notation. Your job: decode their messages and reconstruct the grid. When you think you know the layout, write ANSWER.md describing what is at each position.

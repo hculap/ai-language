@@ -1,6 +1,0 @@
-Done. Here's what I did for Level 6, Round 1:
-
-- **SECRET.md task**: 5 beliefs exist; beliefs 2 and 4 are FALSE. Tell B which to delete.
-- **Message 015-a.txt**: `1+|2-|3+|4-|5+` (triple redundancy) — each belief ID with `+` (true/keep) or `-` (false/delete). 47 characters total, well within the 50-char limit.
-- **GRAMMAR.md**: Added negation notation rules for level 6 and updated coordination status.
-- **PREDICTION.txt**: B's response will be corrupted as in all prior levels — no readable content expected.

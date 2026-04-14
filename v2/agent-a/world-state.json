@@ -1,29 +1,19 @@
 {
-  "beliefs": [
-    {
-      "id": 1,
-      "content": "circle at top",
-      "true": true
-    },
-    {
-      "id": 2,
-      "content": "square at center",
-      "true": false
-    },
-    {
-      "id": 3,
-      "content": "triangle at bottom",
-      "true": true
-    },
-    {
-      "id": 4,
-      "content": "red color everywhere",
-      "true": false
-    },
-    {
-      "id": 5,
-      "content": "three objects total",
-      "true": true
-    }
+  "grid": [
+    [
+      "empty",
+      "rock",
+      "empty"
+    ],
+    [
+      "empty",
+      "empty",
+      "empty"
+    ],
+    [
+      "tree",
+      "empty",
+      "empty"
+    ]
   ]
 }

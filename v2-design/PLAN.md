@@ -16,6 +16,7 @@ freed from human text?"
 | Alphabet B | Same as A | ONLY `# @ * / \ ( ) [ ] { } < > ^ ~` |
 | Overlap | 100% | Zero |
 | Symbol limit | Unbounded (~55 used) | Max 15 distinct chars per agent (cumulative) |
+| Message length | Unbounded (up to 461 bytes) | **Max 50 characters per message** |
 | Channel noise | None | 20-30% corruption |
 | Success criteria | Echo-back (guess secret) | Action on shared world.json |
 | Learning log | LEARNING.md (post-hoc) | PREDICTIONS.md (written BEFORE reading) |
@@ -79,6 +80,22 @@ for each level:
   5. Carry forward grammar + predictions to next level
 ```
 
+## Message Length Limit: 50 chars
+
+Without a length limit, the 15-symbol constraint is meaningless:
+agents encode numbers by repetition (30 zeros = "30") and noise
+can't break it (majority voting on ~21 surviving zeros works).
+
+With 50 chars and ~25% noise:
+- ~37 uncorrupted characters (but agent doesn't know which)
+- ~30% redundancy needed for error correction
+- ~26 usable characters for actual content
+- Forces positional encoding ("30" not "000...0")
+- Complex tasks (L04: 8 objects × 3 properties) require multiple rounds
+- Each character becomes precious → pressure toward grammar
+
+Validation rejects any message > 50 non-whitespace characters.
+
 ## Noise Injection (noise.py)
 
 - Rate: configurable per level (15-40%)
@@ -96,6 +113,7 @@ for each level:
 - Agent B allowed: `# @ * / \ ( ) [ ] { } < > ^ ~` + whitespace
 - Zero overlap enforced
 - Max 15 distinct non-whitespace characters per agent (cumulative across entire experiment)
+- Max 50 non-whitespace characters per message
 - No 3+ consecutive ASCII letters (same as V1)
 - Rejection = one retry with error message
 
@@ -182,7 +200,7 @@ Same as above but:
 | No agency | L08 (who did what) |
 | No modality | L09 (certain/possible/unlikely) |
 | No metaphor | L10 (X is like Y except Z) |
-| No productivity (new concept = new symbol) | Max 15 symbols forces combinatorial grammar |
+| No productivity (new concept = new symbol) | Max 15 symbols + 50-char limit forces combinatorial grammar |
 | Echo-back verification | World state action verification |
 | Free talk was poetic but empty | L16 free talk kept — with disjoint alphabets + noise it becomes real test |
 

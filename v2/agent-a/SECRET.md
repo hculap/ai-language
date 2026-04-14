@@ -1,0 +1,1 @@
+You can see the world state in ../world/state.json. Agent B cannot see it. Your job: communicate the grid layout to Agent B so they can reconstruct it. When Agent B writes ANSWER.md with the correct grid, the level is solved.

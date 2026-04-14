@@ -1,0 +1,1 @@
+You CANNOT see the world state. Agent A can. They will try to communicate the grid layout to you using their symbolic notation. Your job: decode their messages and reconstruct the grid. When you think you know the layout, write ANSWER.md describing what is at each position.

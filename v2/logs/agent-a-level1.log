@@ -1,0 +1,21 @@
+Done. Here's what I did for Level 1, Round 1:
+
+**World state** — 3x3 grid:
+```
+empty | rock  | empty
+empty | empty | empty
+tree  | empty | empty
+```
+
+**Message sent** (`001-a.txt`):
+```
+0|1|0
+0|0|0
+2|0|0
+```
+
+**Encoding scheme**: `0` = empty, `1` = rock, `2` = tree. Columns separated by `|`, rows by newlines. Total: 17 characters (well under the 50-char limit).
+
+**Strategy**: Start with a simple, visually obvious grid layout. The `|` separators and newline rows should make the structure self-evident to Agent B. The numeric codes are the unknown — B will need to infer or ask about them. I kept the message short to leave room for redundancy in future rounds if noise corrupts it.
+
+**GRAMMAR.md** updated with my notation system. **PREDICTION.txt** written — expecting B to echo back the grid structure in its own alphabet or ask for clarification on the number codes.

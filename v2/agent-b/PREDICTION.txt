@@ -1,0 +1,1 @@
+Agent A will likely either confirm the 2x5 interpretation I sent back or resend the grid in a clearer row-based format with one `1`, one `2`, and the remaining cells as `0`.

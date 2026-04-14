@@ -1,0 +1,29 @@
+[17:10:52] =========================================
+[17:10:52] V2 EMERGENT LANGUAGE EXPERIMENT
+[17:10:52] Agent A: Claude Opus 4.6 (ULTRATHINK)
+[17:10:52] Agent B: Codex GPT 5.4 (deep reasoning)
+[17:10:52] Start level: 1
+[17:10:52] Dry run: false
+[17:10:52] =========================================
+[17:10:52] 
+[17:10:52] ######### LEVEL 1 #########
+[17:10:52] Loading level 1: 01-ground-truth.json
+[17:10:52] 
+[17:10:52] --- Level 1, Round 1/1 ---
+[17:10:52] Running Agent A (Claude Opus)...
+[17:12:48] Agent a finished in 116s
+[17:12:48] New message: 001-a.txt
+[17:12:48] Content: 0|1|0
+0|0|0
+2|0|0
+[17:12:48] Delivered (noised): 0|1||000||0|0|200|
+[17:12:49] Running Agent B (Codex GPT)...
+[17:15:58] Agent b finished in 189s
+[17:15:58] New message: 002-b.txt
+[17:15:58] Content: # @ # # #
+# # * # #
+[17:15:58] Delivered (noised): ## @ # @# #
+#@ ## **# #
+[17:15:58] Level 1: max rounds reached
+[17:15:58] 
+[17:15:58] ######### LEVEL 2 #########

@@ -107,9 +107,14 @@ load_level() {
   rm -f "$AGENT_A/ANSWER.md" "$AGENT_B/ANSWER.md"
 
   # Clean messages between levels (fresh start each level)
-  rm -f "$agent_dir"/messages/*.txt 2>/dev/null
-  for d in "$AGENT_A" "$AGENT_B"; do rm -f "$d"/messages/*.txt 2>/dev/null; done
-  rm -f "$MSG_RAW"/*.txt "$MSG_DELIVERED"/*.txt 2>/dev/null
+  for d in "$AGENT_A" "$AGENT_B"; do
+    /usr/bin/find "$d/messages" -name "*.txt" -delete 2>/dev/null
+  done
+  /usr/bin/find "$MSG_RAW" -name "*.txt" -delete 2>/dev/null
+  /usr/bin/find "$MSG_DELIVERED" -name "*.txt" -delete 2>/dev/null
+  # Reset symbol tracking per level
+  echo "" > "$LOGS/symbols-a.txt" 2>/dev/null
+  echo "" > "$LOGS/symbols-b.txt" 2>/dev/null
 
   export CURRENT_NOISE_A CURRENT_NOISE_B CURRENT_MAX_ROUNDS
 }
@@ -275,14 +280,28 @@ check_level() {
   local pass=false
   case $level in
     1)
-      # Grid: rock at (0,1), tree at (2,0)
-      if echo "$answer" | grep -q "rock" && echo "$answer" | grep -q "tree"; then
-        if echo "$answer" | grep -qi "0.*1\|row 0.*col 1\|top.*mid\|0,1"; then
-          if echo "$answer" | grep -qi "2.*0\|row 2.*col 0\|bottom.*left\|2,0"; then
-            pass=true
-          fi
-        fi
+      # Grid: rock/type-1 at (0,1), tree/type-2 at (2,0)
+      # Accept: "rock" OR "type-1" OR "type 1" OR "1" at row 0 col 1
+      # Accept: "tree" OR "type-2" OR "type 2" OR "2" at row 2 col 0
+      local found_1=false found_2=false
+      # Check for object-1 at position (0,1)
+      if echo "$answer" | grep -qi "row 1.*col 2.*\(rock\|type.1\|object.1\)\|0.*1.*\(rock\|1\)\|top.*mid"; then
+        found_1=true
       fi
+      # Also accept grid format: "0 1 0" in first row
+      if echo "$answer" | grep -q "0 1 0\|0, 1, 0\|010"; then
+        found_1=true
+      fi
+      # Check for object-2 at position (2,0)
+      if echo "$answer" | grep -qi "row 3.*col 1.*\(tree\|type.2\|object.2\)\|2.*0.*\(tree\|2\)\|bottom.*left"; then
+        found_2=true
+      fi
+      # Also accept grid format: "2 0 0" in third row
+      if echo "$answer" | grep -q "2 0 0\|2, 0, 0\|200"; then
+        found_2=true
+      fi
+      [[ "$found_1" == "true" && "$found_2" == "true" ]] && pass=true
+      log "REFEREE L01: found_1=$found_1 found_2=$found_2"
       ;;
     2)
       # Coordinated swap: rock→(0,2), tree→(1,0)

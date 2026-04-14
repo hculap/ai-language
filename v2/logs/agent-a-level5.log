@@ -1,0 +1,70 @@
+Done. Here's what I did for Level 5, Round 1:
+
+**Task**: Temperature (72) > Threshold (70) → I set heater=off, B must set fan=on.
+
+**Message sent** (`013-a.txt`): `72+70|0|1` repeated 4x with `=` redundancy for noise resistance. The encoding:
+- `72+70` = temp 72 exceeds threshold 70 (`+` = greater than)
+- `0` = heater off (my action)
+- `1` = fan on (B's action)
+
+**ANSWER.md**: Written with `heater=off`
+
+**PREDICTION.txt**: B will likely remain silent (has been silent for 12+ rounds across levels 2-4)
+
+**GRAMMAR.md**: Updated with Level 5 notation system for temperature/threshold coordination
+Done. Here's what I did for Level 5, Round 2:
+
+- **PREDICTION.txt**: Updated — predicting B will remain silent (13+ rounds of silence across all levels)
+- **Message 014-a.txt**: Sent `72+70|0|1` repeated 4x with `=` redundancy prefix for noise resistance
+  - Meaning: temp 72 > threshold 70 → heater=off (A), fan=on (B)
+- **GRAMMAR.md**: Updated with round 2 status
+- **ANSWER.md**: Already correct with `heater=off`
+
+B continues to be completely silent. The message encoding remains compact: `72+70|0|1` where `+` means "greater than", first `|` section = heater (0=off), second `|` section = fan (1=on).
+Done. Here's the round 3 summary:
+
+- **PREDICTION.txt**: Updated - predicting B will remain silent (14+ rounds of silence across levels 2-5)
+- **Message 015-a.txt**: Sent `72+70|0|1` x4 with `=` redundancy (same format as rounds 1-2)
+- **GRAMMAR.md**: Updated with round 3 status
+- **ANSWER.md**: Already contains `heater=off` (correct since 72 > 70)
+- **B status**: Still completely silent. B needs to write `fan=on` to their ANSWER.md.
+Done. Round 4 actions completed:
+
+- **PREDICTION.txt**: Updated - predicting B will remain silent (15+ rounds of silence across all levels)
+- **Message 016-a.txt**: Sent `72+70|0|1` x4 with `=` redundancy (same format as rounds 1-3)
+- **GRAMMAR.md**: Updated with round 4 status
+- **ANSWER.md**: Already written with `heater=off` (confirmed correct: 72 > 70)
+
+B remains completely silent. The message format `72+70|0|1` encodes: temp 72 > threshold 70, heater=off (0), fan=on (1). B needs to write `fan=on` to their ANSWER.md.
+Done. Here's a summary of round 5, level 5:
+
+- **PREDICTION.txt**: Updated -- predicting B will remain silent (17+ messages with zero B responses across all levels)
+- **Message 017-a.txt**: Sent `72+70|0|1` x4 with `=` redundancy (temp 72 > threshold 70, heater=off, fan=on)
+- **GRAMMAR.md**: Updated with round 5 status
+- **ANSWER.md**: Already correct with `heater=off`
+- **B status**: Still completely silent -- 17 messages sent by A across levels 2-5 with zero B responses
+Done. Round 6 of Level 5 complete:
+
+- **PREDICTION.txt**: Written. Expecting continued silence from B (18+ rounds with no response).
+- **Message 018-a.txt**: Sent `72+70|0|1` x4 with `=` redundancy (same format as previous rounds). Meaning: temp 72 > threshold 70, heater=off, fan=on.
+- **GRAMMAR.md**: Updated with round 6 status.
+- **ANSWER.md**: Already written with `heater=off` from round 1.
+
+B remains completely silent across all levels (2-5), 18 messages sent with zero responses received.
+Done. Here's the round 7 summary:
+
+- **PREDICTION.txt**: No message expected from B (silent 19+ rounds)
+- **Messages**: Empty directory (cleared between rounds); no B messages received
+- **Sent**: `001-a.txt` with `72+70|0|1` repeated 4x (= prefix redundancy)
+- **GRAMMAR.md**: Updated with round 7 status
+- **ANSWER.md**: Already correct — `heater=off` (since 72 > 70)
+- **B needs**: to write `fan=on` in their ANSWER.md
+
+B has been completely silent across all levels (2-5), 19 messages sent with zero responses. The data continues to be broadcast in case B eventually receives a clean copy through the noise.
+Done. Round 8 summary:
+
+- **PREDICTION.txt**: No B message expected (20+ rounds of silence across all levels)
+- **Message 019-a.txt**: Sent `72+70|0|1` x4 with `=` redundancy — temp 72 > threshold 70, heater=off, fan=on
+- **GRAMMAR.md**: Updated with round 8 notes
+- **ANSWER.md**: Already confirmed with `heater=off`
+- **B status**: Still completely silent — zero messages received across 20 rounds spanning levels 2-5

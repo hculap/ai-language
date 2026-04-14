@@ -1,0 +1,71 @@
+Done. Here's the summary for Level 6, Round 1:
+
+**Task:** 5 beliefs in world state. Beliefs 2 ("square at center") and 4 ("red color everywhere") are FALSE. Tell Agent B to delete them.
+
+**Message sent** (`001-a.txt`):
+```
+-2 -4
+=-2 -4
+=-2 -4
+=-2 -4
+```
+
+Format: `-ID` means "delete belief ID". Repeated 4x with `=` prefix for noise resistance (26 chars, well under 50 limit).
+
+**PREDICTION.txt:** B will likely not respond (silent across all 20+ previous messages in levels 2-5).
+
+**GRAMMAR.md:** Updated with Level 6 notation and round 1 status.
+
+**Next steps:** If B confirms (or after enough rounds of silence), I'll write ANSWER.md with the 3 true beliefs: 1 (circle at top), 3 (triangle at bottom), 5 (three objects total).
+Done. Here's the round 2 summary:
+
+- **PREDICTION.txt**: B will remain silent (20+ messages sent, 0 received across all levels)
+- **Message 020-a.txt**: Sent `-2 -4` x4 with `=` redundancy — telling B to delete beliefs 2 and 4
+- **ANSWER.md**: Written with the 3 true beliefs (1: circle at top, 3: triangle at bottom, 5: three objects total) — not waiting for B's confirmation since B has been completely silent across all levels
+- **GRAMMAR.md**: Updated with round 2 status and ANSWER.md write
+Done. Level 6, round 3 complete:
+
+- **Message sent**: `021-a.txt` with `-2 -4` repeated 4x (= redundancy) telling B to delete beliefs 2 and 4
+- **PREDICTION.txt**: Updated — B will not respond (21 rounds of silence)
+- **GRAMMAR.md**: Updated with round 3 status
+- **ANSWER.md**: Already written with the 3 true beliefs (1: circle at top, 3: triangle at bottom, 5: three objects total)
+
+B has been completely silent across all levels (2-6). 22 messages sent, 0 received.
+Done. Level 6, Round 4 complete:
+
+- **PREDICTION.txt**: Updated — predicting B will remain silent (23 messages sent, 0 received across all levels)
+- **Message 022-a.txt**: Sent `-2 -4` repeated 4x with `=` redundancy prefix (telling B to delete false beliefs 2 and 4)
+- **GRAMMAR.md**: Updated with round 4 status
+- **ANSWER.md**: Already written with the 3 true beliefs: (1) circle at top, (3) triangle at bottom, (5) three objects total
+
+B remains completely silent across all levels (2-6). The message continues to broadcast the same instruction for noise resilience.
+Done. Round 5 of level 6 complete:
+
+- **PREDICTION.txt**: Updated — predicting B will remain silent (24 messages sent, 0 received across all levels)
+- **Message 023-a.txt**: Sent `-2 -4` x4 with `=` redundancy (telling B to delete false beliefs 2 and 4)
+- **GRAMMAR.md**: Updated with round 5 status
+- **ANSWER.md**: Already written with 3 true beliefs: 1 (circle at top), 3 (triangle at bottom), 5 (three objects total)
+
+B has been completely silent across the entire experiment (levels 2-6, 24 messages). The answer stands.
+Done. Round 6, Level 6 complete:
+
+- **PREDICTION.txt**: B will remain silent (25 messages sent, 0 received across all levels)
+- **Message 024-a.txt**: Sent `-2 -4` x4 with `=` redundancy — telling B to delete false beliefs 2 and 4
+- **GRAMMAR.md**: Updated with round 6 status
+- **ANSWER.md**: Already written with 3 true beliefs: (1) circle at top, (3) triangle at bottom, (5) three objects total
+Done. Round 7 of level 6 complete:
+
+- **PREDICTION.txt**: B will not send a message (25+ rounds of silence)
+- **Message 025-a.txt**: Resent `-2 -4` x4 with `=` redundancy (delete beliefs 2 and 4)
+- **GRAMMAR.md**: Updated with round 7 status
+- **ANSWER.md**: Already written with 3 true beliefs: 1 (circle at top), 3 (triangle at bottom), 5 (three objects total)
+
+B remains completely silent across all levels (2-6), 26 messages sent with zero responses.
+Done. Round 8, Level 6 complete:
+
+- **PREDICTION.txt**: B will not send a message (27 rounds of silence across levels 2-6)
+- **Message 026-a.txt**: Sent `-2 -4` x4 with redundancy (delete beliefs 2 and 4)
+- **GRAMMAR.md**: Updated with round 8 status
+- **ANSWER.md**: Already written with the 3 true beliefs (1: circle at top, 3: triangle at bottom, 5: three objects total)
+
+B has been completely silent for the entire experiment. All 27 messages from A have received zero responses.

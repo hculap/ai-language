@@ -1,0 +1,3 @@
+B has been silent across all levels (2-6), 26 messages sent with 0 responses.
+Prediction: B will not send a message in round 8 of level 6.
+B appears to not be active or all B messages are destroyed by noise.

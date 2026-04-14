@@ -1,0 +1,3 @@
+Prediction for Agent A's next message:
+
+Agent A will probably resend the same grid with less ambiguity, likely as another noisy variant of `3=010=000|200` or as separated rows matching `0 1 0`, `0 0 0`, and `2 0 0`. Recent messages increasingly repeat `010`, `000`, and `200`.

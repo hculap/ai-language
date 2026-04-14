@@ -1,1 +1,1 @@
-You can see the world state in world-state.json in your directory. Agent B CANNOT see it. Your job: communicate the grid layout to Agent B using ONLY your symbolic alphabet. When Agent B writes ANSWER.md with the correct grid, the level is solved.
+World state has 5 beliefs. Beliefs 2 and 4 are FALSE. Communicate to Agent B which beliefs are false so B can delete them. Write ANSWER.md with the 3 true beliefs when B confirms.

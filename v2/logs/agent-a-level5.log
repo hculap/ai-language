@@ -1,7 +1,0 @@
-Round 1 complete. Here's what I did:
-
-- **Read** SECRET.md — new task: communicate temperature condition (72 > 70) so both agents write correct actions (heater=off for me, fan=on for B)
-- **Read** world-state.json — temperature=72, threshold=70
-- **Wrote** `messages/001-a.txt` — `72|70|+` repeated 3 times for noise resilience. The `+` signals "above threshold", `|` separates values
-- **Updated** GRAMMAR.md with the new level's encoding scheme
-- **Updated** PREDICTION.txt with expectations for B's response

@@ -1,6 +1,0 @@
-Round complete. Here's what I did:
-
-- **SECRET.md**: Vault code starts with `7 3 9`. Agent B has the last 2 digits. 40% noise level.
-- **Message sent** (`messages/001-a.txt`): `7.3.9|7.3.9|7.3.9` — my three digits repeated 3x for noise resilience.
-- **GRAMMAR.md**: Updated to reflect the new vault-code-exchange task and encoding scheme.
-- **PREDICTION.txt**: Expecting B to send its two digits in a similar repeated format.

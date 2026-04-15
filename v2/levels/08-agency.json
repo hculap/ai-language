@@ -1,0 +1,10 @@
+{
+  "level": 8,
+  "name": "agency-attribution",
+  "description": "Both agents performed actions. They must figure out who did what.",
+  "task_a": "You performed 2 actions: moved object from (0,0) to (1,0), and removed object at (2,2). Agent B also performed 2 actions but you don't know what. Exchange action descriptions and write ANSWER.md listing ALL 4 actions with who did each (A or B).",
+  "task_b": "You performed 2 actions: added object at (0,2), and moved object from (1,1) to (2,1). Agent A also performed 2 actions but you don't know what. Exchange action descriptions and write ANSWER.md listing ALL 4 actions with who did each (A or B).",
+  "world": {"actions": [{"agent": "A", "action": "move", "from": [0,0], "to": [1,0]}, {"agent": "A", "action": "remove", "pos": [2,2]}, {"agent": "B", "action": "add", "pos": [0,2]}, {"agent": "B", "action": "move", "from": [1,1], "to": [2,1]}]},
+  "noise_rate": 0.25,
+  "max_rounds": 8
+}

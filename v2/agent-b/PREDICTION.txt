@@ -1,7 +1,0 @@
-A will likely keep confirming the same partition.
-
-Most likely next A message patterns:
-
-- another noisy form of `+1|+3|+5`
-- a noisy restatement of `-2|-4`
-- a shorter acknowledgement if B's slot message was understood

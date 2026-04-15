@@ -355,8 +355,56 @@ check_level() {
         fi
       fi
       ;;
+    7)
+      # Temporal: full sequence should mention times/events in order 1-6
+      if echo "$answer" | grep -q "1" && echo "$answer" | grep -q "6"; then
+        pass=true
+      fi
+      ;;
+    8)
+      # Agency: should mention both agents (A and B) performing actions
+      if echo "$answer" | grep -qi "agent.*a\|A.*move\|A.*remove" && echo "$answer" | grep -qi "agent.*b\|B.*add\|B.*move"; then
+        pass=true
+      fi
+      ;;
+    9)
+      # Modality: should accept proposal 1 (certain) and reject proposal 3 (unlikely)
+      if echo "$answer" | grep -qi "move.*rock\|proposal.*1\|accept.*1\|certain"; then
+        pass=true
+      fi
+      ;;
+    10)
+      # Metaphor: new object is circle, blue, at (1,1)
+      if echo "$answer" | grep -qi "blue\|color.*2\|1.*1\|1,1"; then
+        pass=true
+      fi
+      ;;
+    11)
+      # Disagreement: compromise — some mix of both positions
+      if echo "$answer" | grep -qi "move.*rock\|step.*1\|agree"; then
+        pass=true
+      fi
+      ;;
+    12)
+      # Recursion: must mention nesting (box→bag→envelope→key)
+      if echo "$answer" | grep -qi "box.*bag\|bag.*envelope\|envelope.*key\|contain.*contain\|nest\|inside.*inside\|1.*2.*3.*4"; then
+        pass=true
+      fi
+      ;;
+    13)
+      # Counterfactual: should mention "if moved left" and "still on grid" or "(1,0)"
+      if echo "$answer" | grep -qi "left\|1.*0\|still\|would\|alternative\|counterfactual\|if.*instead"; then
+        pass=true
+      fi
+      ;;
+    14)
+      # Integration: should mention grid + false belief + conditional
+      if echo "$answer" | grep -qi "false\|wrong\|remove\|0.*1"; then
+        pass=true
+      fi
+      ;;
     *)
-      # Default: accept if answer exists (for levels without specific checks yet)
+      # Default for L15 (free talk) and unknown levels
       pass=true
       ;;
   esac

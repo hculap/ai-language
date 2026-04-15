@@ -1,5 +1,0 @@
-Done. Round 1 complete:
-
-- **Message `001-a.txt`**: `0 1 0|0 0 0|2 0 0` — encodes the 3x3 grid with `0`=empty, `1`=rock, `2`=tree, rows separated by `|`
-- **GRAMMAR.md**: Updated with A's encoding scheme
-- **PREDICTION.txt**: Written with expectation for B's response

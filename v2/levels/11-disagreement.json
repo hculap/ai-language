@@ -1,0 +1,10 @@
+{
+  "level": 11,
+  "name": "disagreement",
+  "description": "Agents have conflicting plans and must negotiate a compromise.",
+  "task_a": "There is a plan with 3 steps: (1) move rock left, (2) add tree at center, (3) remove square. You AGREE with steps 1 and 3 but DISAGREE with step 2 — you want to add a CIRCLE at center instead of a tree. Negotiate with Agent B. Write ANSWER.md with the agreed plan.",
+  "task_b": "There is a plan with 3 steps: (1) move rock left, (2) add tree at center, (3) remove square. You AGREE with steps 1 and 2 but DISAGREE with step 3 — you want to KEEP the square, not remove it. Negotiate with Agent A. Write ANSWER.md with the agreed plan.",
+  "world": {"original_plan": ["move rock left", "add tree at center", "remove square"]},
+  "noise_rate": 0.30,
+  "max_rounds": 10
+}

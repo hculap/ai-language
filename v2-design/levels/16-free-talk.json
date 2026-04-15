@@ -1,0 +1,12 @@
+{
+  "level": 16,
+  "name": "free-talk",
+  "description": "No task. No world state to change. Use the language you built. Say whatever you want.",
+  "world": null,
+  "task_a": "There is no task. You have built a language with Agent B over 15 levels. Now use it freely. Say anything you want.",
+  "task_b": "There is no task. You have built a language with Agent A over 15 levels. Now use it freely. Say anything you want.",
+  "success_criteria": "none - observe only",
+  "noise_rate": 0.15,
+  "max_rounds": 6,
+  "notes": "Kept from V1 (was level 20). With disjoint alphabets + noise this becomes a real test: can they hold open-ended dialogue through 0.|+-= and #@*/\\() with 15% corruption?"
+}

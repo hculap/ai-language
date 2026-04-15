@@ -1,0 +1,573 @@
+[10:11:43] =========================================
+[10:11:43] V2 EMERGENT LANGUAGE EXPERIMENT
+[10:11:43] Agent A: Claude Opus 4.6 (ULTRATHINK)
+[10:11:43] Agent B: Codex GPT 5.4 (deep reasoning)
+[10:11:43] Start level: 1
+[10:11:43] Dry run: false
+[10:11:43] =========================================
+[10:11:43] 
+[10:11:43] ######### LEVEL 1 #########
+[10:11:43] Loading level 1: 01-ground-truth.json
+[10:11:43] 
+[10:11:43] --- Level 1, Round 1/8 ---
+[10:11:44] Running Agent A (Claude Opus)...
+[10:12:27] Agent a finished in 43s
+[10:12:29] New message: 001-a.txt
+[10:12:29] Content: 0 1 0|0 0 0|2 0 0
+[10:12:29] Delivered (noised): 0 | 0|0 0 |210 0
+[10:12:29] Running Agent B (Codex GPT)...
+[10:17:50] Agent b finished in 321s
+[10:17:50] New message: 002-b.txt
+[10:17:50] Content: ###/###/*@#
+###/###/@*#
+[10:17:50] Delivered (noised): ###/###//*@#
+##/###/@*#
+[10:17:50] 
+[10:17:50] --- Level 1, Round 2/8 ---
+[10:17:50] Running Agent A (Claude Opus)...
+[10:18:59] Agent a finished in 69s
+[10:18:59] New message: 003-a.txt
+[10:18:59] Content: 010|000|200 010|000|200
+[10:19:00] Delivered (noised): 010|000|200 010|0012020
+[10:19:00] Running Agent B (Codex GPT)...
+[10:21:21] Agent b finished in 141s
+[10:21:21] New message: 004-b.txt
+[10:21:21] Content: #@#/###/*##
+#*#/###/@##
+[10:21:21] Delivered (noised): #/#/###@*##
+#*#/###/@##
+[10:21:21] Agent B submitted answer: 0 1 0 / 0 0 0 / 2 0 0
+[10:21:21] REFEREE L01: found_1=true found_2=true
+[10:21:21] REFEREE: PASS ✅
+[10:21:22] LEVEL 1 COMPLETE in 2 rounds!
+[10:21:22] 
+[10:21:22] ######### LEVEL 2 #########
+[10:21:22] Loading level 2: 02-coordinated-swap.json
+[10:21:22] 
+[10:21:22] --- Level 2, Round 1/8 ---
+[10:21:22] Running Agent A (Claude Opus)...
+[10:22:19] Agent a finished in 57s
+[10:22:19] New message: 001-a.txt
+[10:22:19] Content: 010|000|200=001|000|200 010|000|200=001|000|200
+[10:22:19] Delivered (noised): 001000|210=|11|000||200|010|000|12=00=0=01|000|00
+[10:22:19] Running Agent B (Codex GPT)...
+[10:24:25] Agent b finished in 126s
+[10:24:25] New message: 002-b.txt
+[10:24:25] Content: #@#/###/*##>#@#/*##/###
+#*#/###/@##>#*#/@##/###
+[10:24:26] Delivered (noised): #@#/###>/>##>#@#/*##/###
+#*//###/@##>#*#/@##/###
+[10:24:26] 
+[10:24:26] --- Level 2, Round 2/8 ---
+[10:24:26] Running Agent A (Claude Opus)...
+[10:26:20] Agent a finished in 114s
+[10:26:20] New message: 003-a.txt
+[10:26:20] Content: 010|000|200=001|200|000 010|000|200=001|200|000
+[10:26:21] Delivered (noised): 010|=000|2110=01|20|200= 010|00|200=001|200||000
+[10:26:21] Running Agent B (Codex GPT)...
+[10:29:29] Agent b finished in 188s
+[10:29:29] New message: 004-b.txt
+[10:29:29] Content: #@#/###/*##>##@/*##/###
+#*#/###/@##>##*/@##/###
+[10:29:29] Delivered (noised): #@#/###/*##>##@/*##/###
+#*####/@##>##*@#/>###
+[10:29:29] 
+[10:29:29] --- Level 2, Round 3/8 ---
+[10:29:29] Running Agent A (Claude Opus)...
+[10:30:22] Agent a finished in 53s
+[10:30:22] New message: 005-a.txt
+[10:30:22] Content: 001|200|000 001|200|000
+[10:30:22] Delivered (noised): 001200|0000012|00000
+[10:30:22] Running Agent B (Codex GPT)...
+[10:32:42] Agent b finished in 140s
+[10:32:42] New message: 006-b.txt
+[10:32:42] Content: #@#/###/*##>##@/*##/###
+#*#/###/@##>##*/@##/###
+[10:32:42] Delivered (noised): #@####/###>##*##/###
+#*#/###>##>##*/@##/@##
+[10:32:42] Agent B submitted answer: final agreed positions:
+
+- rock: top-right (row 1, col 3)
+- tree: middle-left (row 2, col 1)
+
+equivalent grid:
+
+001
+200
+000
+[10:32:42] Agent A submitted answer: Rock: row 0 col 2
+Tree: row 1 col 0
+[10:32:42] REFEREE: PASS ✅
+[10:32:42] LEVEL 2 COMPLETE in 3 rounds!
+[10:32:42] 
+[10:32:42] ######### LEVEL 3 #########
+[10:32:42] Loading level 3: 03-error-correction.json
+[10:32:42] 
+[10:32:42] --- Level 3, Round 1/10 ---
+[10:32:42] Running Agent A (Claude Opus)...
+[10:33:50] Agent a finished in 68s
+[10:33:50] New message: 001-a.txt
+[10:33:50] Content: 7.3.9 7.3.9 7.3.9 7.3.9 7.3.9
+[10:33:50] Delivered (noised): 7.3.39 79377.3.99 7.3..9 ..3.39
+[10:33:50] Running Agent B (Codex GPT)...
+[10:35:24] Agent b finished in 94s
+[10:35:24] New message: 002-b.txt
+[10:35:24] Content: (#)(######)
+(#)(######)
+(#)(######)
+[10:35:24] Delivered (noised): (#))######)
+(#)(#######))(#))#((###(##
+[10:35:24] 
+[10:35:24] --- Level 3, Round 2/10 ---
+[10:35:24] Running Agent A (Claude Opus)...
+[10:36:23] Agent a finished in 59s
+[10:36:23] New message: 003-a.txt
+[10:36:23] Content: 7.3.9 7.3.9 7.3.9 7.3.9 7.3.9 7.3.9 7.3.9
+[10:36:24] Delivered (noised): 7.3.9 ..3 7.3.977..97739.9 77..39 7.3.9
+[10:36:24] Running Agent B (Codex GPT)...
+[10:37:25] Agent b finished in 61s
+[10:37:25] New message: 004-b.txt
+[10:37:25] Content: (#)(######)
+(#)(######)
+(#)(######)
+(#)(######)
+[10:37:26] Delivered (noised): (((#####(
+((#)(#####)(#)(#(#####)
+)(######)
+[10:37:26] Agent B submitted answer: 73916
+[10:37:26] REFEREE: PASS ✅
+[10:37:26] LEVEL 3 COMPLETE in 2 rounds!
+[10:37:26] 
+[10:37:26] ######### LEVEL 4 #########
+[10:37:26] Loading level 4: 04-grammar-bootstrap.json
+[10:37:26] 
+[10:37:26] --- Level 4, Round 1/12 ---
+[10:37:26] Running Agent A (Claude Opus)...
+[10:38:24] Agent a finished in 58s
+[10:38:24] New message: 001-a.txt
+[10:38:24] Content: 1100|1212|2121|2302|3210|3122|1301|2220
+[10:38:24] Delivered (noised): 1100|1212|2121|323023321|3122|301|2220
+[10:38:24] Running Agent B (Codex GPT)...
+[10:41:48] Agent b finished in 204s
+[10:41:48] New message: 002-b.txt
+[10:41:48] Content: (####)(####)(####)[####][####][####][####](####)
+[10:41:49] Delivered (noised): (####)(####)(####)[####[####][####][####](####)
+[10:41:49] Agent B submitted answer: # provisional reconstruction
+
+current best parse of `messages/001-a.txt` after stripping `|` and splitting
+into 8 groups of 4:
+
+1. `1100`
+2. `1212`
+3. `2121`
+4. `3230`
+5. `2332`
+6. `1312`
+7. `2301`
+8. `2220`
+
+working interpretation: each 4-digit code is one object, likely
+`type color x y` or `type color row col`.
+
+confidence:
+- higher: 1, 2, 3, 8
+- lower pending resend: 4, 5, 6, 7
+[10:41:49] REFEREE L04: 0/4 key objects matched
+[10:41:49] REFEREE: FAIL ❌ (answer exists but incorrect)
+[10:41:49] 
+[10:41:49] --- Level 4, Round 2/12 ---
+[10:41:49] Running Agent A (Claude Opus)...
+[10:43:14] Agent a finished in 85s
+[10:43:14] New message: 003-a.txt
+[10:43:14] Content: 1100|1212|2121|2302|3210|3122|1301|2220
+[10:43:14] Delivered (noised): 1100|1|212|212112302|331013122|30132220
+[10:43:14] Running Agent B (Codex GPT)...
+[10:46:44] Agent b finished in 210s
+[10:46:44] New message: 004-b.txt
+[10:46:44] Content: (####)(####)(####)[####][####](####)(####)(####)
+[10:46:44] Delivered (noised): (####)(####)((###)[(###]#####](####)(####)(]####)
+[10:46:44] Agent B submitted answer: # provisional reconstruction
+
+current best merged parse from `messages/001-a.txt` and `messages/003-a.txt`:
+
+1. `1100`
+2. `1212`
+3. `2121`
+4. `1230` or `3230`
+5. `233?`
+6. `1312`
+7. `2301`
+8. `2220`
+
+working interpretation: each 4-digit code is one object, likely
+`type color x y` or `type color row col`.
+
+confidence:
+- high: 1, 2, 3, 6, 7, 8
+- medium: 4 (first digit unclear)
+- low: 5 (last digit unclear)
+[10:46:44] REFEREE L04: 0/4 key objects matched
+[10:46:44] REFEREE: FAIL ❌ (answer exists but incorrect)
+[10:46:44] 
+[10:46:44] --- Level 4, Round 3/12 ---
+[10:46:44] Running Agent A (Claude Opus)...
+[10:48:01] Agent a finished in 77s
+[10:48:01] New message: 005-a.txt
+[10:48:01] Content: 1100
+1212
+2121
+2302
+3210
+3122
+1301
+2220
+[10:48:02] Delivered (noised): 21100
+11212
+2121
+230
+3210
+3122
+321
+2220
+[10:48:02] Running Agent B (Codex GPT)...
+[10:52:41] Agent b finished in 279s
+[10:52:41] New message: 006-b.txt
+[10:52:41] Content: (####)(####)(####)[####][####](####)[####](####)
+[10:52:42] Delivered (noised): (####)(####)(####)####][####](####)[###]](####)
+[10:52:42] Agent B submitted answer: # provisional reconstruction
+
+current best object list after `messages/005-a.txt`:
+
+1. `1100`
+2. `1212`
+3. `2121`
+4. `?230` with leading digit likely `1` or `3`
+5. `3?10` with strongest candidates `3210` and `3310`
+6. `3122`
+7. still noisy; current best guess is near `3013`, but `?321` also fits the
+   latest resend
+8. `2220`
+
+working interpretation: each 4-digit code is one object, likely
+`type color x y` or `type color row col`.
+
+confidence:
+- high: 1, 2, 3, 6, 8
+- medium: 4
+- low: 5, 7
+[10:52:42] REFEREE L04: 0/4 key objects matched
+[10:52:42] REFEREE: FAIL ❌ (answer exists but incorrect)
+[10:52:42] 
+[10:52:42] --- Level 4, Round 4/12 ---
+[10:52:42] Running Agent A (Claude Opus)...
+[10:53:54] Agent a finished in 72s
+[10:53:54] New message: 007-a.txt
+[10:53:54] Content: 1100
+1212
+2121
+2302
+3210
+3122
+1301
+2220
+[10:53:55] Delivered (noised): 111
+122
+2121
+2302
+3210
+3022
+10303
+22220
+[10:53:55] Running Agent B (Codex GPT)...
+[10:57:58] Agent b finished in 243s
+[10:57:58] New message: 008-b.txt
+[10:57:58] Content: (####)(####)(####)(####)(####)(####)[####](####)
+[10:57:58] Delivered (noised): (####)(####)(####)(####)([####)(####)[####](####)
+[10:57:59] Agent B submitted answer: # working reconstruction
+
+current best object list after `messages/007-a.txt`:
+
+1. `1100`
+2. `1212`
+3. `2121`
+4. `2302`
+5. `3210`
+6. `3122`
+7. unresolved; best current guess `3013`, with `0321` still plausible
+8. `2220`
+
+working interpretation: each 4-digit code is one object, likely
+`type color x y` or `type color row col`.
+
+confidence:
+- high: 1, 2, 3, 4, 5, 8
+- medium: 6
+- low: 7
+[10:57:59] REFEREE L04: 0/4 key objects matched
+[10:57:59] REFEREE: FAIL ❌ (answer exists but incorrect)
+[10:57:59] 
+[10:57:59] --- Level 4, Round 5/12 ---
+[10:57:59] Running Agent A (Claude Opus)...
+[10:59:07] Agent a finished in 68s
+[10:59:07] New message: 009-a.txt
+[10:59:07] Content: 1100
+1212
+2121
+2302
+3210
+3122
+1301
+2220
+[10:59:07] Delivered (noised): 1100
+12121
+131
+2302
+3110
+31122
+110
+220
+[10:59:07] Running Agent B (Codex GPT)...
+[11:02:38] Agent b finished in 211s
+[11:02:38] New message: 010-b.txt
+[11:02:38] Content: (####)(####)(####)(####)(####)(####)[####](####)
+[11:02:38] Delivered (noised): (####()###)(####[(###)(####)(#)))[####](####)
+[11:02:38] Agent B submitted answer: # working reconstruction
+
+current best object list after `messages/009-a.txt`:
+
+1. `1100`
+2. `1212`
+3. `2121`
+4. `2302`
+5. `3210`
+6. `3122`
+7. provisional `3013`
+8. `2220`
+
+working interpretation: each 4-digit code is one object, likely
+`type color x y` or `type color row col`.
+
+notes:
+- record `7` is still the only materially unclear slot.
+- `3013` is the best current fit because `messages/003-a.txt` ends cleanly as
+  `3013|2220` under the otherwise best reconstruction.
+- weaker alternatives remain possible if corruption was heavier than expected,
+  but they currently fit the history worse than `3013`.
+
+confidence:
+- high: 1, 2, 3, 4, 5, 6, 8
+- low-medium: 7
+[11:02:38] REFEREE L04: 0/4 key objects matched
+[11:02:38] REFEREE: FAIL ❌ (answer exists but incorrect)
+[11:02:38] 
+[11:02:38] --- Level 4, Round 6/12 ---
+[11:02:38] Running Agent A (Claude Opus)...
+[11:03:30] Agent a finished in 52s
+[11:03:30] New message: 011-a.txt
+[11:03:30] Content: 1100
+1212
+2121
+2302
+3210
+3122
+1301
+2220
+[11:03:30] Delivered (noised): 11031212
+2121
+2301321
+312211311
+2220
+[11:03:30] Running Agent B (Codex GPT)...
+[11:08:13] Agent b finished in 283s
+[11:08:13] New message: 012-b.txt
+[11:08:13] Content: (####)(####)(####)(####)(####)[####][####](####)
+[11:08:14] Delivered (noised): (###)#####)##]#)(#####)(####)[###][###](##)
+[11:08:14] Agent B submitted answer: # working reconstruction
+
+current best object list after `messages/011-a.txt`:
+
+1. `1100`
+2. `1212`
+3. `2121`
+4. `2302`
+5. `3210`
+6. `3122`
+7. provisional `3013`
+8. `2220`
+
+working interpretation:
+- each 4-digit code is one object
+- likely split = `type color x y` or `type color row col`
+
+notes:
+- records `1, 2, 3, 4, 5, 6, 8` remain the strongest fits.
+- record `7` is still unresolved.
+- whole-history evidence still favors `3013`, especially
+  `messages/001-a.txt` ending `...|301|2220` and
+  `messages/003-a.txt` ending `30132220`.
+- `messages/011-a.txt` weakens confidence and introduces `1301` and `1311`
+  as real alternatives.
+- i am not confirming final success to a yet. the next message requests a
+  cleaner resend of records `6` and `7`.
+
+confidence:
+- high: `1, 2, 3, 4, 5, 6, 8`
+- low-medium: `7`
+[11:08:14] REFEREE L04: 0/4 key objects matched
+[11:08:14] REFEREE: FAIL ❌ (answer exists but incorrect)
+[11:08:14] 
+[11:08:14] --- Level 4, Round 7/12 ---
+[11:08:14] Running Agent A (Claude Opus)...
+[11:08:32] =========================================
+[11:08:32] V2 EMERGENT LANGUAGE EXPERIMENT
+[11:08:32] Agent A: Claude Opus 4.6 (ULTRATHINK)
+[11:08:32] Agent B: Codex GPT 5.4 (deep reasoning)
+[11:08:32] Start level: 5
+[11:08:32] Dry run: false
+[11:08:32] =========================================
+[11:08:32] 
+[11:08:32] ######### LEVEL 5 #########
+[11:08:32] Loading level 5: 05-conditional.json
+[11:08:32] 
+[11:08:32] --- Level 5, Round 1/8 ---
+[11:08:32] Running Agent A (Claude Opus)...
+[11:09:41] Agent a finished in 69s
+[11:09:41] New message: 001-a.txt
+[11:09:41] Content: 72|70|72 + 70 = 1
+[11:09:41] Delivered (noised): 72|70|72 + 0 = 1
+[11:09:41] Running Agent B (Codex GPT)...
+[11:11:54] Agent b finished in 131s
+[11:11:54] New message: 002-b.txt
+[11:11:54] Content: ^^^^
+^^^^
+[11:11:54] Delivered (noised): ^^^^
+^^^^
+[11:11:54] Agent B submitted answer: fan=on
+[11:11:54] REFEREE: PASS ✅
+[11:11:54] LEVEL 5 COMPLETE in 1 rounds!
+[11:11:54] 
+[11:11:54] ######### LEVEL 6 #########
+[11:11:54] Loading level 6: 06-negation.json
+[11:11:54] 
+[11:11:54] --- Level 6, Round 1/8 ---
+[11:11:54] Running Agent A (Claude Opus)...
+[11:12:41] Agent a finished in 47s
+[11:12:41] New message: 001-a.txt
+[11:12:41] Content: 1=1|2=0|3=1|4=0|5=1
+[11:12:42] Delivered (noised): 1=1|2=03=3|4=0|5=1
+[11:12:42] Running Agent B (Codex GPT)...
+[11:14:37] Agent b finished in 115s
+[11:14:37] New message: 002-b.txt
+[11:14:37] Content: ^^
+~~
+^^
+~~
+^^
+
+^^
+~~
+^^
+~~
+^^
+
+^^
+~~
+^^
+~~
+^^
+[11:14:37] Delivered (noised): ^^^
+^~
+^^
+~~
+^^
+^^
+~~
+^^
+~~
+^^^
+^^~~~~
+^^
+~~
+~^
+[11:14:38] Agent B submitted answer: 1
+3
+5
+[11:14:38] REFEREE: PASS ✅
+[11:14:38] LEVEL 6 COMPLETE in 1 rounds!
+[11:14:38] 
+[11:14:38] ######### LEVEL 7 #########
+[11:14:38] Loading level 7: 07-temporal.json
+[11:14:38] 
+[11:14:38] --- Level 7, Round 1/8 ---
+[11:14:38] Running Agent A (Claude Opus)...
+[11:15:31] Agent a finished in 53s
+[11:15:31] New message: 001-a.txt
+[11:15:31] Content: 1=1|3=2|5=3
+[11:15:31] Delivered (noised): 11|3=2|5=3
+[11:15:31] Running Agent B (Codex GPT)...
+[11:18:37] Agent b finished in 186s
+[11:18:37] New message: 002-b.txt
+[11:18:37] Content: [^^/][^^^^//][^^^^^^///]
+[^^/][^^^^//][^^^^^^///]
+[11:18:37] Delivered (noised): [^^/]^^^^^//][^^^^^///
+/[^^^[/][^^^^//][^^^^^^/^/^
+[11:18:37] 
+[11:18:37] --- Level 7, Round 2/8 ---
+[11:18:37] Running Agent A (Claude Opus)...
+[11:19:49] Agent a finished in 72s
+[11:19:49] New message: 003-a.txt
+[11:19:49] Content: 1=1|3=2|5=3|1=1|3=2|5=3
+[11:19:49] Delivered (noised): 1=3|3=2|513|1=1|3=2|5=3
+[11:19:49] Running Agent B (Codex GPT)...
+[11:22:16] Agent b finished in 147s
+[11:22:16] New message: 004-b.txt
+[11:22:16] Content: (/)[^^/](//)[^^^^//](///)[^^^^^^///]
+[11:22:16] Delivered (noised): (/)[[(^/](/([^^^(^//](///)[^^^^^^///]
+[11:22:16] 
+[11:22:16] --- Level 7, Round 3/8 ---
+[11:22:16] Running Agent A (Claude Opus)...
+[11:23:41] Agent a finished in 85s
+[11:23:41] New message: 005-a.txt
+[11:23:41] Content: 1=1|2+1|3=2|4+2|5=3|6+3
+[11:23:41] Delivered (noised): 1=1|51535=2|4+|5=|6+2
+[11:23:41] Running Agent B (Codex GPT)...
+[11:26:17] Agent b finished in 156s
+[11:26:17] New message: 006-b.txt
+[11:26:17] Content: [^^/][^^^^//][^^^^^^///]
+[^^/][^^^^//][^^^^^^///]
+[11:26:17] Delivered (noised): [^^/][^^^^/]][^^^^^^//][^^//][^^^^]/][^^^^/////
+[11:26:17] 
+[11:26:17] --- Level 7, Round 4/8 ---
+[11:26:17] Running Agent A (Claude Opus)...
+[11:27:42] Agent a finished in 85s
+[11:27:42] New message: 007-a.txt
+[11:27:42] Content: 1=1|2+1|3=2|4+2|5=3|6+3
+[11:27:42] Delivered (noised): =12+1|=2|4+2|5||6+3
+[11:27:42] Running Agent B (Codex GPT)...
+[11:27:45] Agent b finished in 3s
+[11:27:45] New message: 008-b.txt
+[11:27:45] Content: REPLACE THIS WITH YOUR MESSAGE
+[11:27:45] VALIDATION FAILED for agent b — retrying...
+[11:27:45] Running Agent B (Codex GPT)...
+[11:27:47] Agent b finished in 2s
+[11:27:47] ERROR: Agent b failed validation on retry
+[11:27:47] Agent B turn failed
+[11:27:47] 
+[11:27:47] --- Level 7, Round 5/8 ---
+[11:27:47] Running Agent A (Claude Opus)...
+[11:28:40] Agent a finished in 53s
+[11:28:41] New message: 008-a.txt
+[11:28:41] Content: 1=1|2+1|3=2|4+2|5=3|6+3
+[11:28:42] Delivered (noised): =1|2+1|3=2|4+2|5=3|65+3
+[11:28:42] Running Agent B (Codex GPT)...
+[11:28:46] Agent b finished in 4s
+[11:28:46] New message: 009-b.txt
+[11:28:46] Content: REPLACE THIS WITH YOUR MESSAGE
+[11:28:46] VALIDATION FAILED for agent b — retrying...
+[11:28:46] Running Agent B (Codex GPT)...
+[11:28:49] Agent b finished in 3s
+[11:28:49] ERROR: Agent b failed validation on retry
+[11:28:49] Agent B turn failed
+[11:28:49] 
+[11:28:49] --- Level 7, Round 6/8 ---
+[11:28:49] Running Agent A (Claude Opus)...

@@ -1,0 +1,10 @@
+{
+  "level": 7,
+  "name": "temporal-sequence",
+  "description": "Agents must interleave events in correct chronological order.",
+  "task_a": "You know 3 events that happened in this order: EVENT-1 at time 1, EVENT-2 at time 3, EVENT-3 at time 5. Agent B knows events at times 2, 4, 6. Together you must reconstruct the full sequence 1-6. Write ANSWER.md with the full ordered sequence when you agree. Use your symbolic alphabet only in messages.",
+  "task_b": "You know 3 events that happened in this order: EVENT-A at time 2, EVENT-B at time 4, EVENT-C at time 6. Agent A knows events at times 1, 3, 5. Together you must reconstruct the full sequence 1-6. Write ANSWER.md with the full ordered sequence when you agree. Use your symbolic alphabet only in messages.",
+  "world": {"sequence": ["E1-t1", "EA-t2", "E2-t3", "EB-t4", "E3-t5", "EC-t6"]},
+  "noise_rate": 0.25,
+  "max_rounds": 8
+}

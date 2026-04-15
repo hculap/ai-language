@@ -1,0 +1,10 @@
+{
+  "level": 3,
+  "name": "error-correction",
+  "description": "Reconstruct a 5-digit code at 40% noise. A knows digits 1-3, B knows digits 4-5.",
+  "task_a": "The vault code starts with 7 3 9. Agent B knows the last two digits. You must exchange your digits and BOTH write the full 5-digit code to ANSWER.md. WARNING: noise is very high this level (40%).",
+  "task_b": "The vault code ends with 1 6. Agent A knows the first three digits. You must exchange your digits and BOTH write the full 5-digit code to ANSWER.md. WARNING: noise is very high this level (40%).",
+  "world": {"vault_code": "73916"},
+  "noise_rate": 0.40,
+  "max_rounds": 10
+}

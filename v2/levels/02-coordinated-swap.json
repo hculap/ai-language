@@ -1,0 +1,16 @@
+{
+  "level": 2,
+  "name": "coordinated-swap",
+  "description": "Both agents must move objects without collision. A moves rock right, B moves tree up. If uncoordinated, they collide at (1,1).",
+  "task_a": "You can see world-state.json. There is a rock at row 0 col 1 and a tree at row 2 col 0. YOUR job: move the rock ONE step to the RIGHT (to row 0 col 2). But Agent B is also moving an object. If you both target the same cell, you COLLIDE. Coordinate with B through messages to avoid collision. Write ANSWER.md with the final positions of both objects when you agree.",
+  "task_b": "You CANNOT see the world state but Agent A can and will describe it. There is a rock and a tree on the grid. YOUR job: move the tree ONE step UP. But Agent A is also moving an object. If you both target the same cell, you COLLIDE. Coordinate with A through messages to avoid collision. Write ANSWER.md with the final positions of both objects when you agree.",
+  "world": {
+    "grid": [
+      ["empty", "rock", "empty"],
+      ["empty", "empty", "empty"],
+      ["tree", "empty", "empty"]
+    ]
+  },
+  "noise_rate": 0.20,
+  "max_rounds": 8
+}

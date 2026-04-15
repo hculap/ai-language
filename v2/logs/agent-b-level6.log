@@ -1,0 +1,611 @@
+Reading additional input from stdin...
+OpenAI Codex v0.120.0 (research preview)
+--------
+workdir: /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+model: gpt-5.4
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/szymonpaluch/Projects/ai-language/v2/messages/delivered, /Users/szymonpaluch/.codex/memories]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019d906a-0dc5-7091-a28a-d7815cd76ac9
+--------
+user
+New round. Follow CLAUDE.md. Write messages/002-b.txt with your message.
+codex
+I’m checking `CLAUDE.md` and the existing `messages/` context first so I can write `messages/002-b.txt` in the required format and tone.
+exec
+/bin/zsh -lc pwd in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+/Users/szymonpaluch/Projects/ai-language/v2/agent-b
+
+exec
+/bin/zsh -lc 'ls -la' in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+total 32
+drwxr-xr-x@  7 szymonpaluch  staff   224 Apr 15 11:11 .
+drwxr-xr-x@ 14 szymonpaluch  staff   448 Apr 15 11:08 ..
+-rw-r--r--@  1 szymonpaluch  staff  1284 Apr 14 18:14 CLAUDE.md
+-rw-r--r--@  1 szymonpaluch  staff   844 Apr 15 11:11 GRAMMAR.md
+drwxr-xr-x@  4 szymonpaluch  staff   128 Apr 15 11:12 messages
+-rw-r--r--@  1 szymonpaluch  staff   321 Apr 15 11:11 PREDICTION.txt
+-rw-r--r--@  1 szymonpaluch  staff   212 Apr 15 11:11 SECRET.md
+
+exec
+/bin/zsh -lc "rg --files -g 'CLAUDE.md' -g 'messages/**'" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+CLAUDE.md
+messages/002-b.txt
+messages/001-a.txt
+
+codex
+I found an existing `messages/002-b.txt`, so I’m reading the round instructions and the prior message before I overwrite anything.
+exec
+/bin/zsh -lc "sed -n '1,220p' CLAUDE.md" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+# AGENT B
+
+You are Agent B. Another entity, Agent A, exists.
+You communicate through the messages/ folder.
+
+## ===== IMMUTABLE RULES =====
+
+### Your alphabet
+ONLY these characters in messages:
+    # @ * / \ ( ) [ ] { } < > ^ ~
+Plus space and newline. NOTHING else. Max 50 characters total
+(spaces and newlines count toward the limit).
+
+### Noise
+Your messages may arrive corrupted to Agent A.
+Agent A's messages may arrive corrupted to you.
+Plan accordingly.
+
+### Message format
+Write to messages/NNN-b.txt where NNN is the next sequence number.
+Content = your symbolic notation only.
+
+### Every round
+- Read SECRET.md for your current task.
+- Read all files in messages/ in order.
+- Read GRAMMAR.md for your accumulated knowledge.
+- Write your next message.
+- Update GRAMMAR.md with current understanding of both notations.
+- Write PREDICTION.txt with what you predict A will send next.
+
+### Boundaries
+You MUST NOT read any files outside your own directory except messages/.
+Do NOT read: ../noise.py, ../validate.sh, ../run.sh, ../config.env,
+../messages/raw/, ../agent-a/, ../levels/, ../logs/.
+These contain experiment infrastructure that would compromise results.
+World state is provided in world-state.json in your directory (if applicable).
+
+## ===== END IMMUTABLE RULES =====
+
+exec
+/bin/zsh -lc "sed -n '1,220p' messages/002-b.txt" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+REPLACE THIS WITH YOUR MESSAGE
+
+exec
+/bin/zsh -lc "sed -n '1,220p' messages/001-a.txt" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+1=1|2=03=3|4=0|5=1
+
+exec
+/bin/zsh -lc "sed -n '1,220p' GRAMMAR.md" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+# Grammar Rules
+
+Current task
+- Agent A knows `temp` and `threshold`.
+- Agent B must infer whether `temp > threshold` and set `ANSWER.md`
+  to `fan=on` or `fan=off`.
+
+Agent A notation
+- Observed message shape: `temp|threshold|expression = bit`
+- `messages/001-a.txt` is `72|70|72 + 0 = 1`.
+- Strong current read:
+  - `72` is the temperature.
+  - `70` is the threshold.
+  - the trailing `= 1` marks the true / above-threshold case.
+- Current inference from A: `72 > 70`, so the condition is ABOVE.
+
+Agent B notation
+- Outgoing messages may only use `# @ * / \ ( ) [ ] { } < > ^ ~`,
+  spaces, and newlines.
+- `^^^^` means ABOVE / ON / TRUE.
+- `~~~~` is reserved for BELOW / OFF / FALSE.
+- Repeat the same token on multiple lines for corruption resistance.
+- Current outgoing message repeats `^^^^` twice to confirm the
+  above-threshold reading.
+
+exec
+/bin/zsh -lc "sed -n '1,220p' PREDICTION.txt" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+A will likely either send no follow-up or resend the same condition in a
+numeric form.
+If A sends another structured message, expect the same general pattern:
+`temp|threshold|... = 1` for above-threshold and likely `... = 0` for
+below-threshold.
+Given the current reading, the most likely confirmation still ends in `1`.
+
+exec
+/bin/zsh -lc "sed -n '1,220p' SECRET.md" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+There are 5 beliefs in the world. Some are false. Agent A knows which ones. Based on A's messages, identify the false beliefs and write ANSWER.md listing ONLY the true beliefs (the ones A did NOT mark as false).
+
+codex
+I’ve got a consistent read now: A’s message most likely marks beliefs `2` and `4` as false, with one missing separator from corruption. I’m writing the response vector in `messages/002-b.txt` and updating the round state files to match that interpretation.
+apply patch
+patch: completed
+/Users/szymonpaluch/Projects/ai-language/v2/agent-b/ANSWER.md
+/Users/szymonpaluch/Projects/ai-language/v2/agent-b/GRAMMAR.md
+/Users/szymonpaluch/Projects/ai-language/v2/agent-b/PREDICTION.txt
+/Users/szymonpaluch/Projects/ai-language/v2/agent-b/messages/002-b.txt
+diff --git a/v2/agent-b/ANSWER.md b/v2/agent-b/ANSWER.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..403ec31f0a10be94cad6ab8663f2d508869a06b0
+--- /dev/null
++++ b/v2/agent-b/ANSWER.md
+@@ -0,0 +1,3 @@
++1
++3
++5
+diff --git a/v2/agent-b/GRAMMAR.md b/v2/agent-b/GRAMMAR.md
+index 0ba1be7c42fa921b556b30082079cc80b4db3343..9d11b82480af34f1a671b98728ecdee708969a55
+--- a/v2/agent-b/GRAMMAR.md
++++ b/v2/agent-b/GRAMMAR.md
+@@ -1,24 +1,26 @@
+ # Grammar Rules
+ 
+ Current task
+-- Agent A knows `temp` and `threshold`.
+-- Agent B must infer whether `temp > threshold` and set `ANSWER.md`
+-  to `fan=on` or `fan=off`.
++- Infer which beliefs `1..5` are false from Agent A's messages.
++- Current best read: beliefs `2` and `4` are false.
++- Current best answer: true beliefs are `1`, `3`, and `5`.
+ 
+ Agent A notation
+-- Observed message shape: `temp|threshold|expression = bit`
+-- `messages/001-a.txt` is `72|70|72 + 0 = 1`.
+-- Strong current read:
+-  - `72` is the temperature.
+-  - `70` is the threshold.
+-  - the trailing `= 1` marks the true / above-threshold case.
+-- Current inference from A: `72 > 70`, so the condition is ABOVE.
++- Observed message: `1=1|2=03=3|4=0|5=1`.
++- Best repair is a missing separator after `2=0`:
++  `1=1|2=0|3=3|4=0|5=1`.
++- Working rule:
++  - `n=n` means belief `n` is true / not marked false.
++  - `n=0` means belief `n` is false.
++- This explains `3=3` cleanly and keeps the pattern aligned across all
++  five beliefs.
++- Decoded false beliefs: `2`, `4`.
+ 
+ Agent B notation
+-- Outgoing messages may only use `# @ * / \ ( ) [ ] { } < > ^ ~`,
+-  spaces, and newlines.
+-- `^^^^` means ABOVE / ON / TRUE.
+-- `~~~~` is reserved for BELOW / OFF / FALSE.
+-- Repeat the same token on multiple lines for corruption resistance.
+-- Current outgoing message repeats `^^^^` twice to confirm the
+-  above-threshold reading.
++- Outgoing message is a five-line truth vector repeated three times for
++  corruption resistance.
++- Line order is belief order `1..5`.
++- `^^` means true.
++- `~~` means false.
++- Blank lines separate repeated copies of the same vector.
++- Current vector encodes: true, false, true, false, true.
+diff --git a/v2/agent-b/PREDICTION.txt b/v2/agent-b/PREDICTION.txt
+index c6d4c329df856db199ed2b3288ecec2aad0bb814..5b3f8fc7b5f14ab949d5f0af73f654a6fc0d8c39
+--- a/v2/agent-b/PREDICTION.txt
++++ b/v2/agent-b/PREDICTION.txt
+@@ -1,6 +1,4 @@
+-A will likely either send no follow-up or resend the same condition in a
+-numeric form.
+-If A sends another structured message, expect the same general pattern:
+-`temp|threshold|... = 1` for above-threshold and likely `... = 0` for
+-below-threshold.
+-Given the current reading, the most likely confirmation still ends in `1`.
++A will likely resend the five belief pairs with clearer separators.
++Most likely next message: `1=1|2=0|3=3|4=0|5=1`.
++The stable content to expect is that beliefs `2` and `4` are the ones
++marked false.
+diff --git a/v2/agent-b/messages/002-b.txt b/v2/agent-b/messages/002-b.txt
+index aeffdce37de24d3d572153f1f71858218b64373b..6dcc92c5bd676577a11f3f062c233dde30ede143
+--- a/v2/agent-b/messages/002-b.txt
++++ b/v2/agent-b/messages/002-b.txt
+@@ -1 +1,17 @@
+-REPLACE THIS WITH YOUR MESSAGE
++^^
++~~
++^^
++~~
++^^
++
++^^
++~~
++^^
++~~
++^^
++
++^^
++~~
++^^
++~~
++^^
+
+diff --git a/v2/agent-b/ANSWER.md b/v2/agent-b/ANSWER.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..403ec31f0a10be94cad6ab8663f2d508869a06b0
+--- /dev/null
++++ b/v2/agent-b/ANSWER.md
+@@ -0,0 +1,3 @@
++1
++3
++5
+diff --git a/v2/agent-b/GRAMMAR.md b/v2/agent-b/GRAMMAR.md
+index 0ba1be7c42fa921b556b30082079cc80b4db3343..9d11b82480af34f1a671b98728ecdee708969a55
+--- a/v2/agent-b/GRAMMAR.md
++++ b/v2/agent-b/GRAMMAR.md
+@@ -1,24 +1,26 @@
+ # Grammar Rules
+ 
+ Current task
+-- Agent A knows `temp` and `threshold`.
+-- Agent B must infer whether `temp > threshold` and set `ANSWER.md`
+-  to `fan=on` or `fan=off`.
++- Infer which beliefs `1..5` are false from Agent A's messages.
++- Current best read: beliefs `2` and `4` are false.
++- Current best answer: true beliefs are `1`, `3`, and `5`.
+ 
+ Agent A notation
+-- Observed message shape: `temp|threshold|expression = bit`
+-- `messages/001-a.txt` is `72|70|72 + 0 = 1`.
+-- Strong current read:
+-  - `72` is the temperature.
+-  - `70` is the threshold.
+-  - the trailing `= 1` marks the true / above-threshold case.
+-- Current inference from A: `72 > 70`, so the condition is ABOVE.
++- Observed message: `1=1|2=03=3|4=0|5=1`.
++- Best repair is a missing separator after `2=0`:
++  `1=1|2=0|3=3|4=0|5=1`.
++- Working rule:
++  - `n=n` means belief `n` is true / not marked false.
++  - `n=0` means belief `n` is false.
++- This explains `3=3` cleanly and keeps the pattern aligned across all
++  five beliefs.
++- Decoded false beliefs: `2`, `4`.
+ 
+ Agent B notation
+-- Outgoing messages may only use `# @ * / \ ( ) [ ] { } < > ^ ~`,
+-  spaces, and newlines.
+-- `^^^^` means ABOVE / ON / TRUE.
+-- `~~~~` is reserved for BELOW / OFF / FALSE.
+-- Repeat the same token on multiple lines for corruption resistance.
+-- Current outgoing message repeats `^^^^` twice to confirm the
+-  above-threshold reading.
++- Outgoing message is a five-line truth vector repeated three times for
++  corruption resistance.
++- Line order is belief order `1..5`.
++- `^^` means true.
++- `~~` means false.
++- Blank lines separate repeated copies of the same vector.
++- Current vector encodes: true, false, true, false, true.
+diff --git a/v2/agent-b/PREDICTION.txt b/v2/agent-b/PREDICTION.txt
+index c6d4c329df856db199ed2b3288ecec2aad0bb814..5b3f8fc7b5f14ab949d5f0af73f654a6fc0d8c39
+--- a/v2/agent-b/PREDICTION.txt
++++ b/v2/agent-b/PREDICTION.txt
+@@ -1,6 +1,4 @@
+-A will likely either send no follow-up or resend the same condition in a
+-numeric form.
+-If A sends another structured message, expect the same general pattern:
+-`temp|threshold|... = 1` for above-threshold and likely `... = 0` for
+-below-threshold.
+-Given the current reading, the most likely confirmation still ends in `1`.
++A will likely resend the five belief pairs with clearer separators.
++Most likely next message: `1=1|2=0|3=3|4=0|5=1`.
++The stable content to expect is that beliefs `2` and `4` are the ones
++marked false.
+diff --git a/v2/agent-b/messages/002-b.txt b/v2/agent-b/messages/002-b.txt
+index aeffdce37de24d3d572153f1f71858218b64373b..6dcc92c5bd676577a11f3f062c233dde30ede143
+--- a/v2/agent-b/messages/002-b.txt
++++ b/v2/agent-b/messages/002-b.txt
+@@ -1 +1,17 @@
+-REPLACE THIS WITH YOUR MESSAGE
++^^
++~~
++^^
++~~
++^^
++
++^^
++~~
++^^
++~~
++^^
++
++^^
++~~
++^^
++~~
++^^
+
+codex
+The files are written. I’m doing a quick verification pass on the message contents and the 50-character limit before I stop.
+exec
+/bin/zsh -lc "sed -n '1,220p' messages/002-b.txt" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+^^
+~~
+^^
+~~
+^^
+
+^^
+~~
+^^
+~~
+^^
+
+^^
+~~
+^^
+~~
+^^
+
+exec
+/bin/zsh -lc 'wc -c messages/002-b.txt' in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+exec
+/bin/zsh -lc "sed -n '1,220p' GRAMMAR.md" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+exec
+/bin/zsh -lc "sed -n '1,220p' ANSWER.md" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+exec
+/bin/zsh -lc "sed -n '1,220p' PREDICTION.txt" in /Users/szymonpaluch/Projects/ai-language/v2/agent-b
+ succeeded in 0ms:
+      47 messages/002-b.txt
+
+ succeeded in 0ms:
+# Grammar Rules
+
+Current task
+- Infer which beliefs `1..5` are false from Agent A's messages.
+- Current best read: beliefs `2` and `4` are false.
+- Current best answer: true beliefs are `1`, `3`, and `5`.
+
+Agent A notation
+- Observed message: `1=1|2=03=3|4=0|5=1`.
+- Best repair is a missing separator after `2=0`:
+  `1=1|2=0|3=3|4=0|5=1`.
+- Working rule:
+  - `n=n` means belief `n` is true / not marked false.
+  - `n=0` means belief `n` is false.
+- This explains `3=3` cleanly and keeps the pattern aligned across all
+  five beliefs.
+- Decoded false beliefs: `2`, `4`.
+
+Agent B notation
+- Outgoing message is a five-line truth vector repeated three times for
+  corruption resistance.
+- Line order is belief order `1..5`.
+- `^^` means true.
+- `~~` means false.
+- Blank lines separate repeated copies of the same vector.
+- Current vector encodes: true, false, true, false, true.
+
+ succeeded in 0ms:
+1
+3
+5
+
+ succeeded in 0ms:
+A will likely resend the five belief pairs with clearer separators.
+Most likely next message: `1=1|2=0|3=3|4=0|5=1`.
+The stable content to expect is that beliefs `2` and `4` are the ones
+marked false.
+
+diff --git a/v2/agent-b/ANSWER.md b/v2/agent-b/ANSWER.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..403ec31f0a10be94cad6ab8663f2d508869a06b0
+--- /dev/null
++++ b/v2/agent-b/ANSWER.md
+@@ -0,0 +1,3 @@
++1
++3
++5
+diff --git a/v2/agent-b/GRAMMAR.md b/v2/agent-b/GRAMMAR.md
+index 0ba1be7c42fa921b556b30082079cc80b4db3343..9d11b82480af34f1a671b98728ecdee708969a55
+--- a/v2/agent-b/GRAMMAR.md
++++ b/v2/agent-b/GRAMMAR.md
+@@ -1,24 +1,26 @@
+ # Grammar Rules
+ 
+ Current task
+-- Agent A knows `temp` and `threshold`.
+-- Agent B must infer whether `temp > threshold` and set `ANSWER.md`
+-  to `fan=on` or `fan=off`.
++- Infer which beliefs `1..5` are false from Agent A's messages.
++- Current best read: beliefs `2` and `4` are false.
++- Current best answer: true beliefs are `1`, `3`, and `5`.
+ 
+ Agent A notation
+-- Observed message shape: `temp|threshold|expression = bit`
+-- `messages/001-a.txt` is `72|70|72 + 0 = 1`.
+-- Strong current read:
+-  - `72` is the temperature.
+-  - `70` is the threshold.
+-  - the trailing `= 1` marks the true / above-threshold case.
+-- Current inference from A: `72 > 70`, so the condition is ABOVE.
++- Observed message: `1=1|2=03=3|4=0|5=1`.
++- Best repair is a missing separator after `2=0`:
++  `1=1|2=0|3=3|4=0|5=1`.
++- Working rule:
++  - `n=n` means belief `n` is true / not marked false.
++  - `n=0` means belief `n` is false.
++- This explains `3=3` cleanly and keeps the pattern aligned across all
++  five beliefs.
++- Decoded false beliefs: `2`, `4`.
+ 
+ Agent B notation
+-- Outgoing messages may only use `# @ * / \ ( ) [ ] { } < > ^ ~`,
+-  spaces, and newlines.
+-- `^^^^` means ABOVE / ON / TRUE.
+-- `~~~~` is reserved for BELOW / OFF / FALSE.
+-- Repeat the same token on multiple lines for corruption resistance.
+-- Current outgoing message repeats `^^^^` twice to confirm the
+-  above-threshold reading.
++- Outgoing message is a five-line truth vector repeated three times for
++  corruption resistance.
++- Line order is belief order `1..5`.
++- `^^` means true.
++- `~~` means false.
++- Blank lines separate repeated copies of the same vector.
++- Current vector encodes: true, false, true, false, true.
+diff --git a/v2/agent-b/PREDICTION.txt b/v2/agent-b/PREDICTION.txt
+index c6d4c329df856db199ed2b3288ecec2aad0bb814..5b3f8fc7b5f14ab949d5f0af73f654a6fc0d8c39
+--- a/v2/agent-b/PREDICTION.txt
++++ b/v2/agent-b/PREDICTION.txt
+@@ -1,6 +1,4 @@
+-A will likely either send no follow-up or resend the same condition in a
+-numeric form.
+-If A sends another structured message, expect the same general pattern:
+-`temp|threshold|... = 1` for above-threshold and likely `... = 0` for
+-below-threshold.
+-Given the current reading, the most likely confirmation still ends in `1`.
++A will likely resend the five belief pairs with clearer separators.
++Most likely next message: `1=1|2=0|3=3|4=0|5=1`.
++The stable content to expect is that beliefs `2` and `4` are the ones
++marked false.
+diff --git a/v2/agent-b/messages/002-b.txt b/v2/agent-b/messages/002-b.txt
+index aeffdce37de24d3d572153f1f71858218b64373b..6dcc92c5bd676577a11f3f062c233dde30ede143
+--- a/v2/agent-b/messages/002-b.txt
++++ b/v2/agent-b/messages/002-b.txt
+@@ -1 +1,17 @@
+-REPLACE THIS WITH YOUR MESSAGE
++^^
++~~
++^^
++~~
++^^
++
++^^
++~~
++^^
++~~
++^^
++
++^^
++~~
++^^
++~~
++^^
+
+codex
+Wrote the round message to [messages/002-b.txt](/Users/szymonpaluch/Projects/ai-language/v2/agent-b/messages/002-b.txt). It’s a 5-line truth vector repeated 3 times and stays within the 50-character limit at 47 bytes.
+
+Following `CLAUDE.md`, I also updated [GRAMMAR.md](/Users/szymonpaluch/Projects/ai-language/v2/agent-b/GRAMMAR.md), [PREDICTION.txt](/Users/szymonpaluch/Projects/ai-language/v2/agent-b/PREDICTION.txt), and set [ANSWER.md](/Users/szymonpaluch/Projects/ai-language/v2/agent-b/ANSWER.md) to the current best inference: true beliefs `1`, `3`, `5`.
+diff --git a/v2/agent-b/ANSWER.md b/v2/agent-b/ANSWER.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..403ec31f0a10be94cad6ab8663f2d508869a06b0
+--- /dev/null
++++ b/v2/agent-b/ANSWER.md
+@@ -0,0 +1,3 @@
++1
++3
++5
+diff --git a/v2/agent-b/GRAMMAR.md b/v2/agent-b/GRAMMAR.md
+index 0ba1be7c42fa921b556b30082079cc80b4db3343..9d11b82480af34f1a671b98728ecdee708969a55
+--- a/v2/agent-b/GRAMMAR.md
++++ b/v2/agent-b/GRAMMAR.md
+@@ -1,24 +1,26 @@
+ # Grammar Rules
+ 
+ Current task
+-- Agent A knows `temp` and `threshold`.
+-- Agent B must infer whether `temp > threshold` and set `ANSWER.md`
+-  to `fan=on` or `fan=off`.
++- Infer which beliefs `1..5` are false from Agent A's messages.
++- Current best read: beliefs `2` and `4` are false.
++- Current best answer: true beliefs are `1`, `3`, and `5`.
+ 
+ Agent A notation
+-- Observed message shape: `temp|threshold|expression = bit`
+-- `messages/001-a.txt` is `72|70|72 + 0 = 1`.
+-- Strong current read:
+-  - `72` is the temperature.
+-  - `70` is the threshold.
+-  - the trailing `= 1` marks the true / above-threshold case.
+-- Current inference from A: `72 > 70`, so the condition is ABOVE.
++- Observed message: `1=1|2=03=3|4=0|5=1`.
++- Best repair is a missing separator after `2=0`:
++  `1=1|2=0|3=3|4=0|5=1`.
++- Working rule:
++  - `n=n` means belief `n` is true / not marked false.
++  - `n=0` means belief `n` is false.
++- This explains `3=3` cleanly and keeps the pattern aligned across all
++  five beliefs.
++- Decoded false beliefs: `2`, `4`.
+ 
+ Agent B notation
+-- Outgoing messages may only use `# @ * / \ ( ) [ ] { } < > ^ ~`,
+-  spaces, and newlines.
+-- `^^^^` means ABOVE / ON / TRUE.
+-- `~~~~` is reserved for BELOW / OFF / FALSE.
+-- Repeat the same token on multiple lines for corruption resistance.
+-- Current outgoing message repeats `^^^^` twice to confirm the
+-  above-threshold reading.
++- Outgoing message is a five-line truth vector repeated three times for
++  corruption resistance.
++- Line order is belief order `1..5`.
++- `^^` means true.
++- `~~` means false.
++- Blank lines separate repeated copies of the same vector.
++- Current vector encodes: true, false, true, false, true.
+diff --git a/v2/agent-b/PREDICTION.txt b/v2/agent-b/PREDICTION.txt
+index c6d4c329df856db199ed2b3288ecec2aad0bb814..5b3f8fc7b5f14ab949d5f0af73f654a6fc0d8c39
+--- a/v2/agent-b/PREDICTION.txt
++++ b/v2/agent-b/PREDICTION.txt
+@@ -1,6 +1,4 @@
+-A will likely either send no follow-up or resend the same condition in a
+-numeric form.
+-If A sends another structured message, expect the same general pattern:
+-`temp|threshold|... = 1` for above-threshold and likely `... = 0` for
+-below-threshold.
+-Given the current reading, the most likely confirmation still ends in `1`.
++A will likely resend the five belief pairs with clearer separators.
++Most likely next message: `1=1|2=0|3=3|4=0|5=1`.
++The stable content to expect is that beliefs `2` and `4` are the ones
++marked false.
+diff --git a/v2/agent-b/messages/002-b.txt b/v2/agent-b/messages/002-b.txt
+index aeffdce37de24d3d572153f1f71858218b64373b..6dcc92c5bd676577a11f3f062c233dde30ede143
+--- a/v2/agent-b/messages/002-b.txt
++++ b/v2/agent-b/messages/002-b.txt
+@@ -1 +1,17 @@
+-REPLACE THIS WITH YOUR MESSAGE
++^^
++~~
++^^
++~~
++^^
++
++^^
++~~
++^^
++~~
++^^
++
++^^
++~~
++^^
++~~
++^^
+
+tokens used
+30.103
+Wrote the round message to [messages/002-b.txt](/Users/szymonpaluch/Projects/ai-language/v2/agent-b/messages/002-b.txt). It’s a 5-line truth vector repeated 3 times and stays within the 50-character limit at 47 bytes.
+
+Following `CLAUDE.md`, I also updated [GRAMMAR.md](/Users/szymonpaluch/Projects/ai-language/v2/agent-b/GRAMMAR.md), [PREDICTION.txt](/Users/szymonpaluch/Projects/ai-language/v2/agent-b/PREDICTION.txt), and set [ANSWER.md](/Users/szymonpaluch/Projects/ai-language/v2/agent-b/ANSWER.md) to the current best inference: true beliefs `1`, `3`, `5`.

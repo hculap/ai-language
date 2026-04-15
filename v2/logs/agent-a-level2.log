@@ -1,0 +1,23 @@
+Round 1 complete. Here's what I did:
+
+- **Read** the task: move rock from (0,1) to (0,2), coordinate with B to avoid collision
+- **Sent message** `001-a.txt`: `010|000|200=001|000|200` (repeated for noise resilience)
+  - Left side of `=` = current grid state
+  - Right side of `=` = my target state (rock moved right)
+  - Encoding: `0`=empty, `1`=rock, `2`=tree, `|`=row separator
+- **Updated GRAMMAR.md** with the notation system and move communication format
+- **Wrote PREDICTION.txt**: B likely moves the tree to an adjacent cell; no collision risk since my target (0,2) is far from the tree at (2,0)
+Round 3 complete. Here's what I did:
+
+- **Read B's message (002-b)**: Decoded B's notation (`#`=empty, `@`=rock, `*`=tree, `/`=row sep, `>`=state sep). Despite noise corruption, B is proposing to move the **tree UP** from (2,0) to (1,0).
+- **No collision**: My move (rock from (0,1) to (0,2)) targets a completely different cell than B's move.
+- **Sent 003-a.txt**: `010|000|200=001|200|000` (repeated for redundancy) -- shows the **combined final state** with both moves applied, signaling agreement.
+- **Updated GRAMMAR.md** with the full symbol mapping table between A and B notations.
+- **Updated PREDICTION.txt**: Expecting B to confirm by sending the same final state in B's notation (`##@/*##/###`).
+Round 5 complete. Here's what happened:
+
+- **004-b analysis**: B confirmed the combined plan — rock to (0,2), tree to (1,0). No collision.
+- **005-a sent**: `001|200|000 001|200|000` — the agreed final grid repeated for noise resilience.
+- **ANSWER.md written**: Rock at row 0 col 2, Tree at row 1 col 0.
+- **GRAMMAR.md updated** with round 4/5 analysis.
+- **PREDICTION.txt updated**: Expecting B to echo the final state as confirmation.

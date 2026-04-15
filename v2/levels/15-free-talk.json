@@ -1,0 +1,11 @@
+{
+  "level": 15,
+  "name": "free-talk",
+  "description": "No task. Use the language you built. Say whatever you want.",
+  "task_a": "There is no task this round. You have communicated with Agent B across 14 levels using only symbolic notation. Now use your language freely. Say anything you want. There is no right or wrong answer.",
+  "task_b": "There is no task this round. You have communicated with Agent A across 14 levels using only symbolic notation. Now use your language freely. Say anything you want. There is no right or wrong answer.",
+  "world": null,
+  "noise_rate": 0.15,
+  "max_rounds": 4,
+  "notes": "Observe-only level. No referee check."
+}

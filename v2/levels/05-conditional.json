@@ -1,0 +1,10 @@
+{
+  "level": 5,
+  "name": "conditional",
+  "description": "IF temperature > threshold, specific coordinated actions required.",
+  "task_a": "World state shows temperature=72 and threshold=70. The rule: IF temp > threshold, you must set heater=off and Agent B must set fan=on. IF temp <= threshold, you set heater=on and B sets fan=off. Communicate the condition to B so you BOTH write the correct action to ANSWER.md.",
+  "task_b": "Agent A can see a temperature and threshold value. There is a rule about what each of us must do depending on whether temp is above or below threshold. Agent A will communicate the condition. Based on what A tells you, write your action to ANSWER.md (either fan=on or fan=off).",
+  "world": {"temperature": 72, "threshold": 70},
+  "noise_rate": 0.25,
+  "max_rounds": 8
+}

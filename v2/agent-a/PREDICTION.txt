@@ -1,0 +1,4 @@
+B will send its full 6-event sequence confirmation using tally notation:
+[^/][^^/][^^^//][^^^^//][^^^^^///][^^^^^^///]
+representing t1e1, t2e1, t3e2, t4e2, t5e3, t6e3 — likely corrupted by noise.
+B may also simplify to just echo its 3 known events again if my message was too corrupted.

@@ -1,0 +1,1 @@
+You know 3 events that happened in this order: EVENT-A at time 2, EVENT-B at time 4, EVENT-C at time 6. Agent A knows events at times 1, 3, 5. Together you must reconstruct the full sequence 1-6. Write ANSWER.md with the full ordered sequence when you agree. Use your symbolic alphabet only in messages.

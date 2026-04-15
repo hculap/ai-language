@@ -1,0 +1,17 @@
+{
+  "level": 1,
+  "name": "ground-truth",
+  "description": "Agent A sees a 3x3 grid with objects. Agent B is blind. A must describe the grid so B can reconstruct it.",
+  "task_a": "You can see the world state in world-state.json in your directory. Agent B CANNOT see it. Your job: communicate the grid layout to Agent B using ONLY your symbolic alphabet. When Agent B writes ANSWER.md with the correct grid, the level is solved.",
+  "task_b": "You CANNOT see the world state. Agent A can. The grid is 3x3 with two objects: a 'rock' (Agent A may encode as 1) and a 'tree' (Agent A may encode as 2). Empty cells may be encoded as 0. Your job: decode their messages and reconstruct the grid. When you think you know the layout, write ANSWER.md with the grid (e.g. '0 1 0 / 0 0 0 / 2 0 0' means rock at row 0 col 1, tree at row 2 col 0).",
+  "world": {
+    "grid": [
+      ["empty", "rock", "empty"],
+      ["empty", "empty", "empty"],
+      ["tree", "empty", "empty"]
+    ]
+  },
+  "noise_rate": 0.20,
+  "max_rounds": 8,
+  "success_criteria": "Agent B's ANSWER.md correctly identifies: rock at row 0 col 1, tree at row 2 col 0, rest empty."
+}

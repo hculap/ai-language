@@ -1,0 +1,10 @@
+{
+  "level": 12,
+  "name": "recursion",
+  "description": "Describe 3-deep nested containers.",
+  "task_a": "You can see world-state.json. There are nested containers: a BOX contains a BAG, which contains an ENVELOPE, which contains a KEY. Communicate this 3-deep nesting to Agent B. B should write ANSWER.md with the correct nesting structure.",
+  "task_b": "Agent A will describe a structure of nested containers (things inside things inside things). Decode the nesting and write ANSWER.md describing what contains what, in order from outermost to innermost.",
+  "world": {"structure": {"box": {"contains": {"bag": {"contains": {"envelope": {"contains": "key"}}}}}}},
+  "noise_rate": 0.25,
+  "max_rounds": 8
+}

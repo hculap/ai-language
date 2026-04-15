@@ -1,0 +1,10 @@
+{
+  "level": 9,
+  "name": "modality",
+  "description": "Agent A has 3 proposals with different confidence levels. B must accept certainties and reject unlikelies.",
+  "task_a": "You have 3 proposals: (1) move rock right — you are CERTAIN this is correct, (2) add tree at center — you think this is POSSIBLE but not sure, (3) remove all objects — this is UNLIKELY to be right. Communicate your proposals AND confidence levels to Agent B. B should accept certain ones and reject unlikely ones. Write ANSWER.md with agreed actions.",
+  "task_b": "Agent A will send you 3 proposals with different confidence levels (certain, possible, unlikely). Your job: ACCEPT proposals marked as certain, DISCUSS ones marked as possible, REJECT ones marked as unlikely. Write ANSWER.md with the actions you accepted.",
+  "world": {"proposals": [{"id": 1, "action": "move rock right", "confidence": "certain"}, {"id": 2, "action": "add tree at center", "confidence": "possible"}, {"id": 3, "action": "remove all", "confidence": "unlikely"}]},
+  "noise_rate": 0.30,
+  "max_rounds": 8
+}

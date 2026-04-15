@@ -1,0 +1,10 @@
+{
+  "level": 13,
+  "name": "counterfactual",
+  "description": "Communicate what WOULD have happened IF something had been different.",
+  "task_a": "History: (1) rock was at center, (2) rock moved right, (3) rock fell off the edge. The ACTUAL outcome: rock is gone. Your secret: IF the rock had moved LEFT instead of right in step 2, the rock would still be on the grid at position (1,0). Communicate this counterfactual to Agent B. B should write ANSWER.md with the alternative outcome.",
+  "task_b": "Agent A knows what actually happened to an object AND what WOULD have happened if one event had been different. Decode A's message about this alternative scenario. Write ANSWER.md describing: what actually happened AND what would have happened instead.",
+  "world": {"actual": [{"step": 1, "state": "rock at center"}, {"step": 2, "action": "move right"}, {"step": 3, "result": "fell off edge"}], "counterfactual": {"change": "step 2: move left instead", "result": "rock at position 1,0"}},
+  "noise_rate": 0.30,
+  "max_rounds": 10
+}

@@ -1,0 +1,21 @@
+{
+  "level": 4,
+  "name": "grammar-bootstrap",
+  "description": "Describe 8 objects with 3 properties each using max 15 symbols.",
+  "task_a": "You can see world-state.json with 8 objects. Each has a type, color, and position. Communicate ALL 8 objects to Agent B so B can reconstruct the full list. Write ANSWER.md when B confirms understanding.",
+  "task_b": "Agent A will describe 8 objects to you. Each has a type, color, and position. Reconstruct the complete list and write it to ANSWER.md. Confirm with A when you think you have them all correct.",
+  "world": {
+    "objects": [
+      {"type": "circle", "color": "red", "pos": [0,0]},
+      {"type": "circle", "color": "blue", "pos": [1,2]},
+      {"type": "square", "color": "red", "pos": [2,1]},
+      {"type": "square", "color": "green", "pos": [0,2]},
+      {"type": "triangle", "color": "blue", "pos": [1,0]},
+      {"type": "triangle", "color": "red", "pos": [2,2]},
+      {"type": "circle", "color": "green", "pos": [0,1]},
+      {"type": "square", "color": "blue", "pos": [2,0]}
+    ]
+  },
+  "noise_rate": 0.20,
+  "max_rounds": 12
+}

@@ -1,0 +1,38 @@
+Done. Here's what I did this round:
+
+- **Read** SECRET.md (task: communicate 8 objects to B), world-state.json (8 objects with type/color/pos), GRAMMAR.md (stale from previous level), and existing messages.
+- **Designed encoding**: each object as 4 digits `TCXY` where T=type(1-3), C=color(1-3), X=x-pos, Y=y-pos, separated by `|`. Fits in 39 chars.
+- **Wrote** `messages/001-a.txt`: `1100|1212|2121|2302|3210|3122|1301|2220`
+- **Updated** GRAMMAR.md with the new level's encoding scheme and full decoding table.
+- **Wrote** PREDICTION.txt expecting B to acknowledge or echo back the objects.
+Round 3 complete. Here's what I did:
+
+- **Read messages**: My 001-a was corrupted (objects 4, 5, 7 garbled). B's 002-b response (`(####)(####)(####)[####...`) was also heavily noise-corrupted — the `#` characters are likely noise artifacts, but the structural delimiters `()` and `[]` suggest B recognized 8 objects and may be using shape-based delimiters.
+- **Wrote 003-a.txt**: Resent the same clean encoding `1100|1212|2121|2302|3210|3122|1301|2220` to give B a second copy for cross-referencing against the corrupted first.
+- **Updated GRAMMAR.md**: Added observations about B's notation and message history.
+- **Updated PREDICTION.txt**: Expecting B to echo back objects with less corruption now that it has two copies.
+Round 5 complete. Here's what I did:
+
+- **Read** SECRET.md, all messages (001-a through 004-b), GRAMMAR.md, and world-state.json
+- **Wrote 005-a.txt** using newline-separated format instead of `|` pipes — one object per line (TCXY encoding). This should be more noise-resistant since newlines are structural delimiters that are harder to corrupt than `|` characters.
+- **Updated GRAMMAR.md** with the new format strategy and analysis of B's two responses (both heavily corrupted with `#` noise, but showing consistent `()`/`[]` delimiter structure for 8 groups)
+- **Updated PREDICTION.txt** with expectations for B's next response
+Round 007 complete. Here's what I did:
+
+- **Read**: SECRET.md, GRAMMAR.md, world-state.json, all messages (001-a through 006-b)
+- **Analyzed 006-b**: B still sends 8 groups with `()`/`[]` delimiters — object count is confirmed. Content remains `#` noise.
+- **Wrote 007-a.txt**: Resent the same 8 objects in newline-delimited TCXY format. Repetition across rounds is how we overcome noise corruption.
+- **Updated GRAMMAR.md**: Added observations from rounds 005-a arrival corruption and 006-b analysis.
+- **Updated PREDICTION.txt**: Expecting B to respond with 8 bracket-delimited groups, likely still noise-corrupted.
+Round complete. Here's what I did:
+
+- **Read 008-b**: B sent `(####)(####)(####)(####)([####)(####)[####](####)` — still 8 groups (count confirmed across all 4 of B's messages), but content remains noise-corrupted (`#` replacing all digits).
+- **Wrote 009-a**: Resent the same 8-object encoding (5th transmission). Repetition is the noise-beating strategy.
+- **Updated GRAMMAR.md**: Added 008-b and 009-a analysis.
+- **Updated PREDICTION.txt**: Expecting B to continue the same pattern, possibly with partial digit clarity emerging.
+Round 11 complete:
+
+- **Read** 010-b: B sent another 8-group message with `()`/`[]` delimiters, still all `#` noise in content. Group count remains stable at 8 across all 5 of B's responses.
+- **Wrote** 011-a: Resent the same 8-object newline-delimited encoding (6th transmission). Repetition is the noise-beating strategy.
+- **Updated** GRAMMAR.md with 010-b observations.
+- **Updated** PREDICTION.txt: expecting B to continue same pattern, possibly with some real digits emerging.

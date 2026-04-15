@@ -1,0 +1,10 @@
+{
+  "level": 10,
+  "name": "metaphor",
+  "description": "A must communicate that a new object is LIKE a known one but differs in one property.",
+  "task_a": "You can see world-state.json. There is a REFERENCE object (circle, red, at position 0,0) and a NEW object. The new object is LIKE the reference but it is BLUE instead of red, and at position 1,1 instead of 0,0. Communicate to Agent B: 'new object is like reference but different color and position'. B should write ANSWER.md describing the new object.",
+  "task_b": "Agent A will describe a NEW object by comparing it to a known REFERENCE object. The reference is: circle, red, at (0,0). Agent A will tell you how the new object DIFFERS from the reference. Write ANSWER.md with the full description of the new object.",
+  "world": {"reference": {"type": "circle", "color": "red", "pos": [0,0]}, "new_object": {"type": "circle", "color": "blue", "pos": [1,1]}},
+  "noise_rate": 0.30,
+  "max_rounds": 8
+}

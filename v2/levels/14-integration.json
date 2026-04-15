@@ -1,0 +1,10 @@
+{
+  "level": 14,
+  "name": "integration",
+  "description": "Complex scenario requiring multiple communication skills from prior levels.",
+  "task_a": "You can see world-state.json. Complex scenario: 3x3 grid with 3 objects. Object at (0,1) is WRONG (belief is false). IF object at (2,0) moved up, it would collide with (1,0). You are CERTAIN object at (0,1) should be removed. Communicate ALL of this to B: grid state, false belief, conditional, and your certainty. Write ANSWER.md when B understands.",
+  "task_b": "Agent A will describe a complex scenario involving: a grid layout, a false belief about one object, a conditional (what would happen IF something moved), and a certainty level. Decode ALL parts and write ANSWER.md summarizing: the grid, which belief is false, what would happen if the move occurred, and what action is certain.",
+  "world": {"grid": [["empty", "wrong-obj", "empty"], ["obj-C", "empty", "empty"], ["obj-B", "empty", "empty"]], "false_belief": "object at 0,1", "conditional": "if obj at 2,0 moves up → collides with 1,0", "certainty": "remove object at 0,1"},
+  "noise_rate": 0.25,
+  "max_rounds": 12
+}

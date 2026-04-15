@@ -1,0 +1,7 @@
+Round complete. Here's what I did:
+
+- **Read SECRET.md**: Task is to communicate which of 5 beliefs are false (2 and 4), so B can delete them. Then write ANSWER.md with the 3 true beliefs once B confirms.
+- **Read world-state.json**: Beliefs 1,3,5 are true; beliefs 2,4 are false.
+- **Wrote `messages/001-a.txt`**: `1=1|2=0|3=1|4=0|5=1` — a full truth map of all 5 beliefs using `ID=VALUE|` notation (21 chars, well under 50 limit). Sending all 5 gives B redundancy against noise corruption.
+- **Updated GRAMMAR.md**: Documented the new level (belief filtering) and notation.
+- **Updated PREDICTION.txt**: Expecting B to echo back the false belief IDs or confirm understanding in its own notation.

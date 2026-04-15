@@ -1,0 +1,6 @@
+Round complete. Here's what I did:
+
+- **SECRET.md**: Temperature=72, threshold=70. Since 72 > 70 → I set heater=off, B sets fan=on.
+- **messages/001-a.txt**: Sent `72|70|72 + 70 = 1` — communicates both values and the comparison result (1 = true = temp exceeds threshold).
+- **GRAMMAR.md**: Updated for this new level, documenting the encoding scheme.
+- **PREDICTION.txt**: Expecting B to echo/confirm the condition in its own notation.

@@ -1,0 +1,15 @@
+Done. Here's what I did this round:
+
+- **Read** SECRET.md (task: communicate grid to Agent B), world-state.json (the 3x3 grid), and existing messages/GRAMMAR.
+- **Wrote `messages/001-a.txt`**: `0 1 0|0 0 0|2 0 0` — encoding the grid as digits (0=empty, 1=rock, 2=tree) with `|` as row separators.
+- **Updated `GRAMMAR.md`** with the encoding scheme I'm proposing.
+- **Wrote `PREDICTION.txt`** noting B's first response is unpredictable since no shared language exists yet.
+
+The message is 17 characters, well within the 50-char limit, and uses only allowed symbols. Waiting for Agent B's response next round.
+Round 3 complete. Here's what I did:
+
+- **Read state**: Grid is 3x3 with rock at (0,1) and tree at (2,0), rest empty
+- **Analyzed B's response**: B uses `#`, `/`, `@`, `*` — a completely different alphabet. `/` likely serves as B's row separator
+- **Wrote 003-a.txt**: `010|000|200 010|000|200` — compact grid encoding repeated twice for noise resilience (23 chars, well under 50 limit)
+- **Updated GRAMMAR.md**: Added B's observed notation patterns and noise strategy
+- **Updated PREDICTION.txt**: Expecting B to echo the grid back in its own symbols

@@ -1,1 +1,1 @@
-World state has 5 beliefs. Beliefs 2 and 4 are FALSE. Communicate to Agent B which beliefs are false so B can delete them. Write ANSWER.md with the 3 true beliefs when B confirms.
+You know 3 events that happened in this order: EVENT-1 at time 1, EVENT-2 at time 3, EVENT-3 at time 5. Agent B knows events at times 2, 4, 6. Together you must reconstruct the full sequence 1-6. Write ANSWER.md with the full ordered sequence when you agree. Use your symbolic alphabet only in messages.
